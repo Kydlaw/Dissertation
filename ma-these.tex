@@ -1,0 +1,87 @@
+\documentclass[
+fontsize=10pt,
+font-family=lmodern,
+languages={british,french}, % 'british' ou 'american' (pas 'english' !)
+main-language=french,
+load-style=dg,
+title-font-family=sans-serif,
+header-style=chapter-section,
+bibliography-style=dg,
+]{mines-albi-these}
+
+% les glossaires (index et nomenclature)
+\makeglossaries
+\input{glossaire/glossaire-acronymes.tex}
+\input{glossaire/glossaire-nomenclature.tex}
+
+% pour la couverture
+\usepackage{mines-albi-these-frontpage}
+
+% une source de références bibliographiques
+\addbibresource{bibliographie/ma-biblio.bib}
+
+% la méta-information (dans le PDF et éventuellement sur la couverture)
+\author{Prénom Nom}
+\title{Un titre très long qui donne envie de lire toute la thèse}
+\date{1\up{er} décembre 2099} % date prévue de soutenance
+
+\begin{document}
+
+%----------------------------------------
+\frontmatter
+
+\input{couverture/couverture.tex}
+
+\summary
+
+\input{remerciements/remerciements.tex}
+
+%----------------------------------------
+\mainmatter
+
+\input{0-introduction/0-introduction.tex}
+
+\input{1-etat-art/1-etat-art.tex}
+
+\input{2-problematique/2-problematique.tex}
+
+\input{3-ma-solution/3-ma-solution.tex}
+
+\input{4-experimentation/4-experimentation.tex}
+
+\input{5-conclusion/5-conclusion.tex}
+
+\appendix
+
+\input{a-annexe/a-annexe.tex}
+
+\input{b-annexe/b-annexe.tex}
+
+%----------------------------------------
+\backmatter
+
+\listoffigures
+
+\listoftables
+
+\listofsymbols % la nomenclature
+
+% Les acronymes
+{
+  \renewcommand*\glspostdescription{\matmdotfill}
+  \printacronyms[style=list,nogroupskip]
+}
+
+% la bibliographie
+\printbibliography[heading=chapter]
+
+\tableofcontents
+
+\input{couverture/abstract}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
