@@ -288,4 +288,6 @@ TSWLatexianTemp*
 #*Notes.bib
 
 # Nomenclatures
-
+*.los-glo
+*.los-gls
+*.los-glg
