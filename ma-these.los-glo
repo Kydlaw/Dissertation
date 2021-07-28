@@ -1,3 +1,3 @@
-(indexentry :tkey (("2" "\\glossentry{greek}") ("sigma" "\\subglossentry{1}{sigma}") ) :locref "{}{9}" :attr "pageglsnumberformat" ) 
-(indexentry :tkey (("1" "\\glossentry{alphanumeric}") ("Scap" "\\subglossentry{1}{Scap}") ) :locref "{}{9}" :attr "pageglsnumberformat" ) 
+(indexentry :tkey (("2" "\\glossentry{greek}") ("sigma" "\\subglossentry{1}{sigma}") ) :locref "{}{25}" :attr "pageglsnumberformat" ) 
+(indexentry :tkey (("1" "\\glossentry{alphanumeric}") ("Scap" "\\subglossentry{1}{Scap}") ) :locref "{}{25}" :attr "pageglsnumberformat" ) 
 
