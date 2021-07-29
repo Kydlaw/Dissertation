@@ -627,23 +627,42 @@ These advances are especially visible on the semantic part of the text.
 Where once one relied mainly on the structure and syntax of the text, deep neural networks now allow us to add an important semantic component to the processing.
 
 \subsection{NLP and Social Media: A natural match}
-L'essentiel des donnees echangees sur les medias sociaux sont des donnees textuelles.
-De fait, media social et NLP l'union des deux domaines est une évidence.
-De plus, la richesse offerte par les metadonnées par ces plateformes, permet de développer de nombreux usages.
+The section dedicated to social media highlighted how much these platforms provide tools to their users to create content.
+This result in a huge amount of data created by the content creator for their communities.  % Add numbers here
+These platforms embedded data type such as text, images and videos.
+Also, all the content possess metadata that provide context at processing time and in turn, leverage a lot of opportunities.
+A large portion of these data are textual data.
+This amount of data can hardly be processed by human agents alone.
+Thus, the need of an automatic processing method, such as NLP.
 
-The previous section mentioned the process of the tokenizing text and how it is affected by the language.
-But even within a given language, tokenization is not consistent.
-Text posted and language used on social media is not exactly the same of the one found on news articles for instance.
+However, most of NLP methods and tools are developed using textual data from news article and book mostly written in english.
+Social media data rarely look like this type of data, as they are more informal, conversational.
+Messages on social media often use emoticons, non-standard spelling and abbreviations, making tokenization even more challenging.
 As an example, tweets (messages publised on Twitter) can contain @handles, \#hashtags https:\/\/urls and smileys :-) that need to be processed.
 Thus, the medium, or even the platform, can require a specific tokenizer.
-This consideration is even more important, considering the impact that incorrect tokenization can have on the performances of NLP's methods
-In their fourth chapter, \cite{farzindarNaturalLanguageProcessing2017} list several applications of NLP for social media.
+The lack of grammar also complicates syntactic analyses.
+Absence of punctuation also make detection of sentence boundaries challenging.
+
+Social media are also a very noisy source of data.
+Posts from users are mostly direct reports of their current thoughts.
+Hence the use of "status" to mention social media posts, as users share with their community their instant feelings.
+Messages are also more subjective compored to news articles, where the objectivity of the information matters.
+
+Lot of reseach have been done to explore the possibilities of social media, in a wide variety of domains.
+\cite{farzindarNaturalLanguageProcessing2017} highlight in their fourth chapter different use case in several domains:
+\begin{itemize}
+    \item healthcare: tracking of depression, PTSD, schizophrenia, pharmaceutical side-effects or flu season
+    \item financial: computation of socio-economic indicators based on the sentiment of the general population, tracking of financial communities advices
+    \item political: predicting voting intentions
+    \item media monitoring: tracking of news worldwide
+    \item security and defense: pre identification of possible threats, tracking of incident reports
+\end{itemize}
 
 Natural language processing provides valuable tools to who wants to process textual data.
 More importantly, it allows to process automatically large amount of data and to make sense of it.
 On the other hand, social media are platforms contain large amount of textual data posted by millions of users worldwide.
 Processing this amount of data requires automatic processing.
-Thus NLP and social are two domains that naturally fit.
+Thus NLP and social are two domains that naturally fit together.
 
 \section{At the crossing paths of the domains}
 The previous sections
