@@ -1,10 +1,7 @@
-\chapter*{System of processing systems: implementing crisis situation models using social media data}
+\chapter{System of processing systems: implementing crisis situation models using social media data}
 
 % /?\ Chapitre dangereux : Ne pas se perdre dans des trucs que je ne sais pas faire (Interface IHM)
 
-\section{Challenges for Information Systems in crisis response}
-
-\section{Partie technique}
 % Partie SI qui accueille l'agorithme précédent
 %  /!\ Coeur de la partie : un SI pour la gestion de la gestion de crise AVEC DU ML
 % Cela amene des problematiques de confiance dans le systeme est dans la gestion des donnees.
@@ -13,7 +10,12 @@
 % Partie qui présente les informations que l'on peut retourner aux utilisateurs et comment elle doivent etre retourner
 % Dire que l'infra c'est important, parce que les serveurs savent pas nager, et que des mecs s'en occupent (1 ref max).
 
+% From a sociotechnical perspective, information systems are composed by four components: task, people, structure (or roles), and technology.
+% Information systems can be defined as an integration of components for collection, storage and processing of data of which the data is used
+% to provide information, contribute to knowledge as well as digital products that facilitate decision making."
+
 % https://docs.google.com/document/d/1sP6TsuPSCSgoHZKEM7fqZ8BXZccv3JS8TobRJXEHD7Q/edit  Literature ISCRAM 
+
 Section qui repond à la question : Comment met on en oeuvre concretement la solution apportee precedemment ?
 Notre solution est un systeme d'aide à la decision sense fonctionner durant des evenements de crise.
 Les systemes d'aide a la decision viennent avec des contraintes supplementaires par rapport du fait de leurs systemes de recommendations.
@@ -31,14 +33,111 @@ Liste de ressources pour alimenter cette partie :
     \item Machine learning Engineering
 \end{itemize}
 
+\section{Challenges for Information Systems in crisis response}
+All the components listes and described in the rest of this section are primordial for the success of this system.
+However, as per the literature review, few attention span is spent on the distribution of the information (last phase).
+This part is however crucial to the success of such system, yet required a scientific multi disciplinary approach, that is hard to create among researchers.
 
-\section{Partie design}
+Specific chalegnes that arise with crisis management and crisis response.
+Reminder of stakes mentioned in the introduction + other issues that arise.
+
+Also, there are, in fact two systems in the information system that is going to be mentioned here.
+
+
+\section{The Data system}
+Here we are back at the information system (IS) mentioned in the introduction.
+As a reminder "An information system (IS) is a formal, sociotechnical, organizational system designed to collect, process, store, and distribute information." (Wikipedia)
+Considering the Information as in the Data-Information-Knowledge framework, Information is obtained from Data.
+Thus, an Information System has to be a system of systems:
+\begin{itemize}
+    \item A Data system
+    \item An Information system
+    \item A Knowledge system — forget about that one here
+\end{itemize}
+That have a solid INformation system, you first need a Data system.
+So a system that collect, process, store and distribute data -> the Data system.
+An Information system, that collect, process, store and distribute information -> the information system.
+Both live in harmony, one is useless without the another.
+The catch is that one deliver value to the end uer (the decision makers), the IS, but not the data system.
+
+So, to get a good IS, it is important to first understand and design correctly the data system.
+
+\subsection{Data Collection}
+Multiple sources of data:
+\begin{itemize}
+    \item Reports
+    \item Phone calls
+    \item Social media
+    \item Sensors (IoT: water levels, houses)
+    \item Drones footages
+\end{itemize}
+Different types of data.
+
+=> Build a system that is able to collect data from all these sources at the same time, in am organized, extensible way.
+Use of a Message broker/Stream processor as a datalake to hold the data, waiting for
+Topics corresponding to the different soruces of data.
+
+\subsection{Data Process}
+Once the data are collected, they have to be cleaned up prior to storage.
+Addition of metadata to provide further context.
+Normalization of data (encoding of textual data for instance)
+
+\subsection{Data Storage}
+Storage of data in an relational database, to ease future use of the data.
+This allow to create a datastore with structured data.
+This is the heart of the system and from where all the value come from.
+The caching of some data, that will be reused often is also of interest in this part.
+
+There are several questions taht arise concerning the political governance of this aspect (privacy, authorities in charge etc.)
+
+\subsection{Data Distribution}
+Distribution of data through several APIs available, where the different services can request data according to their need.
+These services deliver the data upon request of the next system that will talk about: the information system.
+
+\section{The Information system}
+The Information system uses the Data collected and stored in the previous system.
+This system process the data through clustering, aggregation etc to deliver value, that is in our case, relevant insights for the decision maker.
+
+\subsection{Information collection}
+Interface of the system that asks for the data.
+This part is aligned with the distribution part of the Data System.
+Input of the required data to get the processing working.
+
+\subsection{Information processing}
+The data collected are then processed to create information.
+Also, previous information can be reused to create new information.
+
+This step also concerns the creation of structures between information (relations, cluster, layers...)
+
+\subsection{Information storage}
+Information created need to be stored just as data.
+The catch here is the creation of valuable metadata to store along information (confidence in that information, possible related information etc.).
+Just like data, this part mentions the caching of certain information that will be reused often.
+
+\subsection{Information distribution}
+This part focuses on the delivery of the different information to the end user.
 % Ouverture vers les techno de la communication 
 % Faire une ouverture en présentant les possibilités, pas en donnant la solution
 % Rappeler les demons de Endsley et que c'est important qu'un systeme soit developper POUR son utilisateur
 
-Partie finale de la these.
-Elle repond a la question : Comment est-ce qu'on fait pour delivrer les resultats de la these au preneur de decision ?
+The end goal of the system.
+This step is really important, as it is where the value is delivered.
+The distribution is a bottleneck of the system.
+To get it done correctly, the right information has to be delivered at the right person at the right time.
+If this part is not done correctly, all previous work is useless.
+So first, design distribution correctly, then build the system.
+
+Get back to Endlsey's daemons that highlight the importance of that topic.
+
+Opening on
+\begin{itemize}
+    \item Caroline's work
+    \item HMI design
+\end{itemize}
+
+The design of the elements of this part of the system is critical.
+A reflexion on the design of elements such as COP is important , but out of the scope of this manuscript.
+However, critical research
 Pour ce faire, on propose de s'interesser à l'UI et l'UX du SI, et notamment la COP qui sera proposee au decision maker.
 Plus precisement, comment est-ce que les suggestions faites par le systemes permettent de prévenir les daemons de la SA mentiones par Endlsey.
 Liste des ressources utiles pour alimenter cette partie :
@@ -47,7 +146,6 @@ Liste des ressources utiles pour alimenter cette partie :
     \item https://pair.withgoogle.com/guidebook/patterns/how-do-i-get-started
     \item Les SA daemons de Endlsey
 \end{itemize}
-
 
 %%% Local Variables:
 %%% mode: latex
