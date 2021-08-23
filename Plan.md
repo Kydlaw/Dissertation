@@ -57,18 +57,18 @@ Overall presentation of the content
 ## Big picture of the problematic
 
 # Literature review
-%% 
 Fil rouge de la LR : Pourquoi - Métier / Quoi / Comment - Technique
 Tableau a double entree Metier/Techniques qui met en evidence le manque d'adequation pour repondre au quoi
-La colonne metier est repondue a la fin du premier chapitre contribution . Mettre en avant ce manque dans ce chapitre et revenir a la fin du chapitre suivant pour completer le tableau
-%%
-The aim of the literature review is to high the gaps in the literature around my problematic.
+La colonne metier est repondue a la fin du premier chapitre contribution.
+Mettre en avant ce manque dans ce chapitre et revenir a la fin du chapitre suivant pour completer le tableau
+
+The aim of the literature review is to highlight the gaps in the literature around my problematic.
 It is organized in order to successively narrow the scientific challenges around the sub-problematics identified earlier.
 1. What? Crisis situation models that we can implement using sociel media data
 2. How? Existing systems to process social media data. Existing systems to implement crisis situation models using social media data
 3. Why? What is the reason to implement these models in first place? What is the context in which these systems exist? Operators' needs of information and how do they fit in the picture?
 
-%%## Role of social media in crisis situation models
+ Role of social media in crisis situation models
 - What is a model? How do we model? (probably going to be an appendix)
 - Existing Crisis situation models 
 - Crisis situation models that take into account the available data on socia media.
@@ -94,10 +94,8 @@ It is organized in order to successively narrow the scientific challenges around
 	-> MLOps appliquées à notre problématique + mon architecture HICSS
 3. Beaucoup de travaux pour classifier des messages. Peu de travaux sur le traitement à l'échelle du mot.%%
 
-%%
 FB - Pas faire un etat de l'art pour faire un etat de l'art.
 Faire un etat de l'art qui se justifie
-%%
 
 # Crisis situation models that serve social media operators.
 %% Jonction entre le : "quel modele je peux constuire avec les donnees issues de medias sociaux" et "de quoi on besoin les gens qui utilisent les media sociaux en gestion de crise" %%
