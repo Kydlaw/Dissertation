@@ -1,52 +1,475 @@
 \chapter{Literature review}
 
-%% 
-Fil rouge de la LR : Pourquoi - Métier / Quoi / Comment - Technique
-Tableau a double entree Metier/Techniques qui met en evidence le manque d'adequation pour repondre au quoi
-La colonne metier est repondue a la fin du premier chapitre contribution . Mettre en avant ce manque dans ce chapitre et revenir a la fin du chapitre suivant pour completer le tableau
-%%
+% Fil rouge de la LR : Pourquoi - Métier / Quoi / Comment - Technique
+% Tableau a double entree Metier/Techniques qui met en evidence le manque d'adequation pour repondre au quoi
+% La colonne metier est repondue a la fin du premier chapitre contribution . Mettre en avant ce manque dans ce chapitre et revenir a la fin du chapitre suivant pour completer le tableau
+% The aim of the literature review is to highlight the gaps in the literature around my problematic.
+% It is organized in order to successively narrow the scientific challenges around the sub-problematics identified earlier.
+% 1. What? Crisis situation models that we can implement using sociel media data
+% 2. How? Existing systems to process social media data. Existing systems to implement crisis situation models using social media data
+% 3. Why? What is the reason to implement these models in first place? What is the context in which these systems exist? Operators' needs of information and how do they fit in the picture?
 
-The aim of the literature review is to highlight the gaps in the literature around my problematic.
-It is organized in order to successively narrow the scientific challenges around the sub-problematics identified earlier.
-1. What? Crisis situation models that we can implement using sociel media data
-2. How? Existing systems to process social media data. Existing systems to implement crisis situation models using social media data
-3. Why? What is the reason to implement these models in first place? What is the context in which these systems exist? Operators' needs of information and how do they fit in the picture?
+% Role of social media in crisis situation models
+% - What is a model? How do we model? (probably going to be an appendix)
+% - Existing Crisis situation models
+% - Crisis situation models that take into account the available data on social media.
 
-%% Role of social media in crisis situation models
-- What is a model? How do we model? (probably going to be an appendix)
-- Existing Crisis situation models
-- Crisis situation models that take into account the available data on socia media.
+% => Point of view model != user of such systems
+% -> Need to identify user's needs ("business problem")
+\section*{Introduction}
+\subsection{Methodology}
+Explain the methodology used in the literature review.
+This is not a systematic literature review, nor a simple related work section.
+Instead with explore the different questions and identified the prevalent contribution around each contributions.
+Thus, the methodology sits in the middle.
 
-=> Point of view model != user of such systems
--> Need to identify user's needs ("business problem")
+All the request are made on the Scopus database~\footnote{https://www.scopus.com/}
+This choice was made because requests on Scopus tend to return more results than on the Web of Science.
+Also, the request engine provides abilities to define very fine grained requests.
 
-\section{Systèmes d'implémentation de modèles de situation de crise}
-- Implémentation automatique de modèles de situation de crise
-- Design de la requête (automatic AND crisis (ontology OR model))
-- Implémentation automatique de modèles de situation de crise à partir de données issues de medias sociaux
-- Design de la requête (automatic AND crisis (ontology OR model) AND social media)
+First, a scope of the research will be created, through work hypotheses.
+Then, bibliographic requests will be processed using a bibliographic software, which will provide insight in the major contributions in the different areas of the domain.
+This methodology will provides a solid understanding of the scientific context and a big picture of the literature.
+This way, it will be possible to highlight gaps between the major contributions.
 
-\section{Social media processing systems}
-- Informations à l'échelle du message complet (métadonnées + texte)
-- Informations à l'échelle du message textuel
-- Informations à l'échelle des mots du message.
+The analysis of the keywords used by the different articles fetched by the request also provide valuable insights on the evolution of this field, especially on its interdisciplinary aspect.
+This analysis is performed using VOSviewer~\footnote{https://www.vosviewer.com/} "a software tool for constructing and visualizing bibliometric networks".
+Especially VOSviewer allows to visualize bibliographic features such as the network of authors or of keywords.
+The analyses performed in this chapter rely on the use of the keyword network between the retrieved articles.
 
-\section{Conclusion de la LR et manques identifiées}
+\subsection{Hypotheses}
+This manuscript is limited in the scientific domain investigated.
+\begin{itemize}
+    \item 1. Social media data: the data that are of interest are mostly social media data, which have a low ratio information/noise. Clean, well-written textual data are then excluded.
+    \item 2. Crisis response context: the crisis management context is particular and this manuscript focuses on the response phase and its context.
+    \item 3. Our work aims to improve the decision making process. Hence, we focus on the improving the situational awareness and the coordination between the different actors.
+\end{itemize}
+
+These hypotheses will scope the requests done to extract the references.
+Having these hypotheses/constraints, the following of this chapter attempts to answer to provide context for the main problematic:
+\emph{How to design an information system able to automatically manage and deliver relevant information extracted from social media data during crisis response?}
+Then, we will explore the three following sub problematics:
+\begin{itemize}
+    \item What information that can be obtained from social media is relevant to the decisiom makers in crisis response?
+    \item How can these information be obtained, in the context of crisis informatic?
+    \item How are these information organised to deliver the value expected by decision makers?
+\end{itemize}
+The last sub problematic literature context is similar to the one of the main problematic, so the literature review on this aspect will be limited.
+
+\section{Information systems for crisis response fed with social media data}
+Chapter 1 identified the opportunities offered by social media to support crisis response.
+Many researchers explored that opportunities and built systems and architecture to mine data and provide their insights to decision makers.
+This first part of the literature review intends to highlight the systems built for this purpose.
+The question that this parts aims to answer is: \emph{What are the existing social media processing system developped for crisis response over the years?}
+
+To answer this question, the following request was made on the Scopus database.
+\begin{itemize}
+    \item SUBJAREA(comp)
+    \item AND (TITLE-ABS-KEY({crisis management} or {crisis response} or contingency or {disaster response} or {disaster management}))
+    \item AND (TITLE-ABS-KEY ({social media} or twitter))
+    \item AND (TITLE-ABS-KEY(system and processing))
+    \item AND ( EXCLUDE ( DOCTYPE,"re" ) OR EXCLUDE ( DOCTYPE,"cr" ) )
+\end{itemize}
+
+The request returns papers that:
+\begin{itemize}
+    \item Are in the computer science domain, as this domain contains both the AI and Information Systems domains.
+    \item Are centered around crises|disasters management|response or contingency plans.
+    \item That present systems that process data
+    \item Papers that present conference tracks and reviews are excluded.
+\end{itemize}
+
+The request returns 96 documents, published between 2011 and 2021.
+The beginning of this domain of research corresponds to the democratization of social media, with the development of social media plaforms happening during the 2000-2010 period (Figure~\ref{literature:crisis-informatic-hist}).
+Naturally, the field has developed, driven by the need of crisis management organizations and the public interest benefit it promises.
+
+\begin{figure}[bp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/chap-2/crisis-informatic-hist.pdf}
+    \caption{Timelime of the volume of contributions per years for the crisis informatic domain. The year 2021 is excluded because the year is not complete at the time of writing.}
+    \label{literature:crisis-informatic-hist}
+\end{figure}
+
+The network provided by VOSviewer (Figure~\ref{literature:crisis-informatic-overlay}) do not reveal any significant cluster of keywords, which is not surprising considering the youth of the domain.
+However, the timeline of publication (represented by the color variation)
+Years around 2016 were mostly focused on data analyses of the different datasets available.
+Then, the following years saw the development of more and more automation.
+Artificial intelligence, machine learning and natural language processing appeared in that chronological order, coinciding with the progress made in these areas.
+More recently, deep learning models to process text and/or images are appearing, as well as new opportunities created by the internet of things and the development of the concept of smart cities.
+It is also very interesting to observe that social sciences and computers sciences are completely blended altogether.
+
+\begin{figure}[bp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/chap-2/crisis-informatic-bar.pdf}
+    \caption{Distribution of keywords with more than 3 occurrences among the articles from the query on crisis informatics. }
+    \label{literature:crisis-informatic-bar}
+\end{figure}
+
+The the bar diagram (Figure~\ref{literature:crisis-informatic-bar}) provides a better representation of the distribution of the occurrences of the different keywords.
+From the most common ones, two areas of interest seem to emerge.
+The automatic processing of the data, mostly textual according to the use of "natural language processing" and "text processing" is no more important than the use of this automation.
+"Disaster prevention", "situation awareness", "information management" and "emergency services" highlight the importance of the applications of the results.
+
+\begin{figure}[bp]
+    \includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio, angle=90]{figures/chap-2/crisis-informatic-overlay.pdf}
+    \caption{Distribution of keywords with more than 3 occurrences among the articles from the query on crisis informatics. }
+    \label{literature:crisis-informatic-overlay}
+\end{figure}
+
+As mentioned in the introduction, automatically processing the content of social media to extract information is a new and promising scientific venue.
+Thus, many attempted to create systems to do that, proposing new features to their systems with different outcomes.
+Overview of the different attempts and their feature, to identify what have been done in this area.
+Table~\ref{table:crisis-informatic-main-articles} présente les résultats de la requête précédente qui mentionnent un système de traitement qui utilise les médias sociaux comme source de donnée et qui ont été cité au moins dix fois.
+De ces principaux systèmes, nous avons extrait les principales fonctionnalités présentées par leurs auteurs.
+
+Among the features identified, the trend towards automation observed earlier is still evident.
+The first works present systems that use crowdsourcing to identify relevant information from messages posted on social media
+(\cite{schulzCrisisInformationManagement2012a, backfriedOpenSourceIntelligence2012a, imranAIDRArtificialIntelligence2014b}).
+The following works were interested in automating the previous tasks, presumably to reduce the dependence on human actors and to improve the processing of the important amount of data.
+Problems related to the detection of occurence of events and their related information on social media, have been explored using different approaches (\cite{imranAIDRArtificialIntelligence2014b,middletonRealtimeCrisisMapping2014a,avvenutiEARSEarthquakeAlert2014a, gibsonCombiningBigSocial2014a}).
+In parallel, experiments were conducted to identify the best ways to organize and disseminate the information obtained (\cite{middletonRealtimeCrisisMapping2014a,huangDisasterMapperCyberGISFramework2015a,avvenutiPullingInformationSocial2016a,grunder-fahrerTopicsTopicalPhases2018a}).
+Building on its successes, the field has continued to develop by relying on other available data formats and in particular images (\cite{alamImage4ActOnlineSocial2017a,nguyenAutomaticImageFiltering2017a,agarwalCrisisDIASMultimodalDamage2020a}).
+Beyond the data, new questions have emerged, following feedback from the emergency departments involved in the experiments.
+The detection of sub-events and of the different concerns of the impacted population are added to the results of previous works (\cite{wuStreamExplorerMultiStageSystem2018a,raginiBigDataAnalytics2018a,grunder-fahrerTopicsTopicalPhases2018a}).
+More recently, teams with a broader vision are interested in the integration of such systems within the connected city (\cite{shahDisasterResilientSmart2019a}).
+The multiplication of sources and formats naturally leads to the need for unified processing methods for data and fusion of information obtained by the different channels (\cite{alamDescriptiveVisualSummaries2020a}).
+
+\begin{table}[bp]
+    \centering
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{m{0.3\textwidth} m{0.2\textwidth} m{0.5\textwidth}}
+        Reference                                        & Type of event studied & Features                                                 \\ [0.5ex]
+        \toprule
+        \cite{schulzCrisisInformationManagement2012a}    & None                  & Crowdsourcing                                            \\
+        \cite{backfriedOpenSourceIntelligence2012a}      & None                  & Crowdsourcing, Automatic processing                      \\
+        \cite{imranAIDRArtificialIntelligence2014b}      & None                  & Crowdsourcing, Information categories, Message filtering \\
+        \cite{middletonRealtimeCrisisMapping2014a}       & None                  & Common Operational Picture, Location inference           \\
+        \cite{avvenutiEARSEarthquakeAlert2014a}          & Earthquake            & Event detection                                          \\
+        \cite{gibsonCombiningBigSocial2014a}             & None                  & Formal concept analysis, Rule-based method               \\
+        \cite{glasgowOurGriefUnspeakable2014a}           & None                  & Death-related content detection                          \\
+        \cite{huangDisasterMapperCyberGISFramework2015a} & None                  & Big Data, Common Operational Picture                     \\
+        \cite{avvenutiPullingInformationSocial2016a}     & Earthquake, Flooding  & Event detection, Message filtering, Disaster management  \\
+        \cite{alamImage4ActOnlineSocial2017a}            & None                  & Image processing, Infrastructure damage                  \\
+        \cite{fersiniEarthquakeManagementDecision2017a}  & Earthquake            & Message filtering, Information management                \\
+        \cite{nguyenAutomaticImageFiltering2017a}        & None                  & Image processing, De-duplication, Image filtering        \\
+        \cite{raginiBigDataAnalytics2018a}               & Flooding              & Sentiment analysis                                       \\
+        \cite{shahDisasterResilientSmart2019a}           & Earthquake, Tsunami   & Smart Cities, IoT integration                            \\
+        \cite{grunder-fahrerTopicsTopicalPhases2018a}    & None                  & Topic modeling, Disaster management                      \\
+        \cite{wuStreamExplorerMultiStageSystem2018a}     & None                  & Subevent detection, Clustering                           \\
+        \cite{agarwalCrisisDIASMultimodalDamage2020a}    & None                  & Damage identification, Severity detection                \\
+        \cite{alamDescriptiveVisualSummaries2020a}       & Hurricane             & Information fusion                                       \\
+        \bottomrule
+    \end{tabular}
+    \caption{Articles retrieved from the previous request which propose social media processing systems or methods with at least 10 citations.}
+    \label{table:crisis-informatic-main-articles}
+\end{table}
+
+%TODO Conclusion of the section
+
+\section{Decision making in crisis situation: information needed}
+This first part of the literature review tackles the first sub problematic: What information that can be obtained from social media is relevant to the decisiom makers in crisis response?
+Its looks at answers at the question: \emph{what information is relevant to the decisiom makers in crisis response?}
+
+Information are at the heart of the decision making process (references to the decision making processs + figure to summarize the whole process)
+In order to make decisions, the decision maker will look for information on certain elements.
+What are these information?
+
+The first part of this literature review will look at different attempts to model the information needed in crisis response, from a decision maker point of view.
+This part only consider the models that consider in their scope the stakes of crisis management identified in the first chapter: improve coordination and/or situational awareness.
+
+\subsection{Information identified for crises: crisis situation models}
+The different ontologies, metamodel, model created to represent the information that decision makers need.
+\begin{itemize}
+    \item Crisis situation models
+    \item Automatic implementation of these models?
+\end{itemize}
+Identify the models that are inside our scope (probably very few, because social media data are often not taken into account)
+
+This request is tricky because it attracts all the different models for all kinds of crises...
+Request:
+\begin{itemize}
+    \item SUBJAREA(comp)
+    \item AND (TITLE-ABS-KEY ({crisis management} or {crisis response} or {disaster management} or contingency or {disaster response}))
+    \item AND (TITLE-ABS-KEY (ontology or metamodel))
+    \item AND (EXCLUDE (DOCTYPE,"re") OR EXCLUDE (DOCTYPE,"cr"))
+\end{itemize}
+
+\begin{itemize}
+    \item Multiple actors and roles can face the system, so who the system should target?
+    \item What are these users looking for when they look at social media?
+    \item What are their requirements?
+\end{itemize}
+
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=\textwidth]{figures/part1-histogram.pdf}
+%     \caption{Timelime of the volume of contributions per years on this problem}
+%     \label{literature:part2-histogram}
+% \end{figure}
+
+""Decision makers needs identified through modeling""
+
+This part identified the different approaches to model information in crisis response from a decision maker point of view, and that aim at improving situational awareness and/or coordination between the differnt actors.
+Yet, these approache took a top-down approach, and few conducted interviews to identify with the decision makers, their need.
+As a result, a second let's take a second lap looking at the bottom-up approaches.
+
+\subsection{Business needs of emergency services}
+Many interviews and surveys have been conducted to identify what are the information needed of decision makers.
+The goal of this section is to highlight key needs of decision makers.
+Thus the aim is to remove the noise (needs that are too specific to certain domains) and the stop-needs (needs that are just way to vague and/or obvious).
+Instance of vague ones: information, situational awareness etc.
+
+Request:
+\begin{itemize}
+    \item crisis interview OR interviews OR information
+\end{itemize}
+\begin{itemize}
+    \item Include crisis
+    \item Expression needed "decision makers" "information needs"
+    \item At least interview OR interviews OR information
+    \item Remove -contingency
+\end{itemize}
+\begin{itemize}
+    \item SUBJAREA(comp)
+    \item AND (TITLE-ABS-KEY ({crisis management} or contingency or {disaster response}))
+    \item AND (TITLE-ABS-KEY (ontology or metamodel))
+    \item AND (EXCLUDE(DOCTYPE,"re") OR EXCLUDE(DOCTYPE,"cr"))
+\end{itemize}
+
+
+""Decision makers information needs identified through interviews""
+
+\subsection{What about social media data?}
+The original question asks is \emph{What information that can be obtained from social media is relevant to the decisiom makers in crisis response?}
+The review listed the different information identified by previous work for decision makers during crisis response.
+But few actually take into account social media data.
+While the social media part was at first took aside, let's recenter the results on the social media aspect of it.
+
+""List of the articles that take social media into account or the hypotheses that they formulated to include them or extend their models.""
+
+This first part of the literature review identified the different informational needs of decisions makers during crisis response.
+The aim of this manuscript is to be able to collect data from social media and extract information from it.
+The first chapter identified NLP's tools as a solution to the information extraction problem.
+
+\section{NLP tools for information extraction from social media data}
+The first chapter presented the NLP domain.
+Through its development, many tools have been developed to process textual data.
+With the emergence of social media, a new source of textual data appeared.
+
+Part 1 presents the goals of applications of NLP for social media data.
+
+Part 2 presents
+
+This section is broken down into two parts.
+The first one asks the question: What kind of information can NLP on social media data extracts?
+The second question is: How the previous information can be extracted ?
+This sections asks the question: How the content of social media can be processed to deliver information?
+It can be decomposed according to the three kinds of AI: rule based, statistic based and deep neural network based.
+
+
+
+\subsection{Social media information extracted using NLP}
+Social media data is used as a data source in a various of use cases.
+The following request provides some insights on the use cases:
+\begin{itemize}
+    \item (TITLE-ABS-KEY({natural language processing} or {information mining}))
+    \item AND (TITLE-ABS-KEY({social media} or Twitter))
+    \item AND (TITLE-ABS-KEY(survey))
+\end{itemize}
+Synonyms have been aggregated, keywords from the query removed and keywords such as "state of the art, large amounts, codes (symbols), research questions, text".
+The Figure machine provides an overview of the major keywords return by the request.
+
+The literature on the topic of NLP applied to social span on multiple directions.
+
+From the figure, it is possible to identify at least 2 clusters.
+One cluster is oriented towards social and health sciences and applications of NLP on social media data in these domains.
+The second one is more oriented towards computer sciences, specific algorithms and other applications domains.
+
+Looking at the keywords that are common to at least 3 articles, we can identify several domains of application appear.
+The keywords used by both the publishers and the authors also provide interesting insights.
+Analyzing the keywords, three sets emerge:
+\begin{itemize}
+    \item Application domains: researchers identified areas of applications for NLP associated with social media data.
+    \item Problem solving: general challenge of NLP translated to social media data or specific issue related to social media data.
+    \item NLP techniques: the algorithms, approaches used to solve the previous challenges and relevant to an application domain.
+\end{itemize}
+For clarity, similar keywords (e.g. "emotions", "emotions analysis") are merged together in the tables for brevity.
+The two following tables correspond to the two first sets (application domains and problem solving).
+The next section dive deeper into the most common NLP techniques used.
+
+Table~\ref{table:application-domains}
+
+Many keywords where common to multiple topics. So instance "attitude" refers both to ...
+"Quality of life" is used to urban issues, breast cancers, depression detection, opioids side effects.
+
+\begin{center}
+    \begin{longtable}{ rr }
+        \hline
+        Major domain          & Sub domains                     \\ [0.5ex]
+        \hline
+        Epidemiology          & COVID-19                        \\
+                              & disease outbreaks               \\
+                              & disease surveillance            \\
+                              & vaccination                     \\
+                              & epidemic                        \\
+                              & epidemiology                    \\
+                              & influenza                       \\
+        \hline
+        Medical Informatic    & depression                      \\
+                              & diagnosis                       \\
+                              & psychology                      \\
+                              & public health surveillances     \\
+                              & health survey                   \\
+                              & risk factor                     \\
+                              & major clinical study            \\
+                              & medical informatics             \\
+                              & obesity                         \\
+                              & opiate addiction                \\
+                              & opioid-related disorders        \\
+                              & patient satisfaction            \\
+                              & pharmacovigilance               \\
+                              & pregnancy                       \\
+                              & prevalence                      \\
+                              & prevention and control          \\
+                              & quality control                 \\
+                              & risk assessment                 \\
+                              & controlled study                \\
+        \hline
+        Behavioral Research   & social behavior                 \\
+                              & models, statistical             \\
+                              & social network                  \\
+                              & computer crime                  \\
+                              & public opinion                  \\
+                              & population surveillance         \\
+                              & demography                      \\
+                              & smart city                      \\
+                              & risk assessment                 \\
+        \hline
+        Social Media Research & facebook                        \\
+                              & social media mining             \\
+                              & fake news                       \\
+                              & modal analysis                  \\
+                              & data mining                     \\
+                              & information dissemination       \\
+                              & opinion mining                  \\
+                              & perception                      \\
+        \hline
+        Business              & commerce                        \\
+                              & customer services               \\
+                              & sales                           \\
+                              & communication                   \\
+                              & electronic commerce             \\
+                              & marketing                       \\
+                              & products and services           \\
+        \hline
+        Information Science   & knowledge extraction            \\
+                              & information systems             \\
+                              & classification (of information) \\
+                              & gis                             \\
+                              & decision making                 \\
+                              & information extraction          \\
+                              & information processing          \\
+        \hline
+        NLP challenges        & machine translations            \\
+                              & speech recognition              \\
+                              & polarity classification         \\
+                              & location inference              \\
+                              & text mining                     \\
+                              & automated detection             \\
+                              & named entity recognition        \\
+                              & arabic languages                \\
+                              & linguistics                     \\
+                              & topic modeling                  \\
+                              & emotion analysis                \\
+                              & sentiment analysis              \\
+                              & emoticons                       \\
+                              & modeling languages              \\
+        \hline
+        No specific category  & china                           \\
+                              & education                       \\
+                              & crowdsourcing                   \\
+                              & climate change                  \\
+                              & quality of life                 \\
+                              & attitude                        \\
+                              & internet of things              \\
+                              & spatiotemporal analysis         \\
+                              & surveys and questionnaires      \\
+
+        \hline
+        \caption{Applications domains}
+        \label{table:application-domains}
+    \end{longtable}
+\end{center}
+
+% Crisis informatic is not listed here – there are different definition of application domains
+\cite{farzindarNaturalLanguageProcessing2017} identify several applications of NLP for social media data.
+\begin{itemize}
+    \item Geo-location detection
+    \item Entity linking and Disambiguation
+    \item Opinion mining and emotion analysis
+    \item Event and topic detection
+    \item Automatic summarization
+    \item Machine translation
+\end{itemize}
+
+\subsection{NLP's tools to process previous data}
+
+Along with this list of application, we can add the list of NLP techniques listed alongside:
+\begin{table}[bp]
+    \centering
+    \begin{tabular}{rr}
+        Major category          & Sub category                 \\ [0.5ex]
+        \toprule
+        Data management         & Big Data                     \\
+                                & N-gram Modeling              \\
+                                & Pre-processing               \\
+        Artificial intelligence & Artificial Intelligence      \\
+                                & Classification Algorithms    \\
+                                & Regression Analysis          \\
+                                & Statistical Model            \\
+                                & Algorithms                   \\
+                                & K-Nearest Neighbors          \\
+        Machine learning        & Support Vector Machine       \\
+                                & Random Forests               \\
+                                & Classifiers                  \\
+                                & Supervised Learning          \\
+                                & Decision Trees               \\
+                                & Latent Dirichlet Allocation  \\
+                                & Feature Extraction           \\
+        Deep learning           & Transfer Learning            \\
+                                & Neural Networks              \\
+                                & Classification Models        \\
+                                & Convolutional Neural Network \\
+                                & Recurrent Neural Networks    \\
+        \bottomrule
+    \end{tabular}
+    \caption{Main NLP algorithms and techniques that appear among the keywords}
+    \label{table:nlp-tools}
+\end{table}
+% Faire une partie qui décrit chaque point et les articles associés.
+% Conclusion: le traitement des médias sociaux à très largement profité des avancées successives en intelligence artificelles qui ont été appliqués au NLP.
+% Cette tendance s'observe temporellement, avec un léger décalage entre le moment ou l'algorithme/la techique devient mainstream et son adoption.
+
+% \subsection{Processing of whole messages in social media data}
+% - Informations à l'échelle du message complet (métadonnées + texte)
+% - Informations à l'échelle du message textuel
+% - Informations à l'échelle des mots du message.
+
+\section{Conclusions on the literature and identified gaps}
+% Table with the business needs and the technical solution. Align both of them.
+This section conclude the literature review and its outcome.
+It takes the form of a table with two entries.
+The first one is the identified informational needs of the decision makers.
+The second one is the different technical solutions explored to extract information from social media data.
+The contribution of this manuscript hold in the gap between these two domains.
+
 1. Pas ou peu d'analyse du besoin des personnes qui utilisent les médias sociaux en situation de crise. Des classifications à l'arrache, parce qu'elle me plaît, parce que j'ai envie, parce que mon voisin à dit c'est cool.
 -> Un modèle de situation de crise pour qui ? Pour quoi ?
 2. Des tonnes d'architectures différentes, en fonction de comment le graduate a souhaité l'implémenter. Pas/peu de solution pour implémenter des données.
 -> MLOps appliquées à notre problématique + mon architecture HICSS
 3. Beaucoup de travaux pour classifier des messages. Peu de travaux sur le traitement à l'échelle du mot.
 
-% \begin{figure}[bp]
-%   \centering
-%   \begin{tikzpicture}
-%     \fill[orange] circle(1);
-%     \fill[lime] (1,1) rectangle ++(1,1);
-%   \end{tikzpicture}
-%   \caption{Exemple de figure}
-%   \label{fig:ex}
-% \end{figure}
+% Requete Aurelie: envoyer URL avec la requete GET a l'interieure
 
 
 %%% Local Variables:
