@@ -1,59 +1,48 @@
 \chapter{Literature review}
 
-% Fil rouge de la LR : Pourquoi - Métier / Quoi / Comment - Technique
-% Tableau a double entree Metier/Techniques qui met en evidence le manque d'adequation pour repondre au quoi
-% La colonne metier est repondue a la fin du premier chapitre contribution . Mettre en avant ce manque dans ce chapitre et revenir a la fin du chapitre suivant pour completer le tableau
-% The aim of the literature review is to highlight the gaps in the literature around my problematic.
-% It is organized in order to successively narrow the scientific challenges around the sub-problematics identified earlier.
-% 1. What? Crisis situation models that we can implement using sociel media data
-% 2. How? Existing systems to process social media data. Existing systems to implement crisis situation models using social media data
-% 3. Why? What is the reason to implement these models in first place? What is the context in which these systems exist? Operators' needs of information and how do they fit in the picture?
-
-% Role of social media in crisis situation models
-% - What is a model? How do we model? (probably going to be an appendix)
-% - Existing Crisis situation models
-% - Crisis situation models that take into account the available data on social media.
-
-% => Point of view model != user of such systems
-% -> Need to identify user's needs ("business problem")
 \section*{Introduction}
-\subsection{Methodology}
-The approach adopted in this literature is intermediate between a systematic approach and a survey of related works.
-Instead with explore the different questions and identified the prevalent contribution around each contributions.
+\subsection*{Methodology}
+The approach adopted in this literature review is intermediate between a systematic approach and a survey of related works.
+The justification for this singular approach is that many domains are presented, some containing several tens of thousands of articles.
+For this reason, a systematic approach would be too cumbersome, while a survey would not reflect the richness of each field.
 
-First, a scope of the research will be created, through work hypotheses.
-Then, bibliographic requests will be processed using a bibliographic software, which will provide insight in the major contributions in the different areas of the domain.
-This methodology will provides a solid understanding of the scientific context and a big picture of the literature.
-This way, it will be possible to highlight gaps between the major contributions.
+First, the scope of the literature review will be defined through research hypotheses.
+Once these hypotheses are created, queries will be made on a bibliographic database.
+The queries will be performed on Scopus~\footnote{https://www.scopus.com/}, which offers a larger number of references than the Web of Science and more tools for query design.
 
-All the request are made on the Scopus database~\footnote{https://www.scopus.com/}
-This choice was made because requests on Scopus tend to return more results than on the Web of Science.
-Also, the request engine provides abilities to define very fine grained requests.
-
-The analysis of the keywords used by the different articles fetched by the request also provide valuable insights on the evolution of this field, especially on its interdisciplinary aspect.
-This analysis is performed using VOSviewer~\footnote{https://www.vosviewer.com/} "a software tool for constructing and visualizing bibliometric networks".
+The results obtained will then be analyzed from several angles. First of all, the evolution of the volume of publications returned by the query, to attempt to represent the interest in the topic.
+Secondly, an analysis of the keywords will be made through VOSviewer~\footnote{https://www.vosviewer.com/} "a software tool for constructing and visualizing bibliometric networks".
 Especially VOSviewer allows to visualize bibliographic features such as the network of authors or of keywords.
-The analyses performed in this chapter rely on the use of the keyword network between the retrieved articles.
+The keywords used by the different articles fetched by the request provide valuable insights on the evolution of a given field, especially on its interdisciplinary aspect.
+Finally, a review of some of the most influential articles from the query result will be discussed.
+The influence criteria will be the number of citations.
 
-\subsection{Hypotheses}
+This methodology aims to provide a sufficient understanding of the interest and evolution of the topics explored, as well as answers related to the subproblematics exposed.
+
+\subsection*{Hypotheses}
 This manuscript is limited in the scientific domain investigated.
+Thus, the following working hypotheses will delimit the work presented.
+
 \begin{itemize}
-    \item 1. Social media data: the data that are of interest are mostly social media data, which have a low ratio information/noise. Clean, well-written textual data are then excluded.
-    \item 2. Crisis response context: the crisis management context is particular and this manuscript focuses on the response phase and its context.
-    \item 3. Our work aims to improve the decision making process. Hence, we focus on the improving the situational awareness and the coordination between the different actors.
+    \item 1. On social media data: social media data have a low ratio information/noise and are as trustworthy as phone calls. Clean, well-written textual data are then excluded.
+    \item 2. On crisis management: the crisis management context is particular and this manuscript focuses on the response phase and its context.
+    \item 3. On improving the decision making process: improving decision making means improving situational awareness and coordination among the various actors.
 \end{itemize}
 
-These hypotheses will scope the requests done to extract the references.
-Having these hypotheses/constraints, the following of this chapter attempts to answer to provide context for the main problematic:
-\emph{How to design an information system able to automatically manage and deliver relevant information extracted from social media data during crisis response?}
-Then, we will explore the three following sub problematics:
+Having these hypotheses, the literature review presented in this chapter explores the context around the different problematics raised in the previous chapter.
+As a reminder, the main problem of this manuscript is: \emph{How to design an information system able to automatically manage and deliver relevant information extracted from social media data during crisis response?}
+This main problematic is decomposed among three sub problematics:
+
 \begin{itemize}
     \item What information that can be obtained from social media is relevant to the decisiom makers in crisis response?
     \item How can these information be obtained, in the context of crisis informatic?
     \item How are these information organised to deliver the value expected by decision makers?
 \end{itemize}
-The last sub problematic is similar to the one of the main problematic, as it concern social media processing systems for crisis management.
-Consequently, this sub problematic do not have a dedicated section
+
+The first section of this chapter presents the work related to the main problematic and specially systems developped to automatically process social media during crisis response.
+Then, the second section explores the first sub problematic and the different representations of information used by previous work.
+Finally, the third section overlook social media processing by NLP in general to provide context for the second sub problematic.
+As the last sub problematic is similar to the one of the main problematic, its literature review will be merge into the first section.
 
 \section{Information systems for crisis response fed with social media data}
 Chapter 1 identified the opportunities offered by social media to support crisis response.
