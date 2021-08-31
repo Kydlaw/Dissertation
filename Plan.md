@@ -99,11 +99,27 @@ Faire un etat de l'art qui se justifie
 
 # Crisis situation models that serve social media operators.
 %% Jonction entre le : "quel modele je peux constuire avec les donnees issues de medias sociaux" et "de quoi on besoin les gens qui utilisent les media sociaux en gestion de crise" %%
+## Introduction
+On s'interesse a la reponse
+Probleme de collaboration (cf chap.2)
+Besoin de partagee l'information entre les acteurs
+-> Besoin d'une representation/vocabulaire commun.e à des fins de décisions/prise d'actions
+-> Ce chapitre
+(Chapitre suivant = comment on recupere ces informations?)
+
 ## Who process social media during crisis response?
 - 911 calls takers, social media experts in the US (meetings with the operators of the call centers)
 - Social media operators in France (MACIV exercices)
 
+- MACIV + 911 + articles
+=> Profils des personnes qui font face aux médias sociaux
+
 ## Needs identified
+Qu'est-ce que les profils cherchent concrètement lorsqu'ils regardent les médiaux sociaux ?
+
+- Partie terrain (Jess - 6W)
+- Partie "+ remote" (Audrey - Robin ...)
+
 ### Situation awareness
 - Situation awareness according to Endsley
 - Situationa awareness adapted to NLP for crisis response
@@ -113,15 +129,24 @@ Faire un etat de l'art qui se justifie
 - Zahra's survey and interviews
 - Others?
 
+=> Voici les informations dont ils ont besoin (definitions SA et AInf ici?)
+
 ## Intersection with crisis situation models
 - Intersection with the high level crisis situation models presented in the LR and the "feedbacks from the field".
 - My article ISCRAM 2021 (for the need to ackownelge the users' needs in the design of social media processing systems) and HICSS 2021 (for the classification of information that we are looking at).
 
+Retour sur les models d'information pour le CM.
+1. Filtrer les modeles qui n'incluent les utilisateurs precedement identifies dans leurs scopes
+2. Identifier les classes utilises par ses modeles qui representent l'information dont les utilisateurs ont besoin 
+
 => Classes that are relevant for the end users/classes we will search for.
 
-### Conclusion
+## Conclusion
 - We figured what information we were looking for. Now, how do we extract those information? How do we implement the associated classes of the metamodel?
 - Update the table in the LR with the identified needs 
+
+=> Voila le modele des informations qu'on peut esperer pour la crise pour les personnes en des medias sociaux
+
 
 # Identification of relevant entities in social media data for crisis response : a semi-supervised approach
 
