@@ -489,276 +489,323 @@ The next section will be dedicated to the existing ways of identifying and minin
 
 \section{NLP tools for information extraction from social media data}
 The first chapter presented the NLP domain.
-Through its development, many tools have been developed to process textual data.
-With the emergence of social media, a new source of textual data appeared.
+Through the development of this domain, many tools, algorithms and methods have been developed to process textual data.
+With the emergence of social media, a new source of textual data appeared, and with it, its own challenges.
 
-Part 1 presents the goals of applications of NLP for social media data.
+This sections tackles the sub problematic: \emph{How can these information be obtained, in the context of crisis informatic?}
+Social media data are used as a data source in a various of use cases.
+This section is broken down into two parts and it aims to explore two directions.
+First, for which applications natural language processing is used on social media data?
+Secondly, how are these information extracted?
+Each direction has its own dedicated sub-section.
 
-Part 2 presents
+To explored these two direction the following request is run:
 
-This section is broken down into two parts.
-The first one asks the question: What kind of information can NLP on social media data extracts?
-The second question is: How the previous information can be extracted ?
-This sections asks the question: How the content of social media can be processed to deliver information?
-It can be decomposed according to the three kinds of AI: rule based, statistic based and deep neural network based.
-
-\subsection{Social media information extracted using NLP}
-Social media data is used as a data source in a various of use cases.
-The following request provides some insights on the use cases:
 \begin{itemize}
     \item (TITLE-ABS-KEY({natural language processing} or {information mining}))
     \item AND (TITLE-ABS-KEY({social media} or Twitter))
     \item AND (TITLE-ABS-KEY(survey))
+    \item AND (EXCLUDE(DOCTYPE, "re") OR EXCLUDE(DOCTYPE, "cr"))
 \end{itemize}
-Synonyms have been aggregated, keywords from the query removed and keywords such as "state of the art, large amounts, codes (symbols), research questions, text".
-The Figure machine provides an overview of the major keywords return by the request.
 
-Figure~\ref{literature:nlp-hist}
+The idea behind this request is as follow:
 
-\begin{figure}[bp]
+\begin{itemize}
+    \item Use "natural language processing" or "information mining" as a keyword.
+    \item In addition to the previous ones, they also have to include "social media" or "twitter".
+    \item This request only retrieve surveys.
+    \item It excludes articles that present conference tracks and or reviews of other articles.
+\end{itemize}
+
+Contrary to other sections, this one wil take surveys as a proxy to study the domain.
+Without the constraint put on surveys, the request returns 4231.
+As this volume of publication could not be processed in a reasonable amount of time, the choice have been to look only at surveys.
+However, this hypothesis seems reasonable, considering the fact that the goal is to identify the main trends in the field.
+
+The request returns 217 surveys, published between 2011 and 2021 (Figure~\ref{literature:nlp-hist}).
+The volume of documents fetched from this request is similar to the previous ones, despite looking only at surveys.
+While being a fairly recent research venue, the interest for NLP uses on social media data is really high and increased over the years..
+
+\begin{figure}[htb]
     \centering
     \includegraphics[width=\textwidth]{figures/chap-2/nlp-hist.pdf}
-    \caption{Timelime of the volume of contributions per years for the crisis informatic domain. The year 2021 is excluded because the year is not complete at the time of writing.}
+    \caption{Timelime of the volume of contributions per years for the application of NLP methods to social media data. The year 2021 is excluded because the year is not complete at the time of writing.}
     \label{literature:nlp-hist}
 \end{figure}
 
-Figure~\ref{literature:nlp-bar}
+The surveys retrieved appears as a single cluster (Figure~\ref{literature:nlp-overlay}).
+This overlay was created by aggregating synonyms, removing the keywords from the query and some keywords with low value for our study ("state of the art, large amounts, codes (symbols), research questions, text").
+Despite the youth of the field, its evolution is very fast, both in terms of applications and methods used.
+Circa 2011, the field was essentially centered around epidemiological applications and statistical analyses.
+From this point on, a kaleidoscope of applications and methods were used.
+They are detailed in the next two subsections.
 
-\begin{figure}[bp]
+\begin{landscape}
+    \begin{figure}[htb]
+        \includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{figures/chap-2/nlp-overlay.pdf}
+        \caption{Distribution of keywords with more than 3 occurrences among the articles from the query on NLP applied on social media data.}
+        \label{literature:nlp-overlay}
+    \end{figure}
+\end{landscape}
+
+However, form these years, some trend are more prominent than others.
+On the application side, \emph{sentiment analyses} is by far the most studied application (73 mentions of this keyword) (Figure~\ref{literature:nlp-bar}).
+Mining applications are second with \emph{data mining} (mentioned 61 times), \emph{text mining} (30 times) and \emph{opinion mining} (mentioned 21 times).
+On the method side, \emph{artificial intelligence} (mentioned 25 times), and specially \emph{machine learning} (85 times, almost half surveys) methods (such as \emph{deep learning}) are heavily mentioned as well in the surveys.
+This probably comes from the parallel advances made in NLP through the renew of machine learning.
+
+\begin{figure}[htb]
     \centering
     \includegraphics[width=\textwidth]{figures/chap-2/nlp-bar.pdf}
-    \caption{Distribution of keywords with more than 3 occurrences among the articles from the query on crisis informatics. }
+    \caption{Distribution of keywords with more than 4 occurrences among the articles from the query on NLP applied on social media data.}
     \label{literature:nlp-bar}
 \end{figure}
 
-Figure~\ref{literature:nlp-overlay}
+The next sub-section explores the application mentioned by the surveys obtained from the request.
 
-\begin{figure}[bp]
-    \includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio, angle=90]{figures/chap-2/nlp-overlay.pdf}
-    \caption{Distribution of keywords with more than 3 occurrences among the articles from the query on crisis informatics. }
-    \label{literature:nlp-overlay}
-\end{figure}
+\subsection{Social media information extracted using NLP}
+Social media data contain valuable information for a wide range of applications.
+The surveys fetched contains several application domains in their keywords.
+They are summarized in Table~\ref{table:application-domains}.
+Some of the keywords are grouped to reflect the major domain they depend on.
+Also, some keywords were common to multiple topics.
+For instance, \emph{attitude} is used both in health and business related surveys.
+\emph{quality of life} is used in urban issues, breast cancers, depression detection and opioids side effects.
+Other keywords that did not belong to any major category have been grouped in a separated category.
 
+Thus, there are seven major domains identified:
 
-
-From the figure, it is possible to identify at least 2 clusters.
-One cluster is oriented towards social and health sciences and applications of NLP on social media data in these domains.
-The second one is more oriented towards computer sciences, specific algorithms and other applications domains.
-
-Looking at the keywords that are common to at least 3 articles, we can identify several domains of application appear.
-The keywords used by both the publishers and the authors also provide interesting insights.
-Analyzing the keywords, three sets emerge:
 \begin{itemize}
-    \item Application domains: researchers identified areas of applications for NLP associated with social media data.
-    \item Problem solving: general challenge of NLP translated to social media data or specific issue related to social media data.
-    \item NLP techniques: the algorithms, approaches used to solve the previous challenges and relevant to an application domain.
+    \item Epidemiology
+    \item Medical Informatic
+    \item Behavioral Research
+    \item Social Media Research
+    \item Business
+    \item Information Science
+    \item NLP Challenges
 \end{itemize}
-For clarity, similar keywords (e.g. "emotions", "emotions analysis") are merged together in the tables for brevity.
-The two following tables correspond to the two first sets (application domains and problem solving).
-The next section dive deeper into the most common NLP techniques used.
 
-Table~\ref{table:application-domains}
-
-Many keywords where common to multiple topics. So instance "attitude" refers both to ...
-"Quality of life" is used to urban issues, breast cancers, depression detection, opioids side effects.
+NLP applied to social media is used for a variety of medical applications.
+Epidemiology, which study the distribution and frequency of diseases as everyone knows by now,
+is interested in social media to monitore the mention of symptoms by users in order to detect and observe the spread of a disease.
+This include, of course, the COVID-19 outbreak or the influenza outbreak in (2009-2010).
+Broader medical applications are labeled under "Medical Informatic".
+It contains applications using the same methodology, but applied to other diseases or conditions, such as \emph{depression}, \emph{obesity} or \emph{pregnancy}.
+Social media are also considered for \emph{pharmacovigilance} to monitore secondary effets (\emph{patient satisfaction}, \emph{opiate addiction}).
+The behavior of the urban population (\emph{smartcity}, \emph{computer crime}) or society in general (\emph{demography}, \emph{population surveillance}) can also be observed through social media.
+Their expressed feelings towards events or political decisions can then be quantified and analyzed.
+Social medias, as digital twins of society, are also environments that bring some reflections of its own.
+The phenomenon of \emph{fake news} in particular has taken many actors in society by surprise and is an issue that attracts a lot of attention.
+The way in which information spreads within the \emph{social network} of users or its very structure, are also topics of research.
+Marketing departments and PR firms are also naturally very interested in the insights available on social media.
+The management of the content of social media and specially the \emph{information extraction} and \emph{knowledge extraction} part
+are challenges for the information science domain.
+Social media data also come with their own challenges for the NLP domain.
+Social media content is noisy, informal and often come with its own use of the grammar.
+Consequently, most of the methods applied on other text are disrupted with social media data.
+\emph{machine translation}, \emph{named entity recognition} and other tasks are then explored and improved in this context.
+Alongside improvements on several tasks, social media are also widely used to \emph{sentiment analysis}, \emph{topic modeling} or \emph{polarity classification}.
+In the final catergory, interesting topics appear such as \emph{crowdsourcing}.
+Indeed, some sociologists, instead of exploiting social media, leverage their power to achieve goals, and then study mechanisms that can encourage positive actions for instance.
+Of course, \emph{climate change} is also an application mentioned, considering the importance of this topic.
 
 \begin{center}
-    \begin{longtable}{ rr }
-        \hline
-        Major domain          & Sub domains                     \\ [0.5ex]
-        \hline
-        Epidemiology          & COVID-19                        \\
-                              & disease outbreaks               \\
-                              & disease surveillance            \\
-                              & vaccination                     \\
-                              & epidemic                        \\
-                              & epidemiology                    \\
-                              & influenza                       \\
-        \hline
-        Medical Informatic    & depression                      \\
-                              & diagnosis                       \\
-                              & psychology                      \\
-                              & public health surveillances     \\
-                              & health survey                   \\
-                              & risk factor                     \\
-                              & major clinical study            \\
-                              & medical informatics             \\
-                              & obesity                         \\
-                              & opiate addiction                \\
-                              & opioid-related disorders        \\
-                              & patient satisfaction            \\
-                              & pharmacovigilance               \\
-                              & pregnancy                       \\
-                              & prevalence                      \\
-                              & prevention and control          \\
-                              & quality control                 \\
-                              & risk assessment                 \\
-                              & controlled study                \\
-        \hline
-        Behavioral Research   & social behavior                 \\
-                              & models, statistical             \\
-                              & social network                  \\
-                              & computer crime                  \\
-                              & public opinion                  \\
-                              & population surveillance         \\
-                              & demography                      \\
-                              & smart city                      \\
-                              & risk assessment                 \\
-        \hline
-        Social Media Research & facebook                        \\
-                              & social media mining             \\
-                              & fake news                       \\
-                              & modal analysis                  \\
-                              & data mining                     \\
-                              & information dissemination       \\
-                              & opinion mining                  \\
-                              & perception                      \\
-        \hline
-        Business              & commerce                        \\
-                              & customer services               \\
-                              & sales                           \\
-                              & communication                   \\
-                              & electronic commerce             \\
-                              & marketing                       \\
-                              & products and services           \\
-        \hline
-        Information Science   & knowledge extraction            \\
-                              & information systems             \\
-                              & classification (of information) \\
-                              & gis                             \\
-                              & decision making                 \\
-                              & information extraction          \\
-                              & information processing          \\
-        \hline
-        NLP challenges        & machine translations            \\
-                              & speech recognition              \\
-                              & polarity classification         \\
-                              & location inference              \\
-                              & text mining                     \\
-                              & automated detection             \\
-                              & named entity recognition        \\
-                              & arabic languages                \\
-                              & linguistics                     \\
-                              & topic modeling                  \\
-                              & emotion analysis                \\
-                              & sentiment analysis              \\
-                              & emoticons                       \\
-                              & modeling languages              \\
-        \hline
-        No specific category  & china                           \\
-                              & education                       \\
-                              & crowdsourcing                   \\
-                              & climate change                  \\
-                              & quality of life                 \\
-                              & attitude                        \\
-                              & internet of things              \\
-                              & spatiotemporal analysis         \\
-                              & surveys and questionnaires      \\
-        \hline
-        \caption{Applications domains}
+    \begin{longtable}{ rl }
+        \caption{Applications domains}                            \\
+        Major domain            & Sub domains                     \\
+        \bottomrule
+        Epidemiology            & COVID-19                        \\
+                                & disease outbreaks               \\
+                                & disease surveillance            \\
+                                & vaccination                     \\
+                                & epidemic                        \\
+                                & epidemiology                    \\
+                                & influenza                       \\
+        Medical Informatic      & depression                      \\
+                                & diagnosis                       \\
+                                & psychology                      \\
+                                & public health surveillances     \\
+                                & health survey                   \\
+                                & risk factor                     \\
+                                & major clinical study            \\
+                                & medical informatics             \\
+                                & obesity                         \\
+                                & opiate addiction                \\
+                                & opioid-related disorders        \\
+                                & patient satisfaction            \\
+                                & pharmacovigilance               \\
+                                & pregnancy                       \\
+                                & prevalence                      \\
+                                & prevention and control          \\
+                                & quality control                 \\
+                                & risk assessment                 \\
+                                & controlled study                \\
+        Behavioral Researches   & social behavior                 \\
+                                & models, statistical             \\
+                                & computer crime                  \\
+                                & public opinion                  \\
+                                & population surveillance         \\
+                                & demography                      \\
+                                & smart city                      \\
+                                & risk assessment                 \\
+        Social Media Researches & facebook                        \\
+                                & social media mining             \\
+                                & social network                  \\
+                                & fake news                       \\
+                                & modal analysis                  \\
+                                & data mining                     \\
+                                & information dissemination       \\
+                                & opinion mining                  \\
+                                & perception                      \\
+        Business                & commerce                        \\
+                                & customer services               \\
+                                & sales                           \\
+                                & communication                   \\
+                                & electronic commerce             \\
+                                & marketing                       \\
+                                & products and services           \\
+        Information Science     & knowledge extraction            \\
+                                & information systems             \\
+                                & classification (of information) \\
+                                & gis                             \\
+                                & decision making                 \\
+                                & information extraction          \\
+                                & information processing          \\
+        NLP challenges          & machine translations            \\
+                                & speech recognition              \\
+                                & polarity classification         \\
+                                & location inference              \\
+                                & text mining                     \\
+                                & automated detection             \\
+                                & named entity recognition        \\
+                                & arabic languages                \\
+                                & linguistics                     \\
+                                & topic modeling                  \\
+                                & emotion analysis                \\
+                                & sentiment analysis              \\
+                                & emoticons                       \\
+                                & modeling languages              \\
+        No specific category    & china                           \\
+                                & education                       \\
+                                & crowdsourcing                   \\
+                                & climate change                  \\
+                                & quality of life                 \\
+                                & attitude                        \\
+                                & internet of things              \\
+                                & spatiotemporal analysis         \\
+                                & surveys and questionnaires      \\
+        \bottomrule
         \label{table:application-domains}
     \end{longtable}
 \end{center}
 
-% Crisis informatic is not listed here – there are different definition of application domains
-\cite{farzindarNaturalLanguageProcessing2017} identify several applications of NLP for social media data.
-\begin{itemize}
-    \item Geo-location detection
-    \item Entity linking and Disambiguation
-    \item Opinion mining and emotion analysis
-    \item Event and topic detection
-    \item Automatic summarization
-    \item Machine translation
-\end{itemize}
-
 \subsection{NLP's tools to process previous data}
+The previous sub-section presented the different applications of NLP on social media data.
+The surveys retrieved also mentioned algorithms, methods or models related to NLP.
+This sub-section aims to briefly present the different methods mentioned.
+Table~\ref{table:nlp-tools} shows the keywords used in the surveys and groups them according to the different fields of artificial intelligence to which they belong.
 
-Along with this list of application, we can add the list of NLP techniques listed alongside:
+The many applications above require many different algorithms, capable of meeting different needs.
+As already mentioned, data from social media are particular compared to the usual corpus composed of books and national newspapers.
+This particularity, combined with the specificities of textual data, can be found through keywords such as \emph{Pre-processing}, \emph{feature extraction} or \emph{N-gram modeling}.
+Pre-processing refers to the different steps that clean/prepare the data before they are passed to the algorithm.
+N-gram modeling is one of the possible step and consists in grouping the tokens of a sentence into groups of N tokens.
+
+The data are then provided to the processing algorithms.
+Most of the algorithms mentioned in the survey are machine learning algorithms.
+These algorithms build \emph{statistical models} based on distribution of tokens in sentences to provide results.
+There are different categories of algorithms for different use cases.
+\emph{Classification algorithms} are algorithms designed to assign data to a category.
+On the other hand, \emph{regression} algorithms provide a value in a numerical range.
+These models can be either \emph{classifiers} or regression models.
+Most of these models are \emph{supervised} meaning that they require a dataset where all the data are annotated with a label.
+Models can also be semi-supervised (only a portion is annotated) or self-supervised (the model learns it is own label from scratch).
+Neural networks are also machine learning algorithms and can be stacked in layer to build deep neural networks able to learn complex and abstract patterns.
+
+More specifically, many algorithms are also cited. Their functioning will not be detailed, only their applications and the potential reasons for their mention in the surveys.
+The \emph{K-Nearest Neighbors}, as its name suggests, it uses the features present in the data to identify the K closest points to a given point.
+It can be used to identify the most similar messages in a corpus.
+\emph{Decision trees}, and its ensemble version \emph{random forests}, are classifiers/regressors algorithms that build decision paths to classify the incoming data.
+\emph{Support Vector Machine} (or SVM) achieve the same result, by building a decision boundary between the different sets of data using a kernel choosed by the user.
+The boundaries created by SVM are usually more subtle than the ones created by decison trees, resulting in better results in complex datasets.
+Ces modèles sont utilisés pour des applications telles que l'analyse de sentiment, de polarity, d'attitude ou d'opinion mais aussi d'identification du language utilisé.
+The \emph{Latent Dirichlet Allocation} algorithm allows to identify the topic in a collection of documents and is thus used in topic modeling.
+
+Deep \emph{neural network} models are used for applications that rely on the semantics of words rather than their distribution.
+\emph{Convolutional neural networks} are a specific type of neural network, composed of neurons that use a kernel, or convolution matrix, to detect patterns in sentences.
+These neural network are used for classification applications.
+\emph{Recurrent Neural Networks} are another type of neural network that uses a recurrent structure.
+It uses specific neurons that are able to handle information coming forward and backward.
+These neural networks are also used for classification applications, but also machine translation or named entities recognition.
+Finally, only these models are trained, it is possible to reused their knowledge to other applications.
+\emph{Transfer learning} consists in reusing a model trained on a task to solve another similar task, completely re-training a model from scratch.
+
 \begin{table}[bp]
     \centering
-    \begin{tabular}{rr}
-        Major category          & Sub category                 \\ [0.5ex]
+    \caption{Main NLP algorithms and techniques that appear among the keywords}
+    \begin{tabular}{rl}
+        High level category     & Keywords used in the surveys  \\
         \toprule
-        Data management         & Big Data                     \\
-                                & Pre-processing               \\
-                                & N-gram Modeling              \\
-        Artificial intelligence & Artificial Intelligence      \\
-                                & Algorithms                   \\
-                                & Classification Algorithms    \\
-                                & Regression Analysis          \\
-                                & Statistical Model            \\
-                                & K-Nearest Neighbors          \\
-        Machine learning        & Classifiers                  \\
-                                & Supervised Learning          \\
-                                & Feature Extraction           \\
-                                & Decision Trees               \\
-                                & Random Forests               \\
-                                & Latent Dirichlet Allocation  \\
-                                & Support Vector Machine       \\
-        Deep learning           & Neural Networks              \\
-                                & Classification Models        \\
-                                & Transfer Learning            \\
-                                & Convolutional Neural Network \\
-                                & Recurrent Neural Networks    \\
+        Data management         & Big Data                      \\
+                                & Pre-processing                \\
+                                & Feature Extraction            \\
+                                & N-gram Modeling               \\
+        Artificial intelligence & Artificial Intelligence       \\
+                                & Algorithms                    \\
+                                & K-Nearest Neighbors           \\
+        Machine learning        & Statistical Model             \\
+                                & Regression Analysis           \\
+                                & Classification Algorithms     \\
+                                & Classifiers                   \\
+                                & Supervised Learning           \\
+                                & Decision Trees                \\
+                                & Random Forests                \\
+                                & Support Vector Machine        \\
+                                & Latent Dirichlet Allocation   \\
+        Deep learning           & Neural Networks               \\
+                                & Classification Models         \\
+                                & Convolutional Neural Networks \\
+                                & Recurrent Neural Networks     \\
+                                & Transfer Learning             \\
         \bottomrule
     \end{tabular}
-    \caption{Main NLP algorithms and techniques that appear among the keywords}
     \label{table:nlp-tools}
 \end{table}
 
-% Faire une partie qui décrit chaque point et les articles associés.
-% Conclusion: le traitement des médias sociaux à très largement profité des avancées successives en intelligence artificelles qui ont été appliqués au NLP.
-% Cette tendance s'observe temporellement, avec un léger décalage entre le moment ou l'algorithme/la techique devient mainstream et son adoption.
+Social media processing applications have widely benefited from recent improvements in machine learning.
+This trend is visible in how this field evolved over time towards statistical models and later deep neural networks.
+As applications are numerous and opportunities offered by the NLP domain significant, the two meet in the middle and several research teams explore the different paths offered.
+The surveys retrieved provided valuable insights to answer the original problematic of this section: \emph{How can these information be obtained, in the context of crisis informatic?}.
+The results are two fold.
 
-% \subsection{Processing of whole messages in social media data}
-% - Informations à l'échelle du message complet (métadonnées + texte)
-% - Informations à l'échelle du message textuel
-% - Informations à l'échelle des mots du message.
+The first sub-section identified the main applications of NLP on social media data.
+Most of the applications identified rely on one or more of the following information:
 
-% \begin{table}[bp]
-%     \centering
-%     \renewcommand{\arraystretch}{1.5}
-%     \begin{tabular}{m{0.3\textwidth} m{0.7\textwidth}}
-%         Reference                                             & Features \\ [0.5ex]
-%         \toprule
-%         \cite{liuSentimentAnalysisOpinion2012a}               &          \\
-%         \cite{liuSurveyOpinionMining2012a}                    &          \\
-%         \cite{collierUncoveringTextMining2012a}               &          \\
-%         \cite{chamlertwatDiscoveringConsumerInsight2012a}     &          \\
-%         \cite{bontchevaMakingSenseSocial2014a}                &          \\
-%         \cite{vazquezClassificationUsergeneratedContent2014a} &          \\
-%         \cite{raviSurveyOpinionMining2015a}                   &          \\
-%         \cite{santillanaCombiningSearchSocial2015a}           &          \\
-%         \cite{karmenScreeningInternetForum2015a}              &          \\
-%         \cite{odlumWhatCanWe2015a}                            &          \\
-%         \cite{linUncertaintyAnalysisCrowdsourced2015a}        &          \\
-%         \cite{wangSocialMediaSensor2015a}                     &          \\
-%         \cite{bahkPubliclyAvailableOnline2016a}               &          \\
-%         \cite{paulSocialMediaMining2016a}                     &          \\
-%         \cite{hawkinsMeasuringPatientperceivedQuality2016a}   &          \\
-%         \cite{jiangAssessmentOnlinePublic2016a}               &          \\
-%         \cite{bailCombiningNaturalLanguage2016a}              &          \\
-%         \cite{kagasheEnhancingSeasonalInfluenza2017a}         &          \\
-%         \cite{martinezPatientUnderstandingRisks2017a}         &          \\
-%         \cite{poriaReviewAffectiveComputing2017a}             &          \\
-%         \cite{yazdavarSemiSupervisedApproachMonitoring2017a}  &          \\
-%         \cite{charyEpidemiologyTweetsEstimating2017a}         &          \\
-%         \cite{salloumSurveyTextMining2017a}                   &          \\
-%         \cite{sailunazEmotionDetectionText2018a}              &          \\
-%         \cite{chaturvediDistinguishingFactsOpinions2018a}     &          \\
-%         \cite{haririUncertaintyBigData2019a}                  &          \\
-%         \cite{hemmatianSurveyClassificationTechniques2019a}   &          \\
-%         \cite{yadavSentimentAnalysisUsing2020a}               &          \\
-%         \bottomrule
-%     \end{tabular}
-%     \caption{Articles on informational needs of emergency responders retrieved from the previous request with at least 25 citations.}
-%     \label{table:nlp-main-articles}
-% \end{table}
+\begin{itemize}
+    \item Language used
+    \item Medical symptoms
+    \item Named entities
+    \item Topic of a message
+    \item Truthfulness
+    \item Location
+    \item Opinions
+    \item Sentiments
+    \item Attitude
+    \item Polarity
+\end{itemize}
 
-%TODO Conclusion de la section  : qu'est-ce que finalement on peut exploiter comme information à partir des médias sociaux à l'aide du NLP
+The second sub-section reviewed the most prominent algorithms used to process social media data and linked them to the applications previously identified.
+Thus, there are many ways to extract the previous information from social media data.
+The choice of the algorithm then depends on several parameters such as:
 
-\section{Conclusions on the literature and identified gaps}
-% Table with the business needs and the technical solution. Align both of them.
+\begin{itemize}
+    \item Desired information;
+    \item Volume of training data available;
+    \item Computational resources available; or
+    \item Prediction accuracy.
+\end{itemize}
+
+Crisis management also comes with its own constraints than need to be taken into account when designing a social media processing system.
 This section conclude the literature review and its outcome.
 It takes the form of a table with two entries.
 The first one is the identified informational needs of the decision makers.
