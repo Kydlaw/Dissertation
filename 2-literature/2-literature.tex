@@ -51,6 +51,7 @@ This first part of the literature review intends to highlight the systems built 
 The question that this parts aims to answer is: \emph{What are the existing social media processing system developped for crisis response over the years?}
 
 To answer this question, the following request was made on the Scopus database.
+
 \begin{itemize}
     \item SUBJAREA(comp)
     \item AND (TITLE-ABS-KEY({crisis management} or {crisis response} or contingency or {disaster response} or {disaster management}))
@@ -60,6 +61,7 @@ To answer this question, the following request was made on the Scopus database.
 \end{itemize}
 
 The request returns papers that:
+
 \begin{itemize}
     \item Are in the computer science domain, as this domain contains both the AI and Information Systems domains.
     \item Are centered around crises|disasters management|response or contingency plans.
@@ -71,8 +73,7 @@ The request returns 96 documents, published between 2011 and 2021.
 The beginning of this domain of research corresponds to the democratization of social media, with the development of social media plaforms happening during the 2000-2010 period (Figure~\ref{literature:crisis-informatic-hist}).
 Naturally, the field has developed, driven by the need of crisis management organizations and the public interest benefit it promises.
 
-\begin{figure}[bp]
-    \centering
+\begin{figure}[htb]
     \includegraphics[width=\textwidth]{figures/chap-2/crisis-informatic-hist.pdf}
     \caption{Timelime of the volume of contributions per years for the crisis informatic domain. The year 2021 is excluded because the year is not complete at the time of writing.}
     \label{literature:crisis-informatic-hist}
@@ -86,22 +87,23 @@ Artificial intelligence, machine learning and natural language processing appear
 More recently, deep learning models to process text and/or images are appearing, as well as new opportunities created by the internet of things and the development of the concept of smart cities.
 It is also very interesting to observe that social sciences and computers sciences are completely blended altogether.
 
-\begin{figure}[bp]
-    \centering
-    \includegraphics[width=\textwidth]{figures/chap-2/crisis-informatic-bar.pdf}
-    \caption{Distribution of keywords with more than 3 occurrences among the articles from the query on crisis informatics. }
-    \label{literature:crisis-informatic-bar}
-\end{figure}
+\begin{landscape}
+    \begin{figure}[htb]
+        \includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{figures/chap-2/crisis-informatic-overlay.pdf}
+        \caption{Distribution of keywords with more than 3 occurrences among the articles from the query on crisis informatics. }
+        \label{literature:crisis-informatic-overlay}
+    \end{figure}
+\end{landscape}
 
 The bar diagram (Figure~\ref{literature:crisis-informatic-bar}) provides a better representation of the distribution of the occurrences of the different keywords.
 From the most common ones, two areas of interest seem to emerge.
 The automatic processing of the data, mostly textual according to the use of "natural language processing" and "text processing" is no more important than the use of this automation.
 "Disaster prevention", "situation awareness", "information management" and "emergency services" highlight the importance of the applications of the results.
 
-\begin{figure}[bp]
-    \includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio, angle=90]{figures/chap-2/crisis-informatic-overlay.pdf}
+\begin{figure}[htb]
+    \includegraphics[width=\textwidth]{figures/chap-2/crisis-informatic-bar.pdf}
     \caption{Distribution of keywords with more than 3 occurrences among the articles from the query on crisis informatics. }
-    \label{literature:crisis-informatic-overlay}
+    \label{literature:crisis-informatic-bar}
 \end{figure}
 
 As mentioned in the first chapter, automatically processing the content of social media to extract information is a new and promising scientific venue.
@@ -125,6 +127,7 @@ The multiplication of sources and formats naturally leads to the need for unifie
 \begin{table}[bp]
     \centering
     \renewcommand{\arraystretch}{1.5}
+    \caption{Articles retrieved from the previous request which propose social media processing systems or methods with at least 10 citations.}
     \begin{tabular}{m{0.3\textwidth} m{0.2\textwidth} m{0.5\textwidth}}
         Reference                                        & Type of event studied & Features                                                 \\ [0.5ex]
         \toprule
@@ -148,7 +151,6 @@ The multiplication of sources and formats naturally leads to the need for unifie
         \cite{alamDescriptiveVisualSummaries2020a}       & Hurricane             & Information fusion                                       \\
         \bottomrule
     \end{tabular}
-    \caption{Articles retrieved from the previous request which propose social media processing systems or methods with at least 10 citations.}
     \label{table:crisis-informatic-main-articles}
 \end{table}
 
