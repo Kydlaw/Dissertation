@@ -292,3 +292,6 @@ TSWLatexianTemp*
 *.los-glo
 *.los-gls
 *.los-glg
+
+# Others
+2-literature/research-notes.md
