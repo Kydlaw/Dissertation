@@ -173,7 +173,7 @@ Thus, many tackled the problems in this area.
 With the apparition of informatic as a way to delegate tasks, many thought about deligating a part of crisis management to the machine.
 However, managing this information require at first to build representations of the crises for the computers.
 Consequently, ontologies and information models emerged to represent the informational concepts manipulated during an emergency situation.
-This subsection aims at retrieving from the literature the different key informational concepts, useful for decision makers during crisis response.
+This sub-section aims at retrieving from the literature the different key informational concepts, useful for decision makers during crisis response.
 
 The request run on Scopus is as follow:
 \begin{itemize}
@@ -193,7 +193,7 @@ The request returns papers that:
 
 The request returns 205 documents, published between 1998 and 2021.
 Figure~\ref{literature:situation-models-hist} shows the evolution of the volume of publication between 1998 and 2020.
-The field has emerged around 2000 and built momentum during ten years to reach a plateau a mean of around fifteen articles per years to these days.
+The field has emerged around 2000 and built momentum during ten years to reach a plateau of fifteen articles on average per years.
 The domain developped in order to organize the data, information and knowledge present during crisis events.
 To achieve this goal, representions of the different concepts involved during such events were needed.
 Two paths to represent these concepts have been taken: ontologies and metamodels.
@@ -207,14 +207,13 @@ Ontologies, on the other hand, use their own grammar for the entities that its d
 As mentioned in the first chapter, crises are a were wide concept and the creation of ontologies or metamodels of crisis situations is a very challenging task.
 Thus, many ontologies and metamodels have been created to represent different aspects of crisis management.
 
-\begin{figure}[bp]
-    \centering
+\begin{figure}[htb]
     \includegraphics[width=\textwidth]{figures/chap-2/situation-models-hist.pdf}
     \caption{Timelime of the volume of contributions per years for the crisis-situation models domain. The year 2021 is excluded because the year is not complete at the time of writing.}
     \label{literature:situation-models-hist}
 \end{figure}
 
-Following the same methodology as in the previous section, Figure~\ref{literature:/situation-models-overlay} provides a visual of the evolution over time of the different keywords used in the fetched articles.
+Following the same methodology as in the previous section, Figure~\ref{literature:situation-models-overlay} provides a visual of the evolution over time of the different keywords used in the fetched articles.
 The overlay indicates three clusters: a major one and two smaller ones.
 One is related to genes and the other one is related to supply chains and infrastructures.
 The one related to genes is a cluster of outliers, composed of 7 articles from the medical field.
@@ -222,11 +221,13 @@ The second cluster is also composed of few articles centered around ontologies f
 The main cluster however, is more centered on the topic of this literature review.
 As in the previous section, the evolution (represented by the color variation) of the keywords hint at the direction of the domain over time.
 
-\begin{figure}[bp]
-    \includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio, angle=90]{figures/chap-2/situation-models-overlay.pdf}
-    \caption{Distribution of keywords with more than 3 occurrences among the articles from the query on crisis-situation models.}
-    \label{literature:/situation-models-overlay}
-\end{figure}
+\begin{landscape}
+    \begin{figure}[htb]
+        \includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{figures/chap-2/situation-models-overlay.pdf}
+        \caption{Distribution of keywords with more than 3 occurrences among the articles from the query on crisis-situation models.}
+        \label{literature:situation-models-overlay}
+    \end{figure}
+\end{landscape}
 
 Unlike the query, the overlay spans from 2010 to 2016. This is because the overlay does not include all keywords, but only those that appear in at least 3 different articles.
 By cross-checking this information with the previous histogram, one understands the reason for this short period.
@@ -238,7 +239,7 @@ It is possible to hypothesize that it is this loss of interest that has led to t
 Despite this short span covered, it is possible to identify trends in keywords use somehow similar to the ones in crisis informatic.
 The older keywords used, such as "SOA", "simulation", "multi agent systems" and "systems engineering" show an interest centered around the core of what were used ontologies and metamodels for: model driven engineering and information management.
 Then, the field knew a pic of interest, as the previous histogram show.
-This period reflects on Figure~\ref{literature:/situation-models-bar}, where one can observe that most of the most importants keywords are located between 2012 and 2014.
+This period reflects on Figure~\ref{literature:situation-models-bar}, where one can observe that most of the most importants keywords are located between 2012 and 2014.
 As explained previously, the years between 2021 and 2014 were indeed the most prolific.
 These years were mostly focused on the idea of crisis management systems, powered by artifical intelligence for decision support.
 Artificial intelligence would automatically create the information representations needed by systems.
@@ -246,11 +247,10 @@ As these representations would have been written in a common fashion, these syst
 After this period, the interest in the field decrease a few, before coming back with new approaches.
 Knowledge based systems and knowledge management started to appear, as well as a reborn of metamodel and ontologies creation, powered by improvements in machine learning.
 
-\begin{figure}[bp]
-    \centering
+\begin{figure}[htb]
     \includegraphics[width=\textwidth]{figures/chap-2/situation-models-bar.pdf}
     \caption{Distribution of keywords with more than 4 occurrences among the articles from the query on crisis-situation models.}
-    \label{literature:/situation-models-bar}
+    \label{literature:situation-models-bar}
 \end{figure}
 
 In association with the previous qualitative review of the field, Table~\ref{table:situation-models-main-articles} presents the decision makers needs identified in the articles from the previous request with at least 25 citations.
@@ -278,8 +278,9 @@ As being able to geolocate the individual behind a post allows better actionabil
 \begin{table}[bp]
     \centering
     \renewcommand{\arraystretch}{1.5}
+    \caption{Articles retrieved from the previous request which propose social media processing systems or methods with at least 25 citations.}
     \begin{tabular}{m{0.25\textwidth} m{0.75\textwidth}}
-        Reference                                                & Decision makers needs identified       \\ [0.5ex]
+        Reference                                                & Decision makers needs adressed         \\ [0.5ex]
         \toprule
         \cite{benabenMetamodelItsOntology2008b}                  & Collaboration                          \\
         \cite{babitskiOntologybasedIntegrationSensor2009a}       & Sensor integration                     \\
@@ -296,7 +297,6 @@ As being able to geolocate the individual behind a post allows better actionabil
         \cite{qiuIntegratedFloodManagement2017a}                 & Flood management                       \\
         \bottomrule
     \end{tabular}
-    \caption{Articles retrieved from the previous request which propose social media processing systems or methods with at least 25 citations.}
     \label{table:situation-models-main-articles}
 \end{table}
 
@@ -304,97 +304,188 @@ This part identified the different approaches to model information in crisis res
 Yet, most of these approaches are top-down, and few conducted interviews to directly identify decision makers needs'.
 The next section looks at articles in the literature that used a bottom-up approach to identify the aforementioned needs.
 
-\subsection{Business needs of emergency services}
-Interviews and surveys have been conducted to identify what are the information needed by decision makers.
-The goal of this section is similar to the one of the previous section, but considering a different approach.
+\subsection{Information needs of emergency services}
+Emergency management teams have special have special information needs.
+Sociologists have been interested in these needs and have conducted interviews to identify and understand what information is needed.
+This section aims to highlight the main needs identified in the literature.
 
-Thus the aim is to remove the noise (needs that are too specific to certain domains) and the stop-needs (needs that are just way to vague and/or obvious).
-Instance of vague ones: information, situational awareness etc.
+The executed request is:
 
-Request:
 \begin{itemize}
-    \item SUBJAREA(comp)
-    \item AND (TITLE-ABS-KEY ({crisis management} or contingency or {disaster response}))
-    \item AND (TITLE-ABS-KEY (ontology or metamodel))
+    \item TITLE-ABS-KEY({information gathering} or interview?)
+    \item AND TITLE-ABS-KEY({emergency responders} or {Emergency services} or {dispatchers})
+    \item AND (LIMIT-TO (SUBJAREA,"SOCI") OR LIMIT-TO (SUBJAREA,"COMP") OR LIMIT-TO (SUBJAREA,"DECI"))
     \item AND (EXCLUDE(DOCTYPE,"re") OR EXCLUDE(DOCTYPE,"cr"))
 \end{itemize}
 
-Figure~\ref{literature:business-needs-hist}
+It aims at obtaining articles that:
 
-\begin{figure}[bp]
+\begin{itemize}
+    \item Mention information gathering or interview in their content and mention emergency responders, dispatchers or emergency services.
+    \item Are linked to social sciences, computer sciences or decision sciences.
+    \item Papers that present conference tracks and reviews are excluded.
+\end{itemize}
+
+The request returns 219 documents, published between 1995 and 2021.
+The area follows an increasing trend similar to the other two previous areas.
+Interest in the study of emergency services has been growing rapidly since the 2000s.
+This interest grew relatively steadily until today, where about 20 articles are published per year on the subject (Figure~\ref{literature:business-needs-hist}).
+
+\begin{figure}[htb]
     \centering
     \includegraphics[width=\textwidth]{figures/chap-2/business-needs-hist.pdf}
-    \caption{Timelime of the volume of contributions per years for the crisis informatic domain. The year 2021 is excluded because the year is not complete at the time of writing.}
+    \caption{Timelime of the volume of contributions per years for information needs of crisis responders. The year 2021 is excluded because the year is not complete at the time of writing.}
     \label{literature:business-needs-hist}
 \end{figure}
 
-Figure~\ref{literature:business-needs-bar}
+The overlay of the keywords generated from the articles retrieved (Figure~\ref{literature:business-needs-overlay}) spans from 2010 to 2018.
+It reveals two clusters: one centered on medical issues and another one centered on information systems.
+The medical cluster is mainly focused on the well-being of the personnel in charge of the emergency and in particular in their psychological health.
+The other cluster is more focused on the information systems of emergency services and in the management of events.
+This last one being more in connection with the objective of this manuscript, the next analysis will be focused on it.
 
-\begin{figure}[bp]
+\begin{landscape}
+    \begin{figure}[htb]
+        \includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{figures/chap-2/business-needs-overlay.pdf}
+        \caption{Distribution of keywords with more than 3 occurrences among the articles from the query on information needs of crisis responders.}
+        \label{literature:business-needs-overlay}
+    \end{figure}
+\end{landscape}
+
+The left cluster is composed of the most common keywords used in the fetched articles.
+Keywords such as \emph{disaster}, \emph{information systems} and \emph{risk management} (Figure~\ref{literature:business-needs-bar}) are the most prominent ones and seems to be mostly used circa 2014.
+Prior to that period (between 2010 and 2014), the field was mostly focusing on planification of resources and training.
+But the field took a shift towards data processing to support \emph{decision making} during emergency events.
+The collision with the other domains explored in this chapter seems to happen around 2018, were keywords such as \emph{machine learning}, \emph{social media} or \emph{situational awareness}.
+
+\begin{figure}[htb]
     \centering
     \includegraphics[width=\textwidth]{figures/chap-2/business-needs-bar.pdf}
-    \caption{Distribution of keywords with more than 3 occurrences among the articles from the query on crisis informatics. }
+    \caption{Distribution of keywords with more than 3 occurrences among the articles from the query on information needs of crisis responders.}
     \label{literature:business-needs-bar}
 \end{figure}
 
-Figure~\ref{literature:business-needs-overlay}
+Table~\ref{table:business-needs-main-articles} provides a summary of the responders need identified in the most prominent articles in the field.
+Articles were selected if they had at least 25 citations, have been published in 2010 or after, are located in the information systems cluster and are not duplicates.
+The articles retrieved provide insights on what are some of the pain points of emergency organizations.
 
-\begin{figure}[bp]
-    \includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio, angle=90]{figures/chap-2/business-needs-overlay.pdf}
-    \caption{Distribution of keywords with more than 3 occurrences among the articles from the query on crisis informatics. }
-    \label{literature:business-needs-overlay}
-\end{figure}
+Some studies are event specific, due to a governemental request or a gap in the emergency preparation cover.
+\textcite{lindellTsunamiPreparednessOregon2010a} is interested in tsunamis management on the US east coast and \textcite{cabreraaguileraModellingPerformanceVariabilities2016a} tackle oil spill.
+Both studies do not address any particular point in the management of this type of event.
+Rather, they implement the entire crisis management cycle for these events, which were not considered until their work.
+Unfortunately, no specific information need for decision-makers emerges.
 
-% Les articles partials ont été prit pour au moins 25 citations, comme pour les articles de les modeles de situations de crise.
+On the other hand, others articles are most focused on specific needs of emergency organizations.
+Collaboration, information sharing and joint preparation exercices are one of the concerns raised \parencite{berlinWhyCollaborationMinimised2011a,parkerSurfaceWaterFlood2011a}.
+The increasing complexity of crisis events ask for a wider range of skills.
+As no organization can possess all the required skills at the same time, other actors have to be involved.
+Crisis management organization acknowledge that an unexpected collaboration between actors yield poor outcomes during the response.
+Thus, exercices and discussions are key during the preparation phase and an adequate means of communication between the actors during the response are needs identified by the studies.
 
-""Decision makers information needs identified through interviews""
+\textcite{yangDesignPrinciplesIntegrated2012a} highlight an interesting and well mentioned need for crisis response: situation awareness.
+Situation awareness correspond to the representation of the state of the environment that surround the emergency response organization during an event.
+This representation directly guides decision making.
+Consequently, building the best and most accurate representation possible directly at the start of the event is critical.
+In there are articles, \citeauthor{yangDesignPrinciplesIntegrated2012a} emphasize 4 critical pieces of information for situational awareness:
 
-% Table~\ref{table:business-needs-main-articles}
+\begin{enumerate}
+    \item Environmental conditions such as the building infrastructure, number of occupants, and the exact location of any hazard;
+    \item Information on the response participants such as who is involved in the response, what skills they could offer, and what resources they bring to the scene;
+    \item The status of any casualties, the accident location, cause, and severity; and
+    \item The available resources including equipment and food.
+\end{enumerate}
 
-% \begin{table}[bp]
-%     \centering
-%     \renewcommand{\arraystretch}{1.5}
-%     \begin{tabular}{m{0.25\textwidth} m{0.75\textwidth}}
-%         Reference                                                                     & Features \\ [0.5ex]
-%         \toprule
-%         \cite{thepreventionofmaternalmortalitynetworkSituationAnalysesEmergency1995a} &          \\
-%         \cite{shulerSeekingEmotionalLabor2000a}                                       &          \\
-%         \cite{enarsonWhatWomenGendered2001b}                                          &          \\
-%         \cite{rosmullerGroupDecisionMaking2004a}                                      &          \\
-%         \cite{toupsImplicitCoordinationFirefighting2007a}                             &          \\
-%         \cite{rietjensCoordinatingHumanitarianOperations2007a}                        &          \\
-%         \cite{smallAccessHealthSocial2009a}                                           &          \\
-%         \cite{chengFuzzyPetriNets2009a}                                               &          \\
-%         \cite{lindellTsunamiPreparednessOregon2010a}                                  &          \\
-%         \cite{melsCommunitybasedCrossculturalAdaptation2010a}                         &          \\
-%         \cite{aloudatRegulationUbiquitousMobile2011a}                                 &          \\
-%         \cite{berlinWhyCollaborationMinimised2011a}                                   &          \\
-%         \cite{parkerSurfaceWaterFlood2011a}                                           &          \\
-%         \cite{yangDesignPrinciplesIntegrated2012a}                                    &          \\
-%         \cite{tapiaTrustworthyTweetDeeper2013a}                                       &          \\
-%         \cite{cobbDesigningDelugeUnderstanding2014c}                                  &          \\
-%         \cite{namChangingFaceCity2014a}                                               &          \\
-%         \cite{tapiaGoodEnoughGood2014b}                                               &          \\
-%         \cite{rozerCopingPluvialFloods2016a}                                          &          \\
-%         \cite{cabreraaguileraModellingPerformanceVariabilities2016a}                  &          \\
-%         \cite{hopeMemoryOperationalWitness2016a}                                      &          \\
-%         \bottomrule
-%     \end{tabular}
-%     \caption{Articles on informational needs of emergency responders retrieved from the previous request with at least 25 citations.}
-%     \label{table:business-needs-main-articles}
-% \end{table}
+As per the authors, "timeliness, accuracy, and completeness are the critical dynamic attributes of these four categories of information".
+The next chapter (chapter 3) will dive deeper into this concept.
 
-\subsection{What about social media data?}
-The original question asks is \emph{What information that can be obtained from social media is relevant to the decisiom makers in crisis response?}
-The review listed the different information identified by previous work for decision makers during crisis response.
-But few actually take into account social media data.
-While the social media part was at first took aside, let's recenter the results on the social media aspect of it.
+The issue with building an accurate situation awareness is the need for information.
+With the disruption of the regular means of communication and information channels, decison makers are shrouded in darkness.
+According to \textcite{tapiaTrustworthyTweetDeeper2013a,cobbDesigningDelugeUnderstanding2014a}, some emergency centers acknowledge the benefit of social media as a potential information source.
+However, the issue identified is the lack of tools and methods, similar to the ones that built for calls, for social media.
 
-""List of the articles that take social media into account or the hypotheses that they formulated to include them or extend their models.""
+Finally, the last need identified among the extracted items is the communication to the public.
+\textcite{aloudatRegulationUbiquitousMobile2011a} insist on the potential yielded by modern communication means such as cell phones and social media to share information with the public during an event.
+As people are not always around a radio or a TV, they often miss critical messages during fast moving events (floods, fires...), resulting in casualties.
+On the other hand, (almost literally) most of the population carry a cellphone nowadays, and the critical messages could be distributed faster and with a better viewing rate than traditional methods.
+Text messages or notifications from social media could be more effective communication channels that emergency response teams should use.
 
-This first part of the literature review identified the different informational needs of decisions makers during crisis response.
-The aim of this manuscript is to be able to collect data from social media and extract information from it.
-The first chapter identified NLP's tools as a solution to the information extraction problem.
+\begin{table}[bp]
+    \centering
+    \renewcommand{\arraystretch}{1.5}
+    \caption{Articles on informational needs of emergency responders retrieved from the previous request with at least 25 citations.}
+    \begin{tabular}{m{0.25\textwidth} m{0.75\textwidth}}
+        Reference                                                    & Business need identified by the authors.                                                                                                                                                                               \\ [0.5ex]
+        \toprule
+        \cite{lindellTsunamiPreparednessOregon2010a}                 & Tsunami training                                                                                                                                                                                                       \\
+        \cite{aloudatRegulationUbiquitousMobile2011a}                & Communication to the public                                                                                                                                                                                            \\
+        \cite{berlinWhyCollaborationMinimised2011a}                  & Collaboration between the different actors                                                                                                                                                                             \\
+        \cite{parkerSurfaceWaterFlood2011a}                          & Create conversations between unusual actors during the preparation phase                                                                                                                                               \\
+        \cite{yangDesignPrinciplesIntegrated2012a}                   & Increase situation awareness, Identify key informations~\footnote{(hazard environment, information concerning the responder workforce, information on evolving safety issues, and information about safety equipment)} \\
+        \cite{tapiaTrustworthyTweetDeeper2013a}                      & Accounting for informal sources of data (such as social media)                                                                                                                                                         \\
+        \cite{cobbDesigningDelugeUnderstanding2014a}                 & Big data processing methods adapted to social media data                                                                                                                                                               \\
+        \cite{cabreraaguileraModellingPerformanceVariabilities2016a} & Oil spill preparation                                                                                                                                                                                                  \\
+        \bottomrule
+    \end{tabular}
+    \label{table:business-needs-main-articles}
+\end{table}
+
+In concl
+
+\subsection{Information needs: place of social media?}
+Looking back at the first chapter, the sub problematic linked to this section was: \emph{What information that can be obtained from social media is relevant to the decisiom makers in crisis response?}
+The two previous subsections identified several references that explored the information needs of decision makers in crisis management.
+Each sub-section respectively explored top-down and bottom-up approaches.
+However, social media were not directly considered in the query made on the bibliographic database as social media are not the only concern of these fields.
+
+This sub-section emphasize on the intersection of the previous results and social media.
+Crisis situation models:
+Among the 205 documents on crisis situation models, 22 articles include the keywords \emph{social media} or \emph{twitter} to the query.
+Two articles from the list of articles qualified as prominent are centered on social media:
+
+\begin{itemize}
+    \item \textcite{purohitIdentifyingSeekersSuppliers2014a}
+    \item \textcite{ghahremanlouGeotaggingTwitterMessages2014a}
+\end{itemize}
+
+The same approach applied to the needs of crisis management organizations provides a similar number of articles.
+22 articles among the 219 mention \emph{social media} or \emph{twitter}.
+Among the articles studied in the previous part, two are dedicated to social media:
+
+\begin{itemize}
+    \item \textcite{cobbDesigningDelugeUnderstanding2014a}
+    \item \textcite{tapiaTrustworthyTweetDeeper2013a}
+\end{itemize}
+
+In both cases, only roughly 10\% of the total body of surveys mention social media.
+% From the remaining articles, most of the ontologies or metamodels are studied and represent information flows during an event.
+% For instance, \textcite{montarnalAutomatedEmergenceCrisis2017a} create an ontology to merge data coming from social media and sensors.
+% \textcite{gaurEmpathiOntologyEmergency2019a} followed up by adding satellites images.
+% It appears that the information available during the event and the management of the same event are too different to get associated in the same representation.
+% Despite this explanation, very few link the two to create a representation of emergency management mindful of the information available.
+
+This section was answering the question: \emph{what information is relevant to the decisiom makers in crisis response?}
+Many studied this question and this section explored two ways taken by two research communities to answer this question.
+These two ways correspond to the two subsections.
+The first sub-section was dedicated to model engineering and the previous attempts to create representations or abstractions to represent the concepts involved in an emergency.
+This approach is fed by the need of automation of certain tasks in crisis management, hence the need of concepts to represent and manage the different aspects.
+However, this approach is essentially top-down, and few references actually report feedbacks from field interviews.
+
+This insight feeds the need to gather the information requirements of the primary users during their operations.
+Hence, the second sub-section, dedicated to the report of these information requirements gathered through interviews.
+Yet, this bottom-up approach is unstructured, and the results would need additional work to get integrated in an automation system.
+
+Overall, the information needs identified are:
+
+\begin{itemize}
+    \item Situation Awareness
+    \item Collaboration
+    \item Communication to the public
+    \item Social media accounting
+    \item Sensor data integration
+    \item Large data volume processing
+\end{itemize}
+
+The next section will be dedicated to the existing ways of identifying and mining information from social media, in order to later retrieve the previous information.
 
 \section{NLP tools for information extraction from social media data}
 The first chapter presented the NLP domain.
