@@ -97,7 +97,19 @@ It is organized in order to successively narrow the scientific challenges around
 FB - Pas faire un etat de l'art pour faire un etat de l'art.
 Faire un etat de l'art qui se justifie
 
-# Crisis situation models that serve social media operators.
+# Chapter 3 - Crisis situation models that serve social media operators.
+Ce chapitre répond à la question : Quelles informations doit traiter le SI en gestion de crise?
+Input : La revue de litérature
+Output : Le modèle d'information qui sera manipulé par le futur système
+Comment on y arrive : Identification du besoin des utilisateurs
+Revue de leurs intérêts et soucis qu'ils doivent affronter.
+Puis -> réalisation du modèle.
+
+Ce chapitre est donc divise en plusieurs sections:
+- Dans quel contexte sont traites les medias sociaux ? Qui s'en occupe ?
+- De quelles informations ont-ils besoin ? Plongée dans la connaissance de la situation et l'actionable information et d'autres besoins identifiés.
+- Intersection avec les modèles de situation de crise vu précédement
+
 %% Jonction entre le : "quel modele je peux constuire avec les donnees issues de medias sociaux" et "de quoi on besoin les gens qui utilisent les media sociaux en gestion de crise" %%
 ## Introduction
 On s'interesse a la reponse
@@ -150,7 +162,7 @@ Retour sur les models d'information pour le CM.
 
 # Identification of relevant entities in social media data for crisis response : a semi-supervised approach
 
-## Challenges that we face
+## Problem diagnosis
 - Why labelisation at the token level and not at the sentence?
 - Why not use a deep neural network to do this?
 	- Lack of a labeled data and this approach usually requires a lot of data.
