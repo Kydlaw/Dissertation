@@ -16,6 +16,7 @@ Especially VOSviewer allows to visualize bibliographic features such as the netw
 The keywords used by the different articles fetched by the request provide valuable insights on the evolution of a given field, especially on its interdisciplinary aspect.
 Finally, a review of some of the most influential articles from the query result will be discussed.
 The influence criteria will be the number of citations.
+%TODO Explain the exclusion of the conference tracks presentation and reviews papers in all the request.
 
 This methodology aims to provide a sufficient understanding of the interest and evolution of the topics explored, as well as answers related to the subproblematics exposed.
 
@@ -97,8 +98,8 @@ It is also very interesting to observe that social sciences and computers scienc
 
 The bar diagram (Figure~\ref{literature:crisis-informatic-bar}) provides a better representation of the distribution of the occurrences of the different keywords.
 From the most common ones, two areas of interest seem to emerge.
-The automatic processing of the data, mostly textual according to the use of "natural language processing" and "text processing" is no more important than the use of this automation.
-"Disaster prevention", "situation awareness", "information management" and "emergency services" highlight the importance of the applications of the results.
+The automatic processing of the data, mostly textual according to the use of \emph{natural language processing} and \emph{text processing} is no more important than the use of this automation.
+\emph{Disaster prevention}, \emph{situation awareness}, \emph{information management} and \emph{emergency services} highlight the importance of the applications of the results.
 
 \begin{figure}[htb]
     \includegraphics[width=\textwidth]{figures/chap-2/crisis-informatic-bar.pdf}
@@ -114,64 +115,68 @@ From these main systems, were extracted the main features presented by their aut
 
 Among the features identified, the trend towards automation observed earlier is still clear.
 The first works present systems that use crowdsourcing to identify relevant information from messages posted on social media
-(\cite{schulzCrisisInformationManagement2012a, backfriedOpenSourceIntelligence2012a, imranAIDRArtificialIntelligence2014b}).
+(\cite{schulzCrisisInformationManagement2012, backfriedOpenSourceIntelligence2012, imranAIDRArtificialIntelligence2014b}).
 The following works were interested in automating the previous tasks, presumably to reduce the dependence on human actors and to improve the processing of the important amount of data.
-Problems related to the detection of occurence of events and their related information on social media, have been explored using different approaches (\cite{imranAIDRArtificialIntelligence2014b,middletonRealtimeCrisisMapping2014a,avvenutiEARSEarthquakeAlert2014a, gibsonCombiningBigSocial2014a}).
-In parallel, experiments were conducted to identify the best ways to organize and disseminate the information obtained (\cite{middletonRealtimeCrisisMapping2014a,huangDisasterMapperCyberGISFramework2015a,avvenutiPullingInformationSocial2016a,grunder-fahrerTopicsTopicalPhases2018a}).
-Building on its successes, the field has continued to develop by relying on other available data formats and in particular images (\cite{alamImage4ActOnlineSocial2017a,nguyenAutomaticImageFiltering2017a,agarwalCrisisDIASMultimodalDamage2020a}).
+Problems related to the detection of occurence of events and their related information on social media, have been explored using different approaches (\cite{imranAIDRArtificialIntelligence2014b,middletonRealtimeCrisisMapping2014,avvenutiEARSEarthquakeAlert2014, gibsonCombiningBigSocial2014}).
+In parallel, experiments were conducted to identify the best ways to organize and disseminate the information obtained (\cite{middletonRealtimeCrisisMapping2014,huangDisasterMapperCyberGISFramework2015,avvenutiPullingInformationSocial2016,grunder-fahrerTopicsTopicalPhases2018}).
+Building on its successes, the field has continued to develop by relying on other available data formats and in particular images (\cite{alamImage4ActOnlineSocial2017,nguyenAutomaticImageFiltering2017,agarwalCrisisDIASMultimodalDamage2020}).
 Beyond the data, new questions have emerged, following feedback from the emergency departments involved in the experiments.
-The detection of sub-events and of the different concerns of the impacted population are added to the results of previous works (\cite{wuStreamExplorerMultiStageSystem2018a,raginiBigDataAnalytics2018a,grunder-fahrerTopicsTopicalPhases2018a}).
-More recently, teams with a broader vision are interested in the integration of such systems within the connected city (\cite{shahDisasterResilientSmart2019a}).
-The multiplication of sources and formats naturally leads to the need for unified processing methods for data and fusion of information obtained by the different channels (\cite{alamDescriptiveVisualSummaries2020a}).
+The detection of sub-events and of the different concerns of the impacted population are added to the results of previous works (\cite{wuStreamExplorerMultiStageSystem2018,raginiBigDataAnalytics2018,grunder-fahrerTopicsTopicalPhases2018}).
+More recently, teams with a broader vision are interested in the integration of such systems within the connected city (\cite{shahDisasterResilientSmart2019}).
+The multiplication of sources and formats naturally leads to the need for unified processing methods for data and fusion of information obtained by the different channels (\cite{alamDescriptiveVisualSummaries2020}).
 
 \begin{table}[bp]
     \centering
     \renewcommand{\arraystretch}{1.5}
     \caption{Articles retrieved from the previous request which propose social media processing systems or methods with at least 10 citations.}
     \begin{tabular}{m{0.3\textwidth} m{0.2\textwidth} m{0.5\textwidth}}
-        Reference                                        & Type of event studied & Features                                                 \\ [0.5ex]
+        Reference                                       & Type of event studied & Features                                                 \\ [0.5ex]
         \toprule
-        \cite{schulzCrisisInformationManagement2012a}    & None                  & Crowdsourcing                                            \\
-        \cite{backfriedOpenSourceIntelligence2012a}      & None                  & Crowdsourcing, Automatic processing                      \\
-        \cite{imranAIDRArtificialIntelligence2014b}      & None                  & Crowdsourcing, Information categories, Message filtering \\
-        \cite{middletonRealtimeCrisisMapping2014a}       & None                  & Common Operational Picture, Location inference           \\
-        \cite{avvenutiEARSEarthquakeAlert2014a}          & Earthquake            & Event detection                                          \\
-        \cite{gibsonCombiningBigSocial2014a}             & None                  & Formal concept analysis, Rule-based method               \\
-        \cite{glasgowOurGriefUnspeakable2014a}           & None                  & Death-related content detection                          \\
-        \cite{huangDisasterMapperCyberGISFramework2015a} & None                  & Big Data, Common Operational Picture                     \\
-        \cite{avvenutiPullingInformationSocial2016a}     & Earthquake, Flooding  & Event detection, Message filtering, Disaster management  \\
-        \cite{alamImage4ActOnlineSocial2017a}            & None                  & Image processing, Infrastructure damage                  \\
-        \cite{fersiniEarthquakeManagementDecision2017a}  & Earthquake            & Message filtering, Information management                \\
-        \cite{nguyenAutomaticImageFiltering2017a}        & None                  & Image processing, De-duplication, Image filtering        \\
-        \cite{raginiBigDataAnalytics2018a}               & Flooding              & Sentiment analysis                                       \\
-        \cite{shahDisasterResilientSmart2019a}           & Earthquake, Tsunami   & Smart Cities, IoT integration                            \\
-        \cite{grunder-fahrerTopicsTopicalPhases2018a}    & None                  & Topic modeling, Disaster management                      \\
-        \cite{wuStreamExplorerMultiStageSystem2018a}     & None                  & Subevent detection, Clustering                           \\
-        \cite{agarwalCrisisDIASMultimodalDamage2020a}    & None                  & Damage identification, Severity detection                \\
-        \cite{alamDescriptiveVisualSummaries2020a}       & Hurricane             & Information fusion                                       \\
+        \cite{schulzCrisisInformationManagement2012}    & None                  & Crowdsourcing                                            \\
+        \cite{backfriedOpenSourceIntelligence2012}      & None                  & Crowdsourcing, Automatic processing                      \\
+        \cite{imranAIDRArtificialIntelligence2014b}     & None                  & Crowdsourcing, Information categories, Message filtering \\
+        \cite{middletonRealtimeCrisisMapping2014}       & None                  & Common Operational Picture, Location inference           \\
+        \cite{avvenutiEARSEarthquakeAlert2014}          & Earthquake            & Event detection                                          \\
+        \cite{gibsonCombiningBigSocial2014}             & None                  & Formal concept analysis, Rule-based method               \\
+        \cite{glasgowOurGriefUnspeakable2014}           & None                  & Death-related content detection                          \\
+        \cite{huangDisasterMapperCyberGISFramework2015} & None                  & Big Data, Common Operational Picture                     \\
+        \cite{avvenutiPullingInformationSocial2016}     & Earthquake, Flooding  & Event detection, Message filtering, Disaster management  \\
+        \cite{alamImage4ActOnlineSocial2017}            & None                  & Image processing, Infrastructure damage                  \\
+        \cite{fersiniEarthquakeManagementDecision2017}  & Earthquake            & Message filtering, Information management                \\
+        \cite{nguyenAutomaticImageFiltering2017}        & None                  & Image processing, De-duplication, Image filtering        \\
+        \cite{raginiBigDataAnalytics2018}               & Flooding              & Sentiment analysis                                       \\
+        \cite{shahDisasterResilientSmart2019}           & Earthquake, Tsunami   & Smart Cities, IoT integration                            \\
+        \cite{grunder-fahrerTopicsTopicalPhases2018}    & None                  & Topic modeling, Disaster management                      \\
+        \cite{wuStreamExplorerMultiStageSystem2018}     & None                  & Subevent detection, Clustering                           \\
+        \cite{agarwalCrisisDIASMultimodalDamage2020}    & None                  & Damage identification, Severity detection                \\
+        \cite{alamDescriptiveVisualSummaries2020}       & Hurricane             & Information fusion                                       \\
         \bottomrule
     \end{tabular}
     \label{table:crisis-informatic-main-articles}
 \end{table}
 
-%TODO Conclusion of the section
+This introductory section presented previous works around crisis informatics.
+More particularly, it highlighted the development of the field over time.
+This is directly reflected in the different systems developed and their features.
+An interesting trend to note is the move towards more and more automation in systems.
+First using crowdsourcing for initial data labeling, the following systems used machine learning to classify the data into different categories.
+Later, automation was further extended to other valuable data types and ways to merge the information acquired.
 
-\section{Decision making in crisis situation: information needed}
-This first part of the literature review tackles the first sub problematic: What information that can be obtained from social media is relevant to the decisiom makers in crisis response?
-Its looks at answers at the question: \emph{what information is relevant to the decisiom makers in crisis response?}
+\section{Decision making in crisis situation}
+This part of the literature review explores the bibliographic context aroung the first sub problematic: What information that can be obtained from social media is relevant to the decisiom makers in crisis response?
+Specifically, its looks at answers at the question: \emph{what is the decision-making context in emergency situations?}
 
-Information are at the heart of the decision making process (references to the decision making processs + figure to summarize the whole process)
-In order to make decisions, the decision maker will look for information on certain elements.
-What are these information?
+Decision making is at the heart of the response during a disaster.
+Ideally, the right decisions need to be made at the right time.
+In order to get as close as possible of that unrealistic expectation, it is best to first
+understand: (i) the previous attempts to understand the word of decisions makers and
+(ii) what hinders them in the performance of their tasks and their main pains?
 
-The first part of this literature review will look at different attempts to model the information needed in crisis response, from a decision maker point of view.
-This part only consider the models that consider in their scope the stakes of crisis management identified in the first chapter: improve coordination and/or situational awareness.
-
-\subsection{Information identified for crises: crisis situation models}
-Crisis management is not a novel issue.
+\subsection{Organization of information during crises: crisis situation models}
+Crisis management is as ancient as crises themselves.
 Thus, many tackled the problems in this area.
-With the apparition of informatic as a way to delegate tasks, many thought about deligating a part of crisis management to the machine.
-However, managing this information require at first to build representations of the crises for the computers.
+With the advent of computers as a way to delegate tasks, many have thought of delegating some of the crisis management to machines.
+However, managing this information require at first to build representations (or abstractions) of crises for computers.
 Consequently, ontologies and information models emerged to represent the informational concepts manipulated during an emergency situation.
 This sub-section aims at retrieving from the literature the different key informational concepts, useful for decision makers during crisis response.
 
@@ -256,45 +261,45 @@ Knowledge based systems and knowledge management started to appear, as well as a
 In association with the previous qualitative review of the field, Table~\ref{table:situation-models-main-articles} presents the decision makers needs identified in the articles from the previous request with at least 25 citations.
 Duplicates and unrelated articles (e.g. gene ontologies) are also excluded.
 This review of the main articles highlight the diversity of approaches covered by ontologies and metamodels.
-Some of these ontologies are event specific (\cite{xuModelingRepresentationEarthquake2014a,qiuIntegratedFloodManagement2017a,jungOntologydrivenSlopeModeling2015a}).
+Some of these ontologies are event specific (\cite{xuModelingRepresentationEarthquake2014,qiuIntegratedFloodManagement2017,jungOntologydrivenSlopeModeling2015}).
 While these models are effective at dealing with the event they are designed for, most of their concept representations do not fit with other kind of events.
 
 Collaboration between the actors is, as presented in the introductory chapter, a matter of interest for crisis management organizations.
 Thus (\cite{benabenMetamodelItsOntology2008b}) and (\cite{othmanDevelopmentValidationDisaster2014b}) propose metamodels to represent the collaboration between several actors, independantly of the type of crisis.
 
 Others have also focused on emergency organization and proposed ways to improve their functioning.
-\cite{chouOntologyDevelopingWeb2011a} proposed a way to automatically create websites to dissemination information related to an ongoing event.
-As reports are an important concerns and participate to information overload, \cite{liOntologyenrichedMultiDocumentSummarization2010a} created an ontology to assist in report summarization.
-Disaster management software are inherently complex. Thus, \cite{babitskiSoKNOSUsingSemantic2011a} proposed an ontology to assist in their development and another to assess their functionalities.
-As disaster management systems grow, they become intricated and complex. \cite{madniSystemsIntegrationKey2014a} proposed an ontology to facilitate their integration into a functioning system of systems.
+\cite{chouOntologyDevelopingWeb2011} proposed a way to automatically create websites to dissemination information related to an ongoing event.
+As reports are an important concerns and participate to information overload, \cite{liOntologyenrichedMultiDocumentSummarization2010} created an ontology to assist in report summarization.
+Disaster management software are inherently complex. Thus, \cite{babitskiSoKNOSUsingSemantic2011} proposed an ontology to assist in their development and another to assess their functionalities.
+As disaster management systems grow, they become intricated and complex. \cite{madniSystemsIntegrationKey2014} proposed an ontology to facilitate their integration into a functioning system of systems.
 
 All the systems mentioned above require data.
 Fortunately, sensors are excellent ways to keep emergency responders informed of certain caracteristics of their environment.
-\cite{posladSemanticIoTEarly2015a} and \cite{babitskiOntologybasedIntegrationSensor2009a} proposed ontologies to better integrate sensors data into crisis cells.
+\cite{posladSemanticIoTEarly2015} and \cite{babitskiOntologybasedIntegrationSensor2009} proposed ontologies to better integrate sensors data into crisis cells.
 Finally, another type of sensor considered are humans, acting as social sensors whose data can be automatically gathered from social media plateforms.
-\cite{purohitIdentifyingSeekersSuppliers2014a} proposed an ontology to identify victims requests and volunteers capabilities from tweets.
-As being able to geolocate the individual behind a post allows better actionability for emergency services, \cite{ghahremanlouGeotaggingTwitterMessages2014a} built an ontology to help solve this issue.
+\cite{purohitIdentifyingSeekersSuppliers2014} proposed an ontology to identify victims requests and volunteers capabilities from tweets.
+As being able to geolocate the individual behind a post allows better actionability for emergency services, \cite{ghahremanlouGeotaggingTwitterMessages2014} built an ontology to help solve this issue.
 
 \begin{table}[bp]
     \centering
     \renewcommand{\arraystretch}{1.5}
     \caption{Articles retrieved from the previous request which propose social media processing systems or methods with at least 25 citations.}
     \begin{tabular}{m{0.25\textwidth} m{0.75\textwidth}}
-        Reference                                                & Decision makers needs adressed         \\ [0.5ex]
+        Reference                                               & Decision makers needs adressed         \\ [0.5ex]
         \toprule
-        \cite{benabenMetamodelItsOntology2008b}                  & Collaboration                          \\
-        \cite{babitskiOntologybasedIntegrationSensor2009a}       & Sensor integration                     \\
-        \cite{liOntologyenrichedMultiDocumentSummarization2010a} & Reports summarization                  \\
-        \cite{babitskiSoKNOSUsingSemantic2011a}                  & Disaster management software usability \\
-        \cite{chouOntologyDevelopingWeb2011a}                    & Automatic web sites creation           \\
-        \cite{ghahremanlouGeotaggingTwitterMessages2014a}        & Location retrieval                     \\
-        \cite{madniSystemsIntegrationKey2014a}                   & System integration                     \\
-        \cite{othmanDevelopmentValidationDisaster2014b}          & Collaboration                          \\
-        \cite{purohitIdentifyingSeekersSuppliers2014a}           & Identify victims and volunteers        \\
-        \cite{xuModelingRepresentationEarthquake2014a}           & Earthquake management                  \\
-        \cite{jungOntologydrivenSlopeModeling2015a}              & Landslide prevention                   \\
-        \cite{posladSemanticIoTEarly2015a}                       & Sensor intregration                    \\
-        \cite{qiuIntegratedFloodManagement2017a}                 & Flood management                       \\
+        \cite{benabenMetamodelItsOntology2008b}                 & Collaboration                          \\
+        \cite{babitskiOntologybasedIntegrationSensor2009}       & Sensor integration                     \\
+        \cite{liOntologyenrichedMultiDocumentSummarization2010} & Reports summarization                  \\
+        \cite{babitskiSoKNOSUsingSemantic2011}                  & Disaster management software usability \\
+        \cite{chouOntologyDevelopingWeb2011}                    & Automatic web sites creation           \\
+        \cite{ghahremanlouGeotaggingTwitterMessages2014}        & Location retrieval                     \\
+        \cite{madniSystemsIntegrationKey2014}                   & System integration                     \\
+        \cite{othmanDevelopmentValidationDisaster2014b}         & Collaboration                          \\
+        \cite{purohitIdentifyingSeekersSuppliers2014}           & Identify victims and volunteers        \\
+        \cite{xuModelingRepresentationEarthquake2014}           & Earthquake management                  \\
+        \cite{jungOntologydrivenSlopeModeling2015}              & Landslide prevention                   \\
+        \cite{posladSemanticIoTEarly2015}                       & Sensor intregration                    \\
+        \cite{qiuIntegratedFloodManagement2017}                 & Flood management                       \\
         \bottomrule
     \end{tabular}
     \label{table:situation-models-main-articles}
@@ -304,10 +309,14 @@ This part identified the different approaches to model information in crisis res
 Yet, most of these approaches are top-down, and few conducted interviews to directly identify decision makers needs'.
 The next section looks at articles in the literature that used a bottom-up approach to identify the aforementioned needs.
 
-\subsection{Information needs of emergency services}
-Emergency management teams have special have special information needs.
-Sociologists have been interested in these needs and have conducted interviews to identify and understand what information is needed.
-This section aims to highlight the main needs identified in the literature.
+\subsection{Business needs of emergency services}
+Emergency management teams are tasked with novel and complex decisions.
+Information collection is one of the lever that ease decision making and, therefore,
+facilitate crisis management.
+Knowing what are the different elements that hinders emergency management teams from
+achieving their goals and what could ease information gathering is of the utmost importance to improve crisis management.
+Researchers in social sciences have been interested in the study of these pain points.
+This section aims to highlight the main issues identified in the literature.
 
 The executed request is:
 
@@ -370,23 +379,23 @@ Articles were selected if they had at least 25 citations, have been published in
 The articles retrieved provide insights on what are some of the pain points of emergency organizations.
 
 Some studies are event specific, due to a governemental request or a gap in the emergency preparation cover.
-\textcite{lindellTsunamiPreparednessOregon2010a} is interested in tsunamis management on the US east coast and \textcite{cabreraaguileraModellingPerformanceVariabilities2016a} tackle oil spill.
+\textcite{lindellTsunamiPreparednessOregon2010} is interested in tsunamis management on the US east coast and \textcite{cabreraaguileraModellingPerformanceVariabilities2016} tackle oil spill.
 Both studies do not address any particular point in the management of this type of event.
 Rather, they implement the entire crisis management cycle for these events, which were not considered until their work.
 Unfortunately, no specific information need for decision-makers emerges.
 
 On the other hand, others articles are most focused on specific needs of emergency organizations.
-Collaboration, information sharing and joint preparation exercices are one of the concerns raised \parencite{berlinWhyCollaborationMinimised2011a,parkerSurfaceWaterFlood2011a}.
+Collaboration, information sharing and joint preparation exercices are one of the concerns raised \parencite{berlinWhyCollaborationMinimised2011,parkerSurfaceWaterFlood2011}.
 The increasing complexity of crisis events ask for a wider range of skills.
 As no organization can possess all the required skills at the same time, other actors have to be involved.
 Crisis management organization acknowledge that an unexpected collaboration between actors yield poor outcomes during the response.
 Thus, exercices and discussions are key during the preparation phase and an adequate means of communication between the actors during the response are needs identified by the studies.
 
-\textcite{yangDesignPrinciplesIntegrated2012a} highlight an interesting and well mentioned need for crisis response: situation awareness.
+\textcite{yangDesignPrinciplesIntegrated2012} highlight an interesting and well mentioned need for crisis response: situation awareness.
 Situation awareness correspond to the representation of the state of the environment that surround the emergency response organization during an event.
 This representation directly guides decision making.
 Consequently, building the best and most accurate representation possible directly at the start of the event is critical.
-In there are articles, \citeauthor{yangDesignPrinciplesIntegrated2012a} emphasize 4 critical pieces of information for situational awareness:
+In there are articles, \citeauthor{yangDesignPrinciplesIntegrated2012} emphasize 4 critical pieces of information for situational awareness:
 
 \begin{enumerate}
     \item Environmental conditions such as the building infrastructure, number of occupants, and the exact location of any hazard;
@@ -400,11 +409,11 @@ The next chapter (chapter 3) will dive deeper into this concept.
 
 The issue with building an accurate situation awareness is the need for information.
 With the disruption of the regular means of communication and information channels, decison makers are shrouded in darkness.
-According to \textcite{tapiaTrustworthyTweetDeeper2013a,cobbDesigningDelugeUnderstanding2014a}, some emergency centers acknowledge the benefit of social media as a potential information source.
+According to \textcite{tapiaTrustworthyTweetDeeper2013,cobbDesigningDelugeUnderstanding2014}, some emergency centers acknowledge the benefit of social media as a potential information source.
 However, the issue identified is the lack of tools and methods, similar to the ones that built for calls, for social media.
 
 Finally, the last need identified among the extracted items is the communication to the public.
-\textcite{aloudatRegulationUbiquitousMobile2011a} insist on the potential yielded by modern communication means such as cell phones and social media to share information with the public during an event.
+\textcite{aloudatRegulationUbiquitousMobile2011} insist on the potential yielded by modern communication means such as cell phones and social media to share information with the public during an event.
 As people are not always around a radio or a TV, they often miss critical messages during fast moving events (floods, fires...), resulting in casualties.
 On the other hand, (almost literally) most of the population carry a cellphone nowadays, and the critical messages could be distributed faster and with a better viewing rate than traditional methods.
 Text messages or notifications from social media could be more effective communication channels that emergency response teams should use.
@@ -414,27 +423,25 @@ Text messages or notifications from social media could be more effective communi
     \renewcommand{\arraystretch}{1.5}
     \caption{Articles on informational needs of emergency responders retrieved from the previous request with at least 25 citations.}
     \begin{tabular}{m{0.25\textwidth} m{0.75\textwidth}}
-        Reference                                                    & Business need identified by the authors.                                                                                                                                                                               \\ [0.5ex]
+        Reference                                                   & Business need identified by the authors.                                                                                                                                                                               \\ [0.5ex]
         \toprule
-        \cite{lindellTsunamiPreparednessOregon2010a}                 & Tsunami training                                                                                                                                                                                                       \\
-        \cite{aloudatRegulationUbiquitousMobile2011a}                & Communication to the public                                                                                                                                                                                            \\
-        \cite{berlinWhyCollaborationMinimised2011a}                  & Collaboration between the different actors                                                                                                                                                                             \\
-        \cite{parkerSurfaceWaterFlood2011a}                          & Create conversations between unusual actors during the preparation phase                                                                                                                                               \\
-        \cite{yangDesignPrinciplesIntegrated2012a}                   & Increase situation awareness, Identify key informations~\footnote{(hazard environment, information concerning the responder workforce, information on evolving safety issues, and information about safety equipment)} \\
-        \cite{tapiaTrustworthyTweetDeeper2013a}                      & Accounting for informal sources of data (such as social media)                                                                                                                                                         \\
-        \cite{cobbDesigningDelugeUnderstanding2014a}                 & Big data processing methods adapted to social media data                                                                                                                                                               \\
-        \cite{cabreraaguileraModellingPerformanceVariabilities2016a} & Oil spill preparation                                                                                                                                                                                                  \\
+        \cite{lindellTsunamiPreparednessOregon2010}                 & Tsunami training                                                                                                                                                                                                       \\
+        \cite{aloudatRegulationUbiquitousMobile2011}                & Communication to the public                                                                                                                                                                                            \\
+        \cite{berlinWhyCollaborationMinimised2011}                  & Collaboration between the different actors                                                                                                                                                                             \\
+        \cite{parkerSurfaceWaterFlood2011}                          & Create conversations between unusual actors during the preparation phase                                                                                                                                               \\
+        \cite{yangDesignPrinciplesIntegrated2012}                   & Increase situation awareness, Identify key informations~\footnote{(hazard environment, information concerning the responder workforce, information on evolving safety issues, and information about safety equipment)} \\
+        \cite{tapiaTrustworthyTweetDeeper2013}                      & Accounting for informal sources of data (such as social media)                                                                                                                                                         \\
+        \cite{cobbDesigningDelugeUnderstanding2014}                 & Big data processing methods adapted to social media data                                                                                                                                                               \\
+        \cite{cabreraaguileraModellingPerformanceVariabilities2016} & Oil spill preparation                                                                                                                                                                                                  \\
         \bottomrule
     \end{tabular}
     \label{table:business-needs-main-articles}
 \end{table}
 
-In concl
-
-\subsection{Information needs: place of social media?}
+\subsection{Information gathering: place of social media?}
 Looking back at the first chapter, the sub problematic linked to this section was: \emph{What information that can be obtained from social media is relevant to the decisiom makers in crisis response?}
-The two previous subsections identified several references that explored the information needs of decision makers in crisis management.
-Each sub-section respectively explored top-down and bottom-up approaches.
+The two previous subsections identified several references that explored the pain points of decision makers in crisis management.
+Each sub-section respectively explored top-down and bottom-up approaches to crisis management understanding.
 However, social media were not directly considered in the query made on the bibliographic database as social media are not the only concern of these fields.
 
 This sub-section emphasize on the intersection of the previous results and social media.
@@ -443,8 +450,8 @@ Among the 205 documents on crisis situation models, 22 articles include the keyw
 Two articles from the list of articles qualified as prominent are centered on social media:
 
 \begin{itemize}
-    \item \textcite{purohitIdentifyingSeekersSuppliers2014a}
-    \item \textcite{ghahremanlouGeotaggingTwitterMessages2014a}
+    \item \textcite{purohitIdentifyingSeekersSuppliers2014}
+    \item \textcite{ghahremanlouGeotaggingTwitterMessages2014}
 \end{itemize}
 
 The same approach applied to the needs of crisis management organizations provides a similar number of articles.
@@ -452,29 +459,31 @@ The same approach applied to the needs of crisis management organizations provid
 Among the articles studied in the previous part, two are dedicated to social media:
 
 \begin{itemize}
-    \item \textcite{cobbDesigningDelugeUnderstanding2014a}
-    \item \textcite{tapiaTrustworthyTweetDeeper2013a}
+    \item \textcite{cobbDesigningDelugeUnderstanding2014}
+    \item \textcite{tapiaTrustworthyTweetDeeper2013}
 \end{itemize}
 
 In both cases, only roughly 10\% of the total body of surveys mention social media.
 % From the remaining articles, most of the ontologies or metamodels are studied and represent information flows during an event.
-% For instance, \textcite{montarnalAutomatedEmergenceCrisis2017a} create an ontology to merge data coming from social media and sensors.
-% \textcite{gaurEmpathiOntologyEmergency2019a} followed up by adding satellites images.
+% For instance, \textcite{montarnalAutomatedEmergenceCrisis2017} create an ontology to merge data coming from social media and sensors.
+% \textcite{gaurEmpathiOntologyEmergency2019} followed up by adding satellites images.
 % It appears that the information available during the event and the management of the same event are too different to get associated in the same representation.
 % Despite this explanation, very few link the two to create a representation of emergency management mindful of the information available.
 
-This section was answering the question: \emph{what information is relevant to the decisiom makers in crisis response?}
-Many studied this question and this section explored two ways taken by two research communities to answer this question.
+\subsection*{Conclusion}
+This section was answering the question: \emph{what is the decision-making context in emergency situations?}
+This issue has attracted a fair amount of attention and this section explored two ways taken by two research communities to answer this question.
 These two ways correspond to the two subsections.
-The first sub-section was dedicated to model engineering and the previous attempts to create representations or abstractions to represent the concepts involved in an emergency.
+The first sub-section was dedicated to model engineering and the previous attempts to create representations
+or abstractions to represent the concepts involved in an emergency.
 This approach is fed by the need of automation of certain tasks in crisis management, hence the need of concepts to represent and manage the different aspects.
-However, this approach is essentially top-down, and few references actually report feedbacks from field interviews.
+However, this approach is essentially top-down, and few references report feedbacks from field interviews.
 
 This insight feeds the need to gather the information requirements of the primary users during their operations.
-Hence, the second sub-section, dedicated to the report of these information requirements gathered through interviews.
-Yet, this bottom-up approach is unstructured, and the results would need additional work to get integrated in an automation system.
+Hence, the second sub-section, dedicated to the report of the problems that crisis management organizations face, gathered through interviews.
+Yet, this bottom-up approach produces unstructured results, which cannot be directly translated with an automatic
 
-Overall, the information needs identified are:
+Overall, the needs identified to improve crisis management from both approaches outcomes are:
 
 \begin{itemize}
     \item Situation Awareness
@@ -485,7 +494,7 @@ Overall, the information needs identified are:
     \item Large data volume processing
 \end{itemize}
 
-The next section will be dedicated to the existing ways of identifying and mining information from social media, in order to later retrieve the previous information.
+The next section will be dedicated to the existing means of identifying and mining information from social media.
 
 \section{NLP tools for information extraction from social media data}
 The first chapter presented the NLP domain.
@@ -705,6 +714,38 @@ The surveys retrieved also mentioned algorithms, methods or models related to NL
 This sub-section aims to briefly present the different methods mentioned.
 Table~\ref{table:nlp-tools} shows the keywords used in the surveys and groups them according to the different fields of artificial intelligence to which they belong.
 
+\begin{table}[bp]
+    \centering
+    \caption{Main NLP algorithms and techniques that appear among the keywords}
+    \begin{tabular}{rl}
+        High level category     & Keywords used in the surveys  \\
+        \toprule
+        Data management         & Big Data                      \\
+                                & Pre-processing                \\
+                                & Feature Extraction            \\
+                                & N-gram Modeling               \\
+        Artificial intelligence & Artificial Intelligence       \\
+                                & Algorithms                    \\
+                                & K-Nearest Neighbors           \\
+        Machine learning        & Statistical Model             \\
+                                & Regression Analysis           \\
+                                & Classification Algorithms     \\
+                                & Classifiers                   \\
+                                & Supervised Learning           \\
+                                & Decision Trees                \\
+                                & Random Forests                \\
+                                & Support Vector Machine        \\
+                                & Latent Dirichlet Allocation   \\
+        Deep learning           & Neural Networks               \\
+                                & Classification Models         \\
+                                & Convolutional Neural Networks \\
+                                & Recurrent Neural Networks     \\
+                                & Transfer Learning             \\
+        \bottomrule
+    \end{tabular}
+    \label{table:nlp-tools}
+\end{table}
+
 The many applications above require many different algorithms, capable of meeting different needs.
 As already mentioned, data from social media are particular compared to the usual corpus composed of books and national newspapers.
 This particularity, combined with the specificities of textual data, can be found through keywords such as \emph{Pre-processing}, \emph{feature extraction} or \emph{N-gram modeling}.
@@ -740,38 +781,6 @@ These neural networks are also used for classification applications, but also ma
 Finally, only these models are trained, it is possible to reused their knowledge to other applications.
 \emph{Transfer learning} consists in reusing a model trained on a task to solve another similar task, completely re-training a model from scratch.
 
-\begin{table}[bp]
-    \centering
-    \caption{Main NLP algorithms and techniques that appear among the keywords}
-    \begin{tabular}{rl}
-        High level category     & Keywords used in the surveys  \\
-        \toprule
-        Data management         & Big Data                      \\
-                                & Pre-processing                \\
-                                & Feature Extraction            \\
-                                & N-gram Modeling               \\
-        Artificial intelligence & Artificial Intelligence       \\
-                                & Algorithms                    \\
-                                & K-Nearest Neighbors           \\
-        Machine learning        & Statistical Model             \\
-                                & Regression Analysis           \\
-                                & Classification Algorithms     \\
-                                & Classifiers                   \\
-                                & Supervised Learning           \\
-                                & Decision Trees                \\
-                                & Random Forests                \\
-                                & Support Vector Machine        \\
-                                & Latent Dirichlet Allocation   \\
-        Deep learning           & Neural Networks               \\
-                                & Classification Models         \\
-                                & Convolutional Neural Networks \\
-                                & Recurrent Neural Networks     \\
-                                & Transfer Learning             \\
-        \bottomrule
-    \end{tabular}
-    \label{table:nlp-tools}
-\end{table}
-
 Social media processing applications have widely benefited from recent improvements in machine learning.
 This trend is visible in how this field evolved over time towards statistical models and later deep neural networks.
 As applications are numerous and opportunities offered by the NLP domain significant, the two meet in the middle and several research teams explore the different paths offered.
@@ -806,18 +815,77 @@ The choice of the algorithm then depends on several parameters such as:
 \end{itemize}
 
 Crisis management also comes with its own constraints than need to be taken into account when designing a social media processing system.
-This section conclude the literature review and its outcome.
-It takes the form of a table with two entries.
-The first one is the identified informational needs of the decision makers.
-The second one is the different technical solutions explored to extract information from social media data.
-The contribution of this manuscript hold in the gap between these two domains.
 
-1. Pas ou peu d'analyse du besoin des personnes qui utilisent les médias sociaux en situation de crise. Des classifications à l'arrache, parce qu'elle me plaît, parce que j'ai envie, parce que mon voisin à dit c'est cool.
--> Un modèle de situation de crise pour qui ? Pour quoi ?
-2. Des tonnes d'architectures différentes, en fonction de comment le graduate a souhaité l'implémenter. Pas/peu de solution pour implémenter des données.
--> MLOps appliquées à notre problématique + mon architecture HICSS
-3. Beaucoup de travaux pour classifier des messages. Peu de travaux sur le traitement à l'échelle du mot.
+\section{Literature review outcomes}
+This chapter explored the literature around the main problematic of this manuscript:
+\emph{How to design an information system able to automatically manage and deliver relevant information extracted from social media data during crisis response?}
+For this purpose, the literature review was articulated around 3 main research axes:
 
+\begin{enumerate}
+    \item Axis 1 explored the main social media processing systems for crisis management previously developed.
+          Many systems have been developed on this occasion, with a trend towards increasing automation, both in terms of data collection and processing.
+          Also, many different issues have been addressed (different types of crisis, different types of data...), often with different approaches proposed.
+          The most recent advances are focused on more and more sophisticated data processing (images, fusion of information obtained...).
+          However, these systems are focused on succinctly described problems, leaving many questions unanswered as to the actual problem addressed.
+    \item The second axis of research was interested in the needs in identified information to which the preceding systems are supposed to answer.
+          Two points of view were confronted on this occasion: (i) the top-down vision of the modelers who tried to represent and organize the information exchanged during an event between different actors and
+          (ii) the bottom-up approach of the sociologists, who sought to collect through interviews the information needs of the actors in charge during a crisis situation.
+          Both approaches have their advantages and disadvantages. The first one organizes the information in a computerized model, but does not take into account the real need.
+          The second approach, on the contrary, collects the needs expressed by the first concerned, but rarely proposes a result that can be exploited by computer.
+          However, both points of view agree on the importance of the issue of information management in crisis management.
+    \item Finally, the third axis explored previous work that has automatically textual exploited data from social media using NLP.
+          The different applications have been summarized, both from the point of view of the application domain and the problem that the approach allowed to solve.
+          This was also an opportunity to review the main algorithms mentioned in the articles obtained and to correlate them with the problems.
+          Many of the approaches presented rely nowadays on supervised machine learning, which consists in training an algorithm to perform a specific task by providing it with labeled data.
+          This approach has some limitations, which will be further developed in chapter 4.
+          This axis allowed to highlight the possibilities offered by the richness of the data available on social media.
+\end{enumerate}
+
+Table~\ref{table:lit-review-summary} summarizes the results of this literature review.
+It cross-references the identified information needs with the available social media information previously mined.
+The table ignores three of the information needs identified at the end of Section 2.
+By considering only the information available on social media, the consideration of social media content becomes implicit.
+Social media information is, to my knowledge, most of the time, isolated from the information delivered by physical sensors.
+The integration of data from these sensors is therefore outside our scope.
+Finally, social media deliver by nature large volumes of data.
+This need is therefore implicitly taken into account when considering social media, due to the very nature of these platforms.
+The remaining needs are therefore:
+
+\begin{itemize}
+    \item Collaboration
+    \item Situation Awareness
+    \item Communication to the public
+\end{itemize}
+
+An interesting point to not is that not all needs are on the same level.
+For instance, social media accounting and sensor data integration provide data that contributes to situational awareness and consequently ease the collaboration between the different actors.
+
+\begin{table}
+    \centering
+    \caption{Main NLP algorithms and techniques that appear among the keywords}
+    \label{table:lit-review-summary}
+    \begin{tabular}{l|ccc}
+                                       & Collaboration & Situation Awareness & Communication to the public \\
+        \toprule
+        Opinions                       &               &                     & x                           \\
+        Sentiment                      &               &                     & x                           \\
+        Polarity                       &               &                     & x                           \\
+        Attitude                       &               &                     & x                           \\
+        Topic inference                & x             & x                   &                             \\
+        Named entities                 & x             & x                   &                             \\
+        Location                       & x             & x                   &                             \\
+        Language used in the text      &               & x                   & x                           \\
+        Truthfulness of an information & x             & x                   &                             \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+This chapter highlighted past achievements in the field of crisis informatics.
+One interesting trend to note is the convergence of all the fields studied.
+It also revealed the steps that are still ahead and the unresolved issues.
+In particular, it was pointed out that previous systems did not systematically build on existing work on information needs assessment.
+Chapter 3 therefore addresses this aspect, and focuses on this need and its computational modeling.
+The next chapter is also the occasion to emphasize the interdisciplinary discussions which took place during these researches, conducted at the border between sociology and computer science.
 
 %%% Local Variables:
 %%% mode: latex
