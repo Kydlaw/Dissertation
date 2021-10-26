@@ -159,32 +159,15 @@ Retour sur les models d'information pour le CM.
 
 => Voila le modele des informations qu'on peut esperer pour la crise pour les personnes en des medias sociaux
 
-
-# Identification of relevant entities in social media data for crisis response : a semi-supervised approach
-
-## Problem diagnosis
-- Why labelisation at the token level and not at the sentence?
-- Why not use a deep neural network to do this?
-	- Lack of a labeled data and this approach usually requires a lot of data.
-
-## Scientific foundations of the approach.
-- Overall view of the approach. What are we trying to do?
-- Word vectors and language models (to represent semantic)
-- Clustering algorithms to identify semantic clusters
-- Curse of dimensionality and dimension reduction algorithms
-- Label propagation 
-
 ## Application to token labelization in crisis response 
 - Use case description
 - Predicting labels of incoming messages
 - Results
 - Relevant metrics for our end goal
 
-# System of processing systems: implementing crisis situation models using social media data
-%%
-## Theorique/scientifique - bonnes pratiques ML Ops
-## "Metier" - Mon architecture et prise en compte de l'utilisateur
-%%
+# Chapter 5 — System of processing systems: implementing crisis situation models using social media data
+Theorique/scientifique - bonnes pratiques ML Ops
+"Metier" - Mon architecture et prise en compte de l'utilisateur
 - Social media are usefull for crisis response and what they have to offer.
 -  Challenges that arise using them
 
