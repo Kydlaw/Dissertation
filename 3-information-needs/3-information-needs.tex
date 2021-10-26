@@ -255,7 +255,7 @@ Level 2, comprehension, refers to the ability to interpret and make connections 
 The last level, level 3, corresponds to the ability to anticipate future events based on available information.
 Figure~\ref{information:SA} provides an overview of situational awareness in the decision-making process according to \parencite{endsleyTheorySituationAwareness1995}.
 
-\begin{figure}
+\begin{figure}[htb]
     \centering
     \includegraphics[width=\textwidth]{figures/chap-3/Endsley-1995.pdf}
     \caption{Situational awareness model from \textcite{endsleyTheorySituationAwareness1995}.}
@@ -436,7 +436,7 @@ This information constitutes, as explained above, the decision maker's situation
 
 Figure~\ref{information:sa-inf} summarizes the link between situational awareness and actionable information.
 
-\begin{figure}
+\begin{figure}[htb]
     \centering
     \includegraphics[width=\textwidth]{figures/chap-3/sa-ainf.pdf}
     \caption{Shared attributes between elemental information needs for crisis response and criteria for an information to be actionable.}
@@ -445,12 +445,10 @@ Figure~\ref{information:sa-inf} summarizes the link between situational awarenes
 
 \subsection*{Summary}
 This section sought to answer two questions:
-
 \begin{itemize}
     \item What information do decision makers need?
     \item What information are the operators looking to retrieve?
 \end{itemize}
-
 Call takers and social media operators are looking for information that meet minimal requirements.
 However, an information that meet one of these requirements, provide a location and that is delivered
 to the right person, at the right time, is described as an actionable information.
@@ -477,7 +475,7 @@ The first sub-section attempts to integrate actionable information into the mode
 The objective of this sub-section is to consider how the notion of actionable information can support the construction of an information model for crisis response.
 The second sub-section presents an information model for the response.
 
-\subsection{Location of actionable information in the situational awareness model.}
+\subsection{Location of actionable information in the situational awareness model}
 Situational awareness is the initial building block of decision making in crisis response.
 An information cannot be designated as actionable without the decision maker having sufficient context to decide if that information is actionable.
 Therefore, crisis management starts by recovering an adequate perception of the elements/assets of the environment (level 1 of SA).
@@ -503,7 +501,7 @@ Thus, the caller takers interviewed in \textcite{kropczynskiIdentifyingActionabl
 Information and Data are also present in the Situational Awareness model proposed in \textcite{endsleyTheorySituationAwareness1995}.
 To the three levels proposed, and described earlier in the literature review, we can associate the Data-Information-Knowledge concepts as proposed in Figure~\ref{information:SA-DIK}.
 
-\begin{figure}
+\begin{figure}[htb]
     \centering
     \includegraphics[width=\textwidth]{figures/chap-3/Fig2-2.pdf}
     \caption{Location of Data-Information-Knowledge concepts in the Situational Awareness model}
@@ -561,12 +559,13 @@ The model must meet the needs of both actors and in particular not hinder their 
 Call takers must be able to submit the information they consider relevant.
 Decision makers must be able to quickly identify the information they need during the response.
 
-All these considerations lead to the information model summarized in Figure~\ref{information:information-models}
+All these considerations lead to the information model summarized in Figure~\ref{information:information-models}.
+A more complete version, described using the UML 2.0 langage, can be found Appendix A.
 
-\begin{figure}
+\begin{figure}[htb]
     \centering
     \includegraphics[width=\textwidth]{figures/chap-3/information-needs.pdf}
-    \caption{Proposed information models, produced after reviewing the information handled the call takers and needed by decision makers.}
+    \caption{Proposed information model, produced after reviewing the information handled the call takers and needed by decision makers.}
     \label{information:information-models}
 \end{figure}
 
@@ -611,9 +610,9 @@ Chapter 4 presents an algorithm that aims at automatically detecting previous en
 Chapter 5 proposes an architecture for the above-mentioned information system, which is built around the entities described in this chapter.
 
 \section{Conclusion}
-This chapter explores the information needs of decision-makers during crisis response and
+This chapter explored the information needs of decision-makers during crisis response and
 proposes an information model to build an information system to support crisis management organizations.
-As a reminder, the needs retained are:
+The needs retained are:
 
 \begin{enumerate}
     \item Event (location, type, cause and severity);
@@ -623,11 +622,11 @@ As a reminder, the needs retained are:
     \item Resources available for the response (qualified actors, appropriate equipment...)
 \end{enumerate}
 
-This section discussed two concepts widely used in the crisis management community: situational awareness and actionable information.
+This chapter discussed two concepts widely used in the crisis management community: situational awareness and actionable information.
+\textcite{zadeSituationalAwarenessActionability2018} proposed that actionable information is information that trigger immediate response.
 We have taken the definition of these two concepts and developed how they can be adapted to the content available on social media.
 In particular, we have seen that in practice, response teams are primarily looking for actionable information.
 However, the individual data available on social media very rarely meets all the criteria that would allow them to define their information as actionable.
-to define their information as actionable.
 If relevant information posted on social media is rare, golden tweets are even rarer.
 However, if we go back to the concept of situational awareness, we understand that actionable information is not an entity living in a vacuum in the middle of the crisis.
 Actionable information is in fact extremely linked to its context and lives only in it.
@@ -645,11 +644,15 @@ maintaining a similar information processing protocol between call takers and so
 operators, in order to maintain the existing fluidity.
 This calls for a tool capable of bridging the gap between the two mediums, based on
 abstraction that crosses the information needs of decision makers and the information that
-information that the operators can actually retrieve.
-However, the abstraction obtained to model the information exchanged during a crisis event
-The abstraction obtained to model the information exchanged during a crisis event is found in the metamodel proposed by \textcite{benabenMetamodelKnowledgeManagement2016}.
-Since the collaboration model proposed by \citeauthor{benabenMetamodelKnowledgeManagement2016} is
-a superset of ours, in the context of this, the two can be considered equivalent.
+information that the operators can actually retrieve.The literature review highlighted previous
+propositions of ontologies and metamodels, that are, in shape similar to the information model proposed in this chapter.
+The proposition made in this chapter differs from the point of view adopted.
+Instead of focusing on the system or a particular aspect of crisis management,
+the emphasize is set on the information flow between a specific set of actors that are crucial to crisis response.
+For instance, \textcite{benabenMetamodelKnowledgeManagement2016} proposed a metamodel of collaboration between crisis actors.
+This metamodel models the sharing of information between the different actors, the keystone of the collaboration.
+The model proposed is a "zoom" on the information sharing between the decision makers and the operators in charge of the information acquisition.
+The consideration of other metamodels in crisis management is discussed in Chapter 5.
 
 The model thus obtained makes it possible to manipulate the information exchanged by the decision-makers and operators.
 decision-makers and operators.
