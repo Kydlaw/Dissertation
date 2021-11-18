@@ -1,19 +1,16 @@
-\chapter{Identification of relevant entities in social media data for crisis response: a semi-supervised approach}
+\chapter {Identification of relevant entities in social media data for crisis response: a semi-supervised approach}
 
 \section*{Introduction}
-The Chapter 1 presented the need to gather and organize information at the time of crisis
+Chapter 1 presented the need to gather and organize information at the time of crisis
 response.
-At the very onset of the event, information is lacking and therefore,
+At the very onset of the event, information is lacking, and therefore,
 impedes the coordination and proper dispatching of needed actors and resources.
-The literature review highlighted that, meanwhile, crisis management organizations have
+The literature review highlighted that; meanwhile, crisis management organizations have
 voiced their need for tools to process the high volume of data produced by social media
 and share the information obtained with other actors of the response.
 The previous chapter, Chapter 3, assessed the information that decision-makers expect.
-This statement is the motivation behind the second research question: \textit{How can the
-    information expected by the decision makers be automatically retrieved, given the context
-    of the crisis response?}
-Similarly, the positioning of this chapter with respect to the body of this disseration
-is illustrated Figure~\ref{processing:big-picture-manuscrit}
+This statement is the motivation behind the second research question: \textit{How can the information expected by the decision-makers be automatically retrieved, given the context of the crisis response?}
+Similarly, the positioning of this chapter with respect to the body of this dissertation is illustrated Figure~\ref{processing:big-picture-manuscrit}
 
 \begin{figure}[htb]
     \centering
@@ -22,21 +19,18 @@ is illustrated Figure~\ref{processing:big-picture-manuscrit}
     \label{processing:big-picture-manuscrit}
 \end{figure}
 
-This chapter presents a new approach to automatically process social media data to support
+This chapter presents a new approach to processing social media data to support automatically
 the operators in charge of information recovery during disaster response.
-This approach aims to gather the information required by decision makers in the context
-of disaster response, i.e. information that fit within the information model presented
+This approach aims to gather the information required by decision-makers in the context
+of disaster response, i.e., information that fits within the information model presented
 at the end of the previous chapter (Figure~\ref{information:information-models}).
 
 This approach is based on machine learning and seeks to identify the information expected
-by decision makers within the messages posted on social media.
-Unlike most of other approaches that process social media information in this context,
-the processing is not performed at the scale of the message itself, but at the scale of
-the different terms that compose the message.
-The method relies on previous work realised on this topic to take the processing of the
-data a step further.
-Figure\ref{processing:social-media-processing} illustrates the positioning of our
-contribution with respect to previous work.
+by decision-makers within the messages posted on social media.
+Unlike most of the other approaches that process the social media information in this context, the processing is not performed at the scale of the message itself.
+Instead, the message is processed at the scale of the different terms that compose the message.
+The method relies on previous work realized on this topic to take the processing of the data a step further.
+Figure\ref{processing:social-media-processing} illustrates the positioning of our contribution in the light of previous work.
 The objective is to facilitate the processing, and thus to save time, on data processing.
 
 \begin{figure}[htb]
@@ -49,80 +43,68 @@ The objective is to facilitate the processing, and thus to save time, on data pr
 The chapter describes in a first section the context of the problem and the constraints
 that motivated the design choices for the model.
 The second section describes the model and explains the methodology used behind the development.
-The last section is devoted to the evaluation of the model's performance and to the
+The last section is devoted to evaluating the model's performance and to the
 discussion of the latter in the context of crisis management.
 
 \section{Problem diagnosis}
-The previous chapter highlighted the needs accountered by crisis management actors at the
+The previous chapter highlighted the needs encountered by crisis management actors at the
 response time.
-Specifically, they call for better ways to retrieve their situational awareness and strengthen it,
-in order to improve their decision making.
+Specifically, they call for better ways to retrieve their situational awareness and strengthen it, to improve their decision-making.
 Among the proposed solutions, we find the idea of sharing actionable information through
 a cartographic representation: the Common Operational Picture.
 The Common Operational Picture is fed by the information available to each actor, which is then transmitted to
 all actors through a common vocabulary or concepts shared by all actors.
 
 However, as also identified in the previous chapter, information retrieval is not performed
-by the decision makers themselves.
+by the decision-makers themselves.
 Dedicated operators are charged with information retrieval on different information channels
-(reports, calls made to the call centers, news, social media...).
+(reports, calls made to the call centers, news, social media, etc.).
 The call takers have thus developed frameworks that allow them to obtain information
-aligned with the needs of the decision makers.
+aligned with the needs of the decision-makers.
 Social media, however, due to the high volume of data and the noise/information ratio,
 raise new challenges.
-The literature review in Chapter 2 highlighted the trend toward automation in crisis informatic.
+The literature review in Chapter 2 highlighted the trend toward automation in crisis informatics.
 This trend is intended to reduce the monitoring burden that operators must bear to achieve their results.
-In addition, crisis response is usually not an environment that leave room for insufficiently
+In addition, crisis response is usually not an environment that leaves room for insufficiently
 effective resources.
 
-The objective is therefore to bring together two aspects: (i) a processing of social media
-that corresponds to the information needs of the decision makers and
-(ii) a support in the handling of the volume of data that social media operators are facing.
+The objective is, therefore, to bring together two aspects: (i) processing of social media
+that corresponds to the information needs of the decision-makers and
+(ii) support in the handling of the volume of data that social media operators are facing.
 
 \subsection{Core problematic}
-Social media make available a significant volume of data in the form of text, photos or videos.
-Processing of social media content is tedious and harder when comparing directly with phone
-calls.
-This is due to the fact that most of the data are unrelated to the current event operators
-are interested in.
+Social media make available a significant volume of data in the form of text, photos, or videos.
+Processing social media content is tedious and harder when compared directly with phone calls.
+This is due to the fact that most of the data are unrelated to the current event operators are interested in.
 Therefore, they are looking for tools that could help them in their task.
 
-The crisis informatic domain take on the challenge to provide usefull tools that would
-help in the processing of social media data.
-To reduce the load of the operators, many approaches have been taking.
-A first approach consist in increasing the processing capacity, through the help of volunteers.
-Growdsourcing tools allow the former to help in the classification of the messages that can
-then be forwarded to decision makers \parencite{imranAIDRArtificialIntelligence2014}.
+The crisis informatic domain takes on the challenge to provide useful tools that would help in processing social media data.
+To reduce the load of the operators, many approaches have been taken.
+The first approach consists in increasing the processing capacity through the help of volunteers.
+Crowdsourcing tools allow the former to help in the classification of the messages that can then be forwarded to decision-makers \parencite{imranAIDRArtificialIntelligence2014}.
 A second approach is to lower the incoming flow of data that the operators are facing.
-Some explored says to reduce the noise part of the flow by filtering messages according
-to their relevance (linked or not to the ongoing event) \parencite{carageaClassifyingTextMessages2011,imranAIDRArtificialIntelligence2014}.
-Others attempted to shrink the incoming flow as a whole by summarizing the information
-from the incoming data \parencite{rudraSummarizingSituationalTweets2016}.
+Some explored ways to reduce the noise part of the flow by filtering messages according to their relevance (linked or not to the ongoing event) \parencite{carageaClassifyingTextMessages2011,imranAIDRArtificialIntelligence2014}.
+Others attempted to shrink the incoming flow as a whole by summarizing the information from the incoming data \parencite{rudraSummarizingSituationalTweets2016}.
 
 Emergency responders encounter several problems when they have to process social media.
-(i) there is a high volume of data and (ii) they have to screen each individual message
+(i) there is a high volume of data, and (ii) they have to screen each individual message
 to extract information, regardless of its interest.
 
 Thus, the solution proposed has to cover two aspects:
 \begin{itemize}
-    \item It has to reduce the time spent in the processing of incoming messages, by reducing the
-          amount of unrelated messages and the time spent at screening the text to identify relevant
-          information in the flow.
-    \item It has to deliver value to the decision makers, by providing the information
-          required by the different actors. The information retrieved should consequently match
-          the concepts used in the Common Operational Picture.
+    \item It has to reduce the time spent in the processing of incoming messages by reducing the number of unrelated messages and the time spent screening the text to identify relevant information in the flow.
+    \item It has to deliver value to the decision-makers by providing the information required by the different actors. The information retrieved should consequently match the concepts used in the Common Operational Picture.
 \end{itemize}
 
 The approach presented in this chapter aims to address both aspects.
-The contribution builds on previous work, that largely addressed the first aspect, in
+The contribution builds on previous work that largely addressed the first aspect in
 order to address the second part of the problem, which remains essentially unexplored.
-The solution proposed in this chapter, and developed in the next parts, consists in
-highlighting the entities that are useful to decision makers in the incoming messages.
+The solution proposed in this chapter, and developed in the next parts, highlights the useful entities for decision-makers in the incoming messages.
 Therefore, the goal is to highlight in the messages the information that corresponds to
 the concepts presented at the end of Chapter 2.
 
 \subsection{Machine learning in disaster response context}
-As highlighted in the second chapter, many advances have been realised using machine learning approaches.
+As highlighted in the second chapter, many advances have been realized using machine learning approaches.
 These advances greatly benefited natural language processing and provided tools to tackle
 new challenges.
 However, after time spent with crisis management professionals, one may wonder if
@@ -135,108 +117,99 @@ There are three inherent aspects of machine learning that one must consider:
     \item The economic aspect
 \end{itemize}
 
-Machine learning is therefore a toolbox where each tool provides a different way of capturing
-patterns inherent in data and binding them to the information desired.
-An underlying assumption of machine learning is that the patterns present in the data will
-be repeated in the future.
-However, as presented in the first chapter, disasters are by nature unpredictable and are
-generally similar to a leap into the unknown.
-often like a leap into the unknown.
-In this context, there is a high degree of uncertainty about the performance of a model
-trained on data obtained from past disasters.
-In the case of a fully unexpected crisis, a system that relies on machine learning can
-be rendered useless (the returned results are outliers).
-The worst case would be that the system provides erroneous results and that these results
-are still taken into account by the decision makers, unaware of the errors.
+Machine learning is, therefore, a toolbox where each tool provides a different way of capturing patterns inherent in data and binding them to the information desired.
+An underlying assumption of machine learning is that the patterns present in the data will be repeated in the future.
+However, as presented in the first chapter, disasters are by nature unpredictable and are generally similar to a leap into the unknown.
+In this context, there is a high degree of uncertainty about the performance of a model trained on data obtained from past disasters.
+In the case of a fully unexpected crisis, a system that relies on machine learning can be rendered useless (the returned results are outliers).
+The worst-case would be that the system provides erroneous results and that these results are still taken into account by the decision-makers, unaware of the errors.
 These aspects are highlighted and discussed by \textcite{endsleyDesigningSituationAwareness2016} and taken up in Chapter 5.
-To avoid this scenario, the autor recommends to include the operators in the functioning
-of the algorithm, by allowing them to influence the results of the algorithm, in the most intuitive way possible.
+To avoid this scenario, the author recommends including the operators in the functioning of the algorithm by allowing them to influence the results of the algorithm in the most intuitive way possible.
 
 Machine learning approaches consume data to deliver results.
 These data can be either labeled or unlabeled.
 There exist different algorithms in the machine learning toolbox according to either the
-data are labeled or not and correspond to a "learning mode".
-The learning is said supervised when the algorithm learn under the supervision of labeled
+data are labeled or not and correspond to a "learning mode."
+The learning is said supervised when the algorithm learn under the supervision of label
 example.
-It is self-supervised when the algorithm use raw, unlabeled data to extract knowledge.
+It is self-supervised when the algorithm uses raw, unlabeled data to extract knowledge.
 An algorithm is said semi-supervised when it uses both labeled and unlabeled data to learn.
-All cases require data, that need to be gathered.
+All cases require data that need to be gathered.
 Labeled data requires the additional data labeling effort.
 Self-supervised learning is a specific mode of learning, as it is used to generate language
-models, ie, large vectors which represent the semantic commonly associated with the syllables
+models, i.e., large vectors that represent the semantic commonly associated with the syllables
 found in a language.
-Interest and challenges of language models are further developed later in this chapter.
-In crisis informatic, most of the approaches use a supervised approach.
+The interest and challenges of language models are further developed later in this chapter.
+In crisis informatics, most of the approaches use a supervised approach.
 The community then gathered datasets of data gathered during several events \parencite{olteanuCrisisLexLexiconCollecting2014,olteanuWhatExpectWhen2015}.
 However, these datasets are mostly labeled at the scale of the message itself.
-Any work on a different scale therefore logically requires additional labelling work.
+Any work on a different scale, therefore logically requires additional labeling work.
 This echoes the generalization problem mentioned earlier, as it is complicated to guarantee
 that all the data collected will be representative of the events.
 Moreover, any task that would seek to solve a problem occurring at a different scale,
-such as labeling the entities present within a sentence for example, requires a relabeling
+such as labeling the entities present within a sentence, for example, requires a relabeling
 of the data.
 
 State of the art machine learning models may require dedicated hardware, especially the
 larger models released
-Very general machine learning models require adequate hardware and therefore a significant investment.
-Consequently, running such model is costly.
-The early adopters met during the Early adopters summit at Charleston in 2020 raised concerns
+Very general machine learning models require adequate hardware and, therefore, a significant investment.
+Consequently, running such a model is costly.
+The early adopters met during the Early adopter's summit at Charleston in 2020 raised concerns
 about the cost of Next-Generation 911.
-State of the art machine learning models can require significant amount of computing
+State of the art machine learning models can require a significant amount of computing
 resources.
 This is an important consideration when developing a solution to support emergency management centers.
 Machine learning is probably the most appropriate tool to solve the identified problem,
-but it is important to keep in mind that this tool is not a free lunch.
+but it is important to remember that this tool is not a free lunch.
 
 To summarize, the aim is to facilitate the processing of social media data by highlighting
-the information that decision-makers need, i.e. information that are in the information
-model presented at the end of Chapter 2.
-Machine learning approaches are indicated to answer this kind of problematic.
+the information that decision-makers need, i.e., information that is in the information
+the model presented at the end of Chapter 2.
+Machine learning approaches are indicated to answer this type of challenge.
 However, due to the context of disaster response, one has to keep in mind that the solution
-i) cannot be a black box to the end user, ii) has to be generalist enough to be useful in
-various situations and iii) can be run in an emergency center.
-A common solution nowadays to the two former constraints is to fine tune a pre-trained
+i) cannot be a black box to the end-user, ii) has to be generalist enough to be useful in
+various situations, and iii) can be run in an emergency center.
+A common solution nowadays to the two former constraints is to fine-tune a pre-trained
 language model.
-This approach associate a good ratio performance/data labeled and are requiring reasonable
+This approach associates a good ratio of performance/data labeled and are requiring reasonable
 hardware to run.
 However, this approach always requires a significant amount of labeled data, representative
 of the data that the model will process in the future.
 This approach has already been used to classify the relevance of messages posted on social media \parencite{kozlowskiThreelevelClassificationFrench2020}.
-However, it is not exactly suited to context previously described as it does not:
+However, it is not exactly suited to the context previously described as it does not:
 
 \begin{itemize}
-    \item The model act as a black box, as the end user cannot interact with its results.
+    \item The model act as a black box, as the end-user cannot interact with its results.
     \item There is no labeled data suited for the task
-    \item The results provided in case of unseen event are hard to predict.
+    \item The results provided in case of unseen events are hard to predict.
 \end{itemize}
 
-The next sections present a solution that address the initial problematic, while taking
+The next sections present a solution that addresses the initial research question while taking
 into account the previous limitations.
 The first section focuses on the training phase and the second section presents the use
 of the method and its performance on an evaluation set.
 
 \section{Scientific foundations of the approach}
 The previous problem is similar to a named entity recognition problem.
-It seeks to i) locate and ii) label the named entities (brand, person, organization, location etc.)
-contained in a sentence.
-However, instead of looking for named entities, our approch aims to identify predefined
+It seeks to i) locate and ii) label the named entities (brand, person, organization, location etc.) contained in a sentence.
+However, instead of looking for named entities, our approach aims to identify predefined
 entities, which in our case are the different concepts of the information model.
 The proposal is to train a machine learning model in a semi-supervised way able to recognize the entities that belong to the different classes.
 The approach relies on two properties of the most recent language models.
 First, they allow to "translate" textual data into vectors.
-In our case, each word, labelled or not, is associated with a vector.
-Secondly, the word vector obtained form a vector space, whose distance between the different
+In our case, each word, labeled or not, is associated with a vector.
+Secondly, the word vector is obtained from a vector space, whose distance between the different
 vectors represents the semantic similarity between the words.
-This vector space thus contains clusters of vectors, composed of semantically similar entities.
+This vector space thus contains clusters of vectors composed of semantically similar entities.
 These vectors are obtained by processing the data of the vector space with a clustering algorithm.
 It is from this step that the labeled data intervene in the method.
 The terms labeled by the operators are included with the other terms.
 Therefore, they appear in some of the clusters identified previously.
 The labeled terms are used to associate the non-labeled content of the clusters with the labels.
-To do this, the labels are propagated form the labeled terms present in a cluster to the non-labeled terms.
+The labels are then propagated from the labeled terms present in a cluster to the non-labeled terms.
 In this way, the non-labeled terms semantically close to the labeled terms are associated with the different concepts we are trying to identify.
-The different steps of the algorithm are outlined Figure~\ref{processing:big-picture}.
-The method is composed of four main steps, after data normalization.
+The different steps of the algorithm are outlined in Figure~\ref{processing:big-picture}.
+The method is composed of four main steps after data normalization.
 These are:
 
 \begin{enumerate}
@@ -256,152 +229,123 @@ The next sections detail and present the choices that led to the different eleme
 \end{figure}
 
 The semi-supervised approach implies that the training is made using two distinct datasets.
-One dataset contains labeled data and the other contains unlabeled data.
-The former, in our approach, contains text messages, obtained from previous disaster events.
-These messages are sliced in order to obtain a list composed of the entities that make up the message.
-The term "entity" is used here to reflect the fact that, on social media, the message can
-be composed of other elements than words, like urls for example.
+One dataset contains labeled data, and the other contains unlabeled data.
+The former, in our approach, contains text messages obtained from previous disaster events.
+These messages are sliced to obtain a list composed of the entities that make up the message.
+The term "entity" is used here to reflect the fact that, on social media, the message can be composed of other elements than words, like URLs for example.
 This process of breaking down sentences is called text tokenization.
 Unlabeled sentences are thus broken down into lists of corresponding tokens.
-Once all messages are splitted a vocabulary is created.
-This vocabulary is composed of all the unique entities that are used in the original text
-messages.
-The labeled dataset is composed of words/tokens that are paired with one of the label
-of the information.
-The two set of tokens are then merged together, to create a set of unique tokens, where
-some are labeled.
-The next section presents how language models convert these tokens to vectors, that
-embed the semantic of each token.
+Once all messages are split, a vocabulary is created.
+This vocabulary is composed of all the unique entities that are used in the original text messages.
+The labeled dataset is composed of words/tokens that are paired with one of the labels of the information.
+The two sets of tokens are then merged to create a set of unique tokens, where some are labeled.
+The next section presents how language models convert these tokens to vectors that embed the semantic of each token.
 
 \subsection{Language models and semantic representation of textual data}
-Texts can be regardes as data with two components: a syntactic one and a semantic one.
-The syntax, composes the form of the text, the graph of the words and how they combine to create the sentences.
-The semantic, composes the meaning of the text, the ideas that the text has to convey through a statement.
-Computers have many means to process the syntactic part of textual data, but lack tools
-to process the meaning of character strings.
-The Natural Langage Processing domain developed different approaches and tools to represent
-the semantic part of data.
+Texts can be seen as data with two components: a syntactic one and a semantic one.
+The syntax composes the form of the text, the graph of the words, and how they combine to create the sentences.
+The semantic compose the meaning of the text, the ideas that the text has to convey through a statement.
+Computers have many means to process the syntactic part of textual data but lack tools to process the meaning of character strings.
+The Natural Langage Processing domain developed different approaches and tools to represent the semantic part of data.
 Language models are one of these tools.
-They are statistic models that represent the probability distribution over sequences of
-symbols used to create sentences.
-These symbols can be words, letters or phonemes.
+They are statistic models that represent the probability distribution over sequences of symbols used to create sentences.
+These symbols can be words, letters, or phonemes.
 The probability distribution is built assuming that languages have a distributional structure \parencite{harrisDistributionalStructure1954}.
-This assumption states that the meaning of a word, in a given sentence, is provided by the words surrounding it.
-The same reasoning is applied at the different scale of symbols mentioned earlier.
+This assumption states that the meaning of a word in a given sentence is provided by the words surrounding it.
+The same reasoning is applied at the different scales of symbols mentioned earlier.
 Most recent languages models rely on neural networks to construct the probability distribution.
-The neural network is trained to learned to predict the probability distribution of words in the different
-sentences used as training examples.
+The neural network is trained to predict the probability distribution of words in the different sentences used as training examples.
 Instead of producing the probabilities distribution, the distributed representation encoded
-in the networks' "hidden" layers are used to representate each words.
-Each word is then mapped onto an \(n\)-dimensional real vector called a \textit{word embedding}.
+in the networks' "hidden" layers are used to represent each word.
+Each word is then mapped onto an \(n\)-dimensional vector of reals called a \textit{word embedding}.
 Here, \(n\) is the size of the last hidden layer, just before the output layer.
 The representations obtained have the distinct characteristic that they model
 semantic relations between words as linear combinations.
 
 This approach was popularized with the Word2Vec model proposed by \textcite{mikolovDistributedRepresentationsWords2013}.
 Improvements to this method were conducted with models such as GloVe and FastText \parencite{bojanowskiEnrichingWordVectors2016,penningtonGloveGlobalVectors2014}.
-Consecutively, attention-based models, able to embed the semantic in longer sentences appeared.
-This new generation of self-trained models are lead by architectures such as ELMo, BERT or GPT \parencite{devlinBERTPretrainingDeep2018,petersDeepContextualizedWord2018}.
-Following a similar trend as with Word2Vec, improvements were conducted on this model to increase its performances.
+Consecutively, attention-based models, able to embed the semantic in longer sentences, appeared.
+This new generation of self-trained models is led by architectures such as ELMo, BERT, or GPT \parencite{devlinBERTPretrainingDeep2018,petersDeepContextualizedWord2018}.
+Following a similar trend as with Word2Vec, improvements were conducted on this model to increase its performance.
 The main differences with this new generation of models are their size (up to hundreds of billions) and their training process.
-As explaining in the RoBERTa article \parencite{liuRoBERTaRobustlyOptimized2019}, their
-size makes the training process challenging as they require significantly more training
-data with a wider variety.
-Languages models have also been trained using data specific to a problematic, using previously
-mentioned architectures.
+As explained in the RoBERTa article \parencite{liuRoBERTaRobustlyOptimized2019}, their size makes the training process challenging as they require significantly more training data with a wider variety.
+Languages models have also been trained using data specific to a problem, using previously mentioned architectures.
 The crisis informatic domain attempted to create crisis-specific BERT models \parencite{liuCrisisBERTRobustTransformer2021}.
-However, these models are usually limited by the small amount of data available, in comparison
-to the volume of data generally used to train this type of model and this despite the best
+However, these models are usually limited by the small amount of data available, in comparison to the volume of data generally used to train this type of model, and this despite the best
 collection efforts of the community.
-Also, these models are not necessarly made available to the research commmunity, like in
-the case of the previous reference, which imped progress as they are very costly to train.
-This approach produces more compact representations, compared to previous methods, whose
-dimension grows proportionally to the number of unique words contained in the training dataset.
-Embedding layers create an arbitrary sized vector of each word that incorporates semantic
-relationships.
+Also, these models are not necessarily made available to the research community, like in the previous reference case, which impedes progress as they are very costly to train.
+This approach produces more compact representations, compared to previous methods, whose dimension grows proportionally to the number of unique words contained in the training dataset.
+Embedding layers create an arbitrary-sized vector of each word that incorporates semantic relationships.
 
 The proposed method relies on the word embedding of a language model.
-The word embeddings are used to produce vectors associated with each tokens of the set
-previously created.
-These vectors then create a vector space, were the distance between two vectors is
-equivalent to the semantic similarity between the two vectors.
-This property creates a vector space where some vectors, representing semantically close
-tokens, are spatially close too (see step 1 in Figure~\ref{processing:big-picture}).
+The word embeddings are used to produce vectors associated with each token of the set previously created.
+These vectors then create a vector space, where the distance between two vectors is equivalent to the semantic similarity between the two vectors.
+This property creates a vector space where some vectors, representing semantically close tokens, are spatially close too (see step 1 in Figure~\ref{processing:big-picture}).
 The next step is then to identify these "semantic clusters" in the vector space.
-This will then allow to link the unlabeled tokens of a cluster to the labels of the
-labeled tokens that are part of the same cluster.
+This will then allow linking the unlabeled tokens of a cluster to the labeled tokens that are part of the same cluster.
 This is achieved by using a label propagation approach within the clusters.
-However, while the resulting vector spaces are called "low-dimensional", their dimensions
-are still too important for clustering algorithms to identify relevant clusters.
-Consequently their dimension is first reduced.
+However, while the resulting vector spaces are called "low-dimensional," their dimensions are still too important for clustering algorithms to identify relevant clusters.
+Consequently, their dimension is first reduced.
 The next section presents the motivation and the algorithm used to perform the dimension reduction.
 
 \subsection{Dimension reduction: UMAP}
-The main objective of reducing dimensionality of a vector space is to avoid facing the
+The main objective of reducing the dimensionality of a vector space is to avoid facing the
 so-called "curse of dimensionality" \parencite{bellmanDynamicProgramming1966}.
 This "curse" refers to counterintuitive phenomena that appear in high-dimensional spaces.
 For instance, as the dimensionality increases, the volume space increases exponentially.
-Thus, data become too sparse and the notion of distance become obsolete.
-Dimension reduciton is then often used to provide visualizations of high dimensional spaces.
-Dimension reduction consists in transforming data from their original space, to a space of lower dimension.
-As this projection necessarly results in information loss, the goal is to find the transformation
-that will keep most of meaningful information.
-There are 2 means (that are often combined) of achieving the projection:
+Thus, data become too sparse, and the notion of distance becomes obsolete.
+Dimension reduction is then often used to provide visualizations of high-dimensional spaces.
+It consists in transforming data from their original space, to a space of lower dimension.
+As this projection necessarily results in information loss, the goal is to find the transformation
+that will keep most of the meaningful information.
+There are two means (that are often combined) of achieving the projection:
 (1) the extraction of the meaningful components and
 (2) the projection of the data to a lower-dimensional space.
-In practice, most of the algorithms developed use both approached.
-They first identify or extract meaningful components or representations of the data and
-then project these to a lower-dimensional space in the way that will preserve the most the original structure of the data.
-Among all the available methods and algorithms, the Principal Components Analysis (PCA)
-is very prominent \parencite{hotellingAnalysisComplexStatistical1933}.
-This linear method creates a mapping between the original high-dimensional space and the low-dimensional destination space that ensure the minimal loss of information.
-The output of the algorithm consists in the vectors used for the linear mapping.
-This result is explainable, hence explains partially the wide adoption of this method.
+In practice, most of the algorithms developed to use both approaches.
+They first identify or extract meaningful components or representations of the data and then project these to a lower-dimensional space in a way that will preserve most of the original structure of the data.
+Among all the available methods and algorithms, the Principal Components Analysis (PCA) is very prominent \parencite{hotellingAnalysisComplexStatistical1933}.
+This linear method creates a mapping between the original high-dimensional space and the low-dimensional destination space to ensure minimal loss of information.
+The output of the algorithm consists of the vectors used for the linear mapping.
+This result is explainable, hence explaining the wide adoption of this method partially.
 However, this method shows limitations as the number of dimensions increase.
-Indeed, the assumption of the linear distribution of the data becomes less and less correct as the number of dimensions increases.
-As a result, non linear alternatives have been developed.
-Most of these approches rely on kernels or intermediate representations.
-Recently, new approaches, based on optimizations methods  gained significant traction
-thanks to their abilities to provide visualizations that capture global and/or local
-properties of the original vector space.
+Indeed, the assumption of the linear distribution of the data becomes less and less correct as of the number of dimensions increases.
+As a result, non-linear alternatives have been developed.
+Most of these approaches rely on kernels or intermediate representations.
+Recently, new approaches based on optimization methods gained significant traction thanks to their ability to provide visualizations that capture the original vector space's global and/or local properties.
 For instance, t-distributed Stochastic Neighbor Embedding (t-SNE) uses a low-dimensional
 map using probability distributions of data points \parencite{maatenVisualizingDataUsing2008}.
-However, t-SNE is only currently capable of reducing to a two or three dimensional space.
+However, t-SNE is only currently capable of reducing to a two or three-dimensional space.
 Uniform Manifold Approximation and Projection for Dimension Reduction (UMAP) uses a fuzzy
 topological structure to represent the data structure \parencite{mcinnesUMAPUniformManifold2020}.
 
 UMAP can be simplified as a two-step process.
-The first one consists in building a weigthed topological graph which represents the latent
-structure formed by the vectors in the space of the initial dimension.
+The first one consists of building a weighted topological graph representing the latent structure formed by the vectors in the space of the initial dimension.
 The particularity of this graph is that edge weights are not fixed values, but probabilities
 that represent the distance instead.
-The second step is to transpose the fuzzy weigthed graph into the lower dimensional space.
-For this, UMAP builds a new graph in the arrival space, in the same way as in the first step.
-Creating the best graph in the target space correspond then to an optimization problem where
-the objective is to find the low dimensional representation with the closest fuzzy topological structure.
-Given the setup of the problem, where edges of both graphes are represented using probability
-distributions, the goal is to minimize the cross entropy between both probability distribution.
+The second step is to transpose the fuzzy weighted graph into the lower-dimensional space.
+For this, UMAP builds a new graph in the arrival space in the same way as in the first step.
+Creating the best graph in the target space corresponds to an optimization problem where the objective is to find the low dimensional representation with the closest fuzzy topological structure.
+Given the setup of the problem, where edges of both graphs are represented using probability distributions, the goal is to minimize the cross-entropy between both probability distributions.
 The cross entropy formula takes in two probabilities distributions \(p(x)\) and \(q(x)\),
 defined over the discrete variable \(x\), with \( p \in \left\{y,1-y\right\}\) and \( q \in \left\{\hat{y},1-\hat{y}\right\}\)
 where \(y\) is the set of input probabilities and \(\hat{y}\) the set of output probabilities.
 The formula is given by
 \[H(p,q)=-\sum_{\forall x}^{} p\left(x\right) log\left(q\left(x\right) \right)\ = -y log\left(\hat{y}\right) - \left(1-y\right) log\left(1 - \hat{y}\right)\]
 
-Cross entropy allows to score the difference between the original graph
-constructed from the high dimensional data and the arrival graph that is constructed.
-\(p(x)\) is refered as the true distribution, and is represented by the edges obtained from
+Cross entropy allows scoring the difference between the original graph
+constructed from the high dimensional data and the constructed arrival graph.
+\(p(x)\) is referred to as the true distribution and is represented by the edges obtained from
 the original graph.
 \(q(x)\) is the distribution of the edges of the arrival graph.
 The probabilities of the edges of the arrival graphs are optimized using a Stochastic
-Gradient Descent process which uses the cross entroype as loss function.
+Gradient Descent process, which uses the cross-entropy as loss function.
 
-The algorithm is then driven by four main parameters:
+Four main parameters then drive the algorithm:
 
 \begin{itemize}
-    \item Number of neighbors: intervenes in the construction of the weigthed topological graph
-          and balances the role of the local versus global structure of the data in the end result.
+    \item Number of neighbors: intervenes in the construction of the weighted topological graph and balances the role of the local versus the global structure of the data in the end result.
     \item Minimum distance: represents the minimum distance the algorithm can use between several points (assists in forming dense clusters if needed).
-    \item Number of components: the dimensionality of the reduced dimension space in which the data will be embeded.
+    \item Number of components: the dimensionality of the reduced dimension space in which the data will be embedded.
     \item Distance metric: the distance metric used by the algorithm.
 \end{itemize}
 
@@ -412,146 +356,121 @@ In our case, it is the grouping of the data into clusters supposed to represent 
 The following section presents, in the same way as for UMAP, HDBSCAN, the algorithm chosen for clustering.
 
 \subsection{Clustering: HDBSCAN}
-Clustering consists in grouping sets of data that share similar properties.
-This similarity is often represented by a distance between the data.
-The representation of data in the form of vectors makes the determination of the similarity between data more obvious.
+Clustering consists of grouping sets of data that share similar properties.
+This similarity is then represented as the distance between data points.
+The representation of data in the form of vectors determines the similarity between data more obvious.
 This similarity, or distance, can then be computed as the vector product (or L2 distance) or the cosine between these two vectors.
-Many algorithms allow to create clusters of data, using different distances.
+Many algorithms create clusters of data using different distances.
 These algorithms are grouped according to the approach they use to create the clusters.
 They can be grouped as below:
 
 \begin{itemize}
     \item the hierarchy (decision tree)
     \item the center of gravity (K-Means)
-    \item the distribution of the data (gaussian mixtures)
+    \item the distribution of the data (Gaussian mixtures)
     \item the density of the data (DBSCAN/OPTICS)
 \end{itemize}
 
 Each approach has its strengths and weaknesses.
-Depending on the problem and the objective we want to reach, we will choose one approach rather than another.
+Depending on the problem and the objective we want to reach, we will choose one approach.
 For example, algorithms based on the centers of gravity often require the number of clusters to be identified.
-This assumption is restrictive, especially in the case where the number of clusters searched is not known a priori.
+This assumption is restrictive, primarily when the number of clusters searched is not known a priori.
 Thus, other approaches have been developed for the discovery of clusters without a priori knowledge of the number of clusters.
 These approaches focus more on the density or distribution of the data to declare the presence of clusters.
-Another advantage of this approach is the capability to identify data points that do not
-belong to any cluster.
+Another advantage of this approach is identifying data points that do not belong to any cluster.
 In the context of this chapter, clustering is used to identify clusters of tokens that
-are close semantically, in the vector space created during the previous steps.
-The algorithm chose to perform the clustering on the vector space is Hierarchical DBSCAN (HDBSCAN).
+are close semantically in the vector space created during the previous steps.
+The algorithm chosen to perform the clustering on the vector space is Hierarchical DBSCAN (HDBSCAN).
 This algorithm is a variant of the DBSCAN algorithm.
-The choice of HDBSCAN is made because it is a fast and not greedy clustering algorithm that
-also allows to predict clusters for new points.
+The choice of HDBSCAN is made because it is a fast and not greedy clustering algorithm that allows predicting clusters for new points.
 
-HDBSCAN extends DBSCAN with a hierarchical clustering approach where the flat clustering is
-extracted based on the stability of the clusters.
+HDBSCAN extends DBSCAN with a hierarchical clustering approach where the flat clustering is extracted based on the stability of the clusters.
 
 HDBSCAN works through 5 consecutive steps.
 First, it transforms the vector space according to the density of data points.
-The core is based on single linkage clustering, that is very sensitive to noise.
-The impact of noise is reduced by making sure that noise data points are more distant than
-the data points that belong to a cluster.
+The core is based on single linkage clustering, which is very sensitive to noise.
+The impact of noise is reduced by making sure that noise data points are more distant than those belonging to a cluster.
 This is achieved by using the \textit{mutual reachablity distance} between different points
 that is given by
 \[d_mreach-k (a,b) = \max \left\{core_k (a),core_k (b),d(a,b)\right\}\]
 where \(core_k(a)\) is the distance between a point \(a\) and its farthest neighbor among
 its \(k\) neighbors.
 
-The mutual reachablity distance between the data points is used to generate a graph
-that connect all the vertices together and with the minimum possible total edge weight.
+The mutual reachability distance between the data points is used to generate a graph that connects all the vertices together and with the minimum possible total edge weight.
 This graph can be obtained by computing the minimum spanning tree of the graph.
-Each data point represents a vertex and the mutual reachablity distance is used to weight
-the relationships between the different points.
+Each data point represents a vertex, and the mutual reachability distance weighs the relationships between the different points.
 
 The minimum spanning tree is used to compute the hierarchy between the clusters.
 The edges of the tree are sorted by distance and iterate through each vertex to merge them to a cluster.
-This three steps compose the DBSCAN algorithm.
-However, at that stage, the resulting clusters can only obtained by setting a threshold
-at which clusters are defined.
-This threshold is a parameter set by the user in DBSCAN, that has to define where to "cut"
-the hierarchy.
-This paramater is hard to set in the current situation, as the mutual reachability distance
-is linked to the density of the cluster.
-A better approach is to cut the hierarchy tree at various places, in order to reflect the
-density difference between the clusters.
+These three steps compose the DBSCAN algorithm.
+However, the resulting clusters can only be obtained at that stage by setting a threshold at which clusters are defined.
+This threshold is a parameter set by the user in DBSCAN that has to define where to "cut" the hierarchy.
+This parameter is hard to set in the current situation, as the mutual reachability distance is linked to the density of the cluster.
+A better approach is to cut the hierarchy tree at various places to reflect the density difference between the clusters.
 
 The hierarchy tree is then condensed.
-Instead of aggregating the data points to form clusters, the problem is turned upside down: we start
-with a single cluster that is "losing points" at each split.
+Instead of aggregating the data points to form clusters, the problem is turned upside down: we start with a single set that is "losing points" at each split.
 To define is points are "lost", the user set a \textit{minimum cluster size}.
-If at a split, a cluster has fewer points that the minimum cluster size set, then the part
-that has fewer points is dropped off the cluster and the part that has more points than
-the minimum is aggregated with the original cluster.
-Conversely, if at a split both parts have more points that the minimum cluster size, then
-two independant clusters are created.
+If a cluster has fewer points at a split than the minimum cluster size set, then the part with fewer points is dropped off the group, and the part with more points than the minimum is aggregated with the original cluster.
+Conversely, if both parts have more points than the minimum cluster size at a split, then two independent clusters are created.
 Using this approach, the cluster tree is much smaller than previously.
-Using this condensed representation, it is now easier to extract clusters as there are
-fewer nodes and splits in the hierarchy tree.
+Using this condensed representation, it is now easier to extract clusters as fewer nodes and splits are in the hierarchy tree.
 
 Just as UMAP, HDBSCAN has a lot of parameters to tune the different parts of the algorithm.
-As mentioned earlier, the minimum cluster size is the main and mandatory parameter of the
-method.
+As mentioned earlier, the minimum cluster size is the main and mandatory parameter of the method.
 Another parameter of interest is the number of minimum samples.
-This parameter intervene in the creation of the first hierarchy tree and influence the
-conversativeness of the clustering. Large values of this parameter lead to more points
-labeled as noise.
+This parameter intervenes in the creation of the first hierarchy tree and influences the conservativeness of the clustering.
+Large values of this parameter lead to more points labeled as noise.
 It is tied with the minimum cluster size parameter and takes its value as default.
 Other parameters specific to our use case are described in the experimental sections.
 
-HDBSCAN allows to identify clusters formed by semantically close words.
-The advantage of this algorithm is that it is very efficient in terms of computation and
-allows to distinguish efficiently points that are part of a cluster or belong to noise.
+HDBSCAN allows identifying clusters formed by semantically close words.
+The advantage of this algorithm is that it is very efficient in terms of computation and allows to distinguish efficiently points that are part of a cluster or belong to noise.
 Among all the clusters thus formed, some contain some of the words initially labeled by the operator.
-The next step is to propagate the labels within these clusters in an ordered way,
-in order to discover new terms associated with the concepts of the information model.
+The next step is to propagate the labels within these clusters in an ordered way to discover new terms associated with the concepts of the information model.
 
 \subsection{Label propagation algorithm}
-The clustering algorithm has identified clusters within the data, which are supposed to
-represent semantic clusters, whose words have a common semantic base.
-However, there is no way to know to which type of information,i.e. to which label, the different clusters refer.
+The clustering algorithm has identified clusters within the data, which represent semantic clusters whose words have a joint semantic base.
+However, there is no way to know to which type of information,i.e., to which label, the different clusters refer.
 For this purpose, the words labeled by the operator are used.
-As some of these words are located within clusters, they will be used as tags within the
-cluster and their associated labels will be propagated to the rest of the cluster.
-In this way, from a few labeled terms, it is possible to capture many terms that refer to the same concept.
-To do this, a label propagation approach is used.
+As some of these words are located within clusters, they will be used as tags within the cluster, and their associated labels will be propagated to the rest of the cluster.
+In this way, it is possible to capture many words that refer to the same concept from a few labeled terms.
+Hence, a label propagation approach is used.
 This method composes the core of the semi-supervision aspect of our approach.
 
 Label propagation is a method originally designed for graphs \parencite{zhuLearningLabeledUnlabeled2002}.
-For a given graph, the idea is to provide a label to some nodes of the graph and to propagate
-the labels of these nodes until the graph is fully labeled.
+For a given graph, the idea is to provide a label to some nodes of the graph and to propagate the labels of these nodes until the graph is fully labeled.
 The label propagation used here, while following the same logic, is different.
-The original method actually overly aggressive in labeling the data in our setup, where
-the data are very similar.
-To remedy this problem, the some improvements have been made.
+The original method is actually overly aggressive in labeling the data in our setup, where the data are very similar.
+To remedy this problem, some improvements have been made.
 
 Propagation takes place within clusters that have at least one label.
 Thus, there are two cases:
 \begin{enumerate}
     \item There is only one label in the cluster: in this case, the label is simply propagated to all the other tokens in the cluster
-    \item There are several labels that coexist within the cluster.
+    \item Several labels coexist within the cluster.
 \end{enumerate}
 
-In the former case, needs to be controled.
+In the former case, it needs to be controlled.
 Indeed, a label should not be propagated on tokens belonging to other labels.
-In the same way that we split our starting space into semantic clusters, these same semantic clusters can be split again to identify sub clusters (refered as "domains") of different labels.
+In the same way that we split our starting space into semantic clusters, these same semantic clusters can be split again to identify sub-clusters (referred to as "domains") of different labels.
 Once the domains within a semantic cluster are identified, the label propagation is performed similarly to the case where the cluster contains a single label.
 This step returns to the case where the cluster is composed of a single label.
 This approach mirrors the operation of a K-Means algorithm, which slices a data space into k zones to identify clusters.
 The most important parameter of this algorithm is \(k\), the number of clusters present in the data space.
 However, the number of domains in a given semantic cluster is unknown at that point.
 Therefore, HDBSCAN is reapplied to identify the number of domains in the semantic cluster.
-The value of the parameter \(k\) that will be used for the K-Means then depends on the number clusters identified.
-Again, there are here two cases: i) there are more labels than domains identified or
-ii) there are more (or the same number of) domains identified than labels present in the cluster.
-In the former case, the number of domain is passed to the number of domains for k.
+The value of the parameter \(k\) used for the K-Means depends on the number of clusters identified.
+Again, there are two cases here: i) there are more labels than domains identified, or ii) there are more (or the same number of) domains identified than labels present in the cluster.
+In the former case, the number of domains is passed to the number as \(k\).
 The K-Means will then split the space into k partitions which will become our domains.
 For each domain that contains a labeled token, the label is propagated to all tokens that are part of this domain.
 In the case where the number of labels is equal to or less than the number of identified domains, k takes as value the number of labeled tokens in the semantic cluster.
-Each of the labeled tokens is passed as an origin to the K-Means which then creates the domains around these tokens.
+Each of the labeled tokens is passed as an origin to the K-Means, which then creates the domains around these tokens.
 In this sense, each labeled token becomes the epicenter of the propagation of its label within its assigned domain.
 
 In overview, the propagation algorithm is relatively straightforward (see Algorithm~\ref{alg:LP}).
-The inputs to Algorithm~\ref{alg:LP} is the set of clusters from the vector spaces that contain
-at a least a labeled word.
+The inputs to Algorithm~\ref{alg:LP} is the set of clusters from the vector spaces that contain at least a labeled word.
 
 \begin{algorithm}[htb]
     \DontPrintSemicolon
@@ -582,32 +501,24 @@ at a least a labeled word.
 
 The propagation of the labels within the clusters completes the training phase of the proposed method.
 The obtained vector space is now composed of different areas of the space that are labeled.
-Overall, the most computationaly passes are the dimension reduction and the first clustering.
-The label propagation is relatively inexpensive, regarding computation time, as the propagation
-algorithm runs only on the semantic clusters that contain labeled tokens.
-The next, and final, section explains how new incoming data are labeled suing the vector
-space created.
+Overall, the most computational passes are dimension reduction and the first clustering.
+Regarding computation time, the label propagation is relatively inexpensive, as the propagation algorithm runs only on the semantic clusters containing labeled tokens.
+The next and final section explains how new incoming data are labeled using the vector space created.
 
 \subsection{Inference algorithm}
-The trained model is used at response time to highlight relevant entities in messages
-coming from social media.
+The trained model is used at response time to highlight relevant entities in messages coming from social media.
 Incoming tokens that are already present in the vector space are directly given the associated label.
-However, the case of new tokens need to be handled.
+However, the case of new tokens needs to be handled.
 
 Algorithm~\ref{alg:inference} details the different steps followed.
 At first, the incoming message is tokenized, reusing the exact same tokenizer used during the training phase.
-Then, the word vector of the token is generated using the language mode and its dimension is
-reduced using the UMAP model previously trained to map the high dimensional space to the
-lower dimensional space.
-Similarly, the same HDBSCAN instance is reused to predict a cluster to the incoming token
-by looking at where the new point would belong in the condensed tree.
-Once the cluster has been identified, it remains to assign the label that corresponds to the new token.
-If the incoming token do not belong to a cluster, then is takes the label of its nearest neighbor.
-If the new token is assigned to a cluster, the situation depends on the number of labels
-in the cluster.
+Then, the word vector of the token is generated using the language model, and its dimension is reduced using the UMAP model previously trained to map the high dimensional space to the lower-dimensional space.
+Similarly, the same HDBSCAN instance is reused to predict a cluster to the incoming token by looking at where the new point would belong in the condensed tree.
+Once the cluster has been identified, it remains to assign the corresponding label to the new token.
+If the incoming token does not belong to a cluster, it takes its nearest neighbor's label.
+If the new token is assigned to a cluster, the situation depends on the number of labels in the cluster.
 If there is only one label, the token receives the label of the cluster.
-Conversely, if the cluster has several labels, the new token is assigned the label of the
-nearest word labeled.
+Conversely, if the cluster has several labels, the new token is assigned the label of the nearest word labeled.
 When all the tokens of the message are labeled, the message is sent back to the operator with the labels corresponding to each of the tokens of the sentence.
 
 \begin{algorithm}[htb]
@@ -638,10 +549,10 @@ When all the tokens of the message are labeled, the message is sent back to the 
 
 Incoming unknown tokens are then added to the previous ones.
 These tokens will also be used when updating the model.
-The fast training of the model allows to update it regularly.
-The method greatly benefit from caching, making many of the computations reusable for predictions.
-Also, as the amount of tokens grows, the number of semantic clusters do not grow in a linear fashion.
-For example, once the "medical" cluster is discovered, new tokens would just be added in it, without necessarly create a new cluster.
+The fast training of the model allows regular updates.
+The method greatly benefits from caching, making many of the computations reusable for predictions.
+Also, as the number of tokens grows, the number of semantic clusters does not grow linearly.
+For example, once the "medical" cluster is discovered, new tokens would just be added to it without necessarily creating a new cluster.
 
 This section presented our method for labeling tokens in social media posts.
 It consists of five consecutive steps:
@@ -653,29 +564,30 @@ It consists of five consecutive steps:
     \item Label propagation within the different semantic clusters.
 \end{enumerate}
 The proposed approach has the advantage that it uses little labeled data and allows the
-operator to adjust the predictions of the algorithm in quasi real time.
+operator to adjust the predictions of the algorithm in quasi-real-time.
 The following section details the performance of our approach in both qualitative and quantitative terms.
 
 \section{Experimental results}
 The proposed approach is evaluated using data coming from datasets used as benchmarks
-by the crisis informatic community.
+by the crisis informatics community.
 This section presents the testing environment created and the results obtained.
-As a reminder, the problem of interest is to label the relevant entities for a crisis operator, in a stream of messages from social media.
-Therefore, for the evaluation of our method, the efficiency will be measured over the labeling of a similar content.
+As a reminder, the problem of interest is to label the relevant entities for a crisis operator in a stream of messages from social media.
+Therefore, for the evaluation of our method, the efficiency is measured over the labeling of similar content.
 The social media chosen here is Twitter.
 Twitter allows both easy and wide access to messages posted by users during important events such as natural disasters.
 Thus, many datasets related to disasters have been constituted via content posted on this platform.
 
 \subsection{Context of the evaluation}
-The experimental setup is designed to create evaluation conditions that are as similar as possible to the initial problem that we are trying to address.
-In our case, the goal is to be able to identify relevant entities for decision making during the response to a crisis event.
-The objective is to assist social media operators in their search for information, by highlighting the information they need in the messages related to the event.
-The support provided consists of filtering the data related/unrelated to the current crisis, then highlighting the information that decision makers need in the response.
-The first part of the filter, in charge of identifying the relevant tweets (i.e. that refer to the current event), has already seen many contributions, as shown in the literature review.
+The experimental setup is designed to create evaluation conditions similar to the initial problem that we are trying to address.
+In our case, the goal is to identify relevant entities for decision-making during the response to a crisis event.
+The objective is to assist social media operators in their search for information by highlighting the information they need in the messages related to the event.
+The support provided consists of filtering the data related/unrelated to the current crisis, then highlighting the information that decision-makers need in the response.
+The first part of the filter identifies the relevant tweets—i.e., the tweets refer to the ongoing event.
+This part has already seen many contributions, as shown in the literature review.
 
 This experimental part aims at (i) implementing our approach to demonstrate its interest and (ii) evaluating the performances with the chosen algorithmic approach.
-Thus, the goal is to identify relevant entities for decision making in a corpus of tweets already identified as related to the crisis.
-The relevant entities chosen for the experiment correspond to the information identified in Chapter 3, which presented some of the information expected by decision makers during disaster response.
+Thus, the goal is to identify relevant entities for decision-making in a corpus of tweets already identified as related to the crisis.
+The relevant entities chosen for the experiment correspond to the information identified in Chapter 3, which presented some of the information expected by decision-makers during disaster response.
 The entities presented were:
 
 \begin{itemize}
@@ -690,7 +602,7 @@ The entities presented were:
     \item Actors
 \end{itemize}
 
-However, this information model is designed to be encompassing, and is not intended exclusively for data or information present on social media.
+However, this information model is designed to encompass and is not intended exclusively for data or information on social media.
 Thus, some of the entities mentioned are hardly present on Social Media \parencite{kropczynskiIdentifyingActionableInformation2018}.
 Therefore, the following labels are excluded, for now:
 
@@ -700,16 +612,12 @@ Therefore, the following labels are excluded, for now:
     \item Resource available
 \end{itemize}
 
-Identifying Responders' needs requires business knowledge from the decision maker.
-The Resources available can be obtained by subtracting the resources currently in used for
-the response from the resources allocated to the emergency organization.
-Being able to identify if actors mentioned in a text message are involved or not in the
-response is not doable through the current form of our methodology.
-It is however a challenging task that requires efforts beyond the scope of
-this dissertation.
+Identifying Responders' needs requires business knowledge from the decision-maker.
+The Resources available can be obtained by subtracting the resources currently in use for the response from the resources allocated to the emergency organization.
+Being able to identify if actors mentioned in a text message are involved or not in the response is not doable through the current form of our methodology.
+It is, however, a challenging task that requires efforts beyond the scope of this dissertation.
 Conversely, our approach is not able to identify entities that relate to location.
-The issue of identifying specific and precise locations within a given message has fortunately
-already been largely explored, since many works have been specifically focused on this issue \parencite{pezanowskiSensePlace3GeovisualFramework2018,maceachrenSenseplace2GeotwitterAnalytics2011}.
+The issue of identifying specific and precise locations within a given message has fortunately already been largely explored since many works have been specifically focused on this issue \parencite{pezanowskiSensePlace3GeovisualFramework2018,maceachrenSenseplace2GeotwitterAnalytics2011}.
 
 Thus, the resulting labels used are composed of:
 
@@ -717,8 +625,8 @@ Thus, the resulting labels used are composed of:
     \item Event — an event that occurs (a car accident, a fire, an earthquake, a person trapped/injured)
     \item Environment — the geographical context where the event takes place (description, how many people are present, the dangers present)
     \item Hazard — a danger that threatens the actors present on an event (a weakened building, a strong water current, a fallen cable)
-    \item Actors — Individuals present at the scene of the event. They can be crisis responders, civilians or victims (victims, firemen, policemen, doctors).
-    \item Equipment — Equipment used in response to the event and which can be used to protect to protect oneself from a danger. (a fire truck, safety barriers, a rescue boat...)
+    \item Actors — Individuals present at the scene of the event. They can be crisis responders, civilians, or victims (victims, firefighters, police officers, doctors).
+    \item Equipment — Equipment used in response to the event and which can be used to protect oneself from danger. (a fire truck, safety barriers, a rescue boat, etc.)
 \end{itemize}
 
 These six classes correspond to the labels used in the annotation of data for the experimentation.
@@ -726,31 +634,26 @@ These six classes correspond to the labels used in the annotation of data for th
 \subsection{Experimental setup}
 \subsubsection{Datasets}
 The evaluation of the algorithms calls for various datasets.
-On one hand, the training phase of the model requires the consitution of an unlabeled set
-of data that will be used to constitue the vocabulary and a labeled set of words of interest.
-On the other hand, the evaluation of the model calls for a dataset of labeled tweets at
-the word level that is as close as possible of real worl application.
-The next two subsections present the datasets used, the reason behind these choices and
-how they are preprocessed in our case.
+On the one hand, the training phase of the model requires the constitution of an unlabeled set of data that will be used to constitute the vocabulary and a labeled set of words of interest.
+On the other hand, the evaluation of the model calls for a dataset of labeled tweets at the word level that is as close as possible to real-world application.
+The next two subsections present the datasets used, the reason behind these choices, and how they are preprocessed in our case.
 %TODO Mettre un mot sur TREC et les versions de BERT etc.
 
 \paragraph{Training data}
-The initialisation (or training) of the model presented in the previous section relies
-on two separate set of data.
-The first set, unlabeled, is composed of a vocabulary of terms that will potentially be
-used to identify entities in incoming text messages.
-The second set, labeled, is a set a words of interest for the consumer of the inferences.
+The initialization (or training) of the model presented in the previous section relies on two separate sets of data.
+The first set, unlabeled, is composed of a vocabulary of terms that will potentially be used to identify entities in incoming text messages.
+The second set, labeled, is a set of words of interest for the consumer of the inferences.
 
 The vocabulary is obtained from the CrisisLexT26 \parencite{olteanuWhatExpectWhen2015}.
-To do this, all English tweets were aggregated.
+First, all English tweets are aggregated.
 Then the vocabulary was extracted from all previous tweets, i.e., each word used in the dataset was retrieved.
 Words that have less than five occurrences are then discarded as they are probably outliers.
 The tokenization (segmentation of a sentence into tokens) consists of the following steps:
 
 \begin{itemize}
     \item Usernames are replaced by "@USER"
-    \item links are replaced by "HTTPURL"
-    \item emojis are turned into text using the emoji library\footnote{https://pypi.org/project/emoji/}
+    \item Links are replaced by "HTTPURL"
+    \item Emojis are turned into text using the emoji library\footnote{https://pypi.org/project/emoji/}
     \item Shorten the length of repeated characters
     \item Remove spaces when numbers are involved
     \item Normalization of reduced forms and contractions
@@ -761,34 +664,31 @@ As the tokenization is impacting the performances \parencite[p. 21]{farzindarNat
 The choice is then made to specify the tokenizer to the format of the data encountered (here tweets).
 The second dataset, the words of interest associated with the concepts, is taken from \textcite{olteanuCrisisLexLexiconCollecting2014}.
 In this article, the authors suggest a set of keywords to use when querying the Twitter API.
-The terms used to constitute the labelled set in the experimentation are derived from this list.
-The processing that was done consists in extracting the unique words from this list and removing the adjectives.
-The list was then completed by synonyms (especially for buildings), to reach a set of 76 words associated with a concept of the information model.
-The constitution of this list, which remains relatively generic, required less than fifteen minutes of labelling work.
+The terms used to constitute the labeled set in the experimentation are derived from this list.
+The processing that was done consists of extracting the unique words from this list and removing the adjectives.
+The list was then completed by synonyms (especially for buildings) to reach a set of 76 words associated with a concept of the information model.
+The constitution of this list, which remains relatively generic, required less than fifteen minutes of labeling work.
 
 \paragraph{Evaluation data}
-The evaluation of the algorithm's performance requires data that are representative of those that will be provided to the algorithm in reality.
-The evaluation therefore calls for data that are linked to a crisis situation, with a certain proportion of noise.
+Evaluating the algorithm's performance requires data that are representative of those that will be provided to the algorithm in reality.
+The evaluation, therefore, calls for data that are linked to a crisis, with a certain proportion of noise.
 The dataset that will be used for this evaluation is \textcite{zahraAutomaticIdentificationEyewitness2020}.
-This dataset is composed of tweets collected during different events (floods, fires, typhoon, earthquake)
-and has been labeled in order to identify reports from direct witnesses of the event.
-This dataset is however labeled at the message level and not at the word level as we would like in our case.
+This dataset is composed of tweets collected during different events (floods, fires, typhoons, earthquakes)
+and has been labeled to identify reports from direct witnesses of the event.
+However, this dataset is labeled at the message level and not at the word level as we would like in our case.
 An annotation phase was therefore conducted to label the words present in the messages.
 
 The annotation was performed using LabelStudio \parencite{tkachenkoLabelStudioData2020}.
-It consisted in the annotation of 400 tweets, with 100 tweets taken randomly from each of the listed events.
-The disasters studied were: a wilfire, a hurrricane, a flood and an earthquake.
-For each event, the proportion of tweets attributed to direct witnesses of the event is 80\% and 20\% of tweets considered as not related to the event.
-This distribution of data corresponds to the performance presented by the state of the art
-for the classification of disaster-related tweets \parencite{xukunImprovingDisasterrelatedTweet2020}.
-As presented earlier, such classificer will be used to feed the model with disaster-related
-messages, instead of the raw flow of data.
-The data are then abeled using the labels presented in the previous section.
-The labelling of the complete dataset took about 4 hours, compared to the 15 minutes to
-associate the 76 entities to the different concepts.
+It consisted of the annotation of 400 tweets, with 100 tweets taken randomly from each of the listed events.
+The disasters studied were: a wildfire, a hurricane, a flood, and an earthquake.
+For each event, the proportion of tweets attributed to direct witnesses of the event is 80\%, and 20\% of tweets are considered as not related to the event.
+This distribution of data corresponds to the performance presented by state-of-the-art models developed to classify disaster-related tweets \parencite{xukunImprovingDisasterrelatedTweet2020}.
+As presented earlier, such a classifier will be used to feed the model with disaster-related messages instead of the raw flow of data.
+The data are then labeled using the labels presented in the previous section.
+The labeling of the complete dataset took about 4 hours, compared to the 15 minutes to associate the 76 entities to the different concepts.
 %TODO Put evaluation dataset on a repo
 The data, along with annotation instructions, are publicly available~\footnote{Add link to the data here}.
-At the end of the labelling process, 600 words were labeled within the corpus.
+At the end of the labeling process, 600 words were labeled within the corpus.
 The distribution is provided in Table~\ref{table:labels-distribution}.
 
 \begin{table}[bp]
@@ -809,7 +709,7 @@ The distribution is provided in Table~\ref{table:labels-distribution}.
 
 The distribution of labels within the dataset corresponds to the remark made earlier about
 the information available in social media.
-Two thirds of the labels refer to an event, and the remaining labels are mostly found among
+Two-thirds of the labels refer to an event, and the remaining labels are mostly found among
 two classes — Hazard and Environment.
 
 \subsubsection{Algorithms parameters and language model used}
@@ -827,20 +727,14 @@ The UMAP algorithm, used to perform dimension reduction, was configured using th
     \item Learning rate: 0.1
 \end{itemize}
 
-This setting aims at forcing UMAP to focus on the local structure of the data and to create
-clusters that are as splitted as possible to facilitate HDBSCAN work.
+This setting aims to force UMAP to focus on the local structure of the data and create clusters that are as split as possible to facilitate HDBSCAN work.
 Thus, the \textit{Number of Neighbors} is set to a low value.
 Similarly, the \textit{Minimum Distance} is set to 0.0 to pack the data points very tightly.
-Inversely, setting the \textit{Repulsion Strength} to 1.0 forces the algorithm to split
-the clusters it may find.
+Inversely, setting the \textit{Repulsion Strength} to 1.0 forces the algorithm to split the clusters it may find.
 The dimension is reduced to 50.
-This value is a comprise, as a value too high will imped HDBSCAN, but a value too low will
-sacrifice too much information.
-Cosine is used to compute the distance between the different vectors, as data are not necessarily
-normalized.
-The \textit{Number of Epochs} and \textit{Learning rate} are linked to the Stochastic
-Gradient Descent and respectively define the duration of the training and length of
-each step.
+This value is a comprise, as a high value will impede HDBSCAN, but a too low value will sacrifice too much information.
+Cosine is used to compute the distance between the different vectors, as data are not necessarily normalized.
+The \textit{Number of Epochs} and \textit{Learning rate} are linked to the Stochastic Gradient Descent and respectively define the duration of the training and length of each step.
 
 The HDBSCAN algorithm has been parameterized as follows:
 
@@ -854,25 +748,20 @@ The HDBSCAN algorithm has been parameterized as follows:
 
 Again, the main parameter here is the \textit{Minimum Cluster Size}.
 Thus, clusters with fewer than 15 points will be considered as noise.
-\textit{Minimum Samples} is the linked to the Minimum Cluster Size and is by default
-set to its value.
+\textit{Minimum Samples} is linked to the Minimum Cluster Size and is by default set to its value.
 It can be seen as the "conservativeness" of the clustering.
 Setting a lower value will allow points at the "border" of a cluster to be integrated.
-The \textit{Cluster Selection Method} is set to `leaf` instead of the default `excess of mass`
-as it provides better results in the case of a high number of clusters that share a similar
-amount of data points.
-Finally, the distance used here is `euclidean`, as data are normalized for this step.
+The \textit{Cluster Selection Method} is set to `leaf` instead of the default `excess of mass.`
+as it provides better results in the case of a high number of clusters that share a similar amount of data points.
+Finally, the distance used here is `euclidean,` as data are normalized for this step.
 
-These parameters are set in order to maximise the outcome for any type of event.
-Again, in our context, there is little interest to "fine tune" the model, as every
-situation, hence incoming messages, will be different.
-A set of parameters could do extremely well on a given dataset, but not replicate the
-performances on another one.
-The motivation between these choices is to find a good compromise that should work in
-the largest number of disaster configurations.
+These parameters are set to maximize the outcome for any type of event.
+There is little interest in "fine-tuning" the model in our context, as every situation, hence incoming messages, will be different.
+A set of parameters could do exceptionally well on a given dataset but not replicate the performances on another one.
+The motivation between these choices is to find a good compromise that should work in the largest number of disaster configurations.
 
 \subsection{Evaluation of the results}
-The developed model is studied through a set of metrics that allow to highlight its performance.
+The developed model is studied through a set of metrics that allow evaluating its performances.
 Two aspects must be evaluated:
 
 \begin{itemize}
@@ -880,10 +769,15 @@ Two aspects must be evaluated:
     \item The efficiency of the semi-supervised learning
 \end{itemize}
 
+The following sub-sections present how they are evaluated in the context of this research.
+It is important to note that the evaluation is done as close as possible to the standards of the NLP community.
+However, these evaluations ignore the dynamic dimension to which the evaluated algorithms may be subjected.
+In the present context, this amounts at best to evaluate the performance of our method at the beginning of the crisis, with generic terms entered by the user.
+
 \subsubsection{NER performances evaluation}
 Named Entities Recognition (NER) is a classification problem, and consequently, can be evaluated
-using the usual metrics for this type of task: Precision, Recall and F1-Score.
-The Precision refers to the fraction of elements correctly labeled among the elements labeled.
+using the usual metrics for this type of task: Precision, Recall, and F1-Score.
+Precision refers to the fraction of elements correctly labeled among the elements labeled.
 The Recall represents the fraction of relevant elements that were retrieved.
 Figure~\ref{processing:precision-recall} illustrates both concepts.
 
@@ -894,32 +788,28 @@ Figure~\ref{processing:precision-recall} illustrates both concepts.
     \label{processing:precision-recall}
 \end{figure}
 
-The F1-Score corresponds to the harmonic mean of the precision and recall.
+The F1-Score corresponds to the harmonic mean of the Precision and Recall.
 \[2\cdot \frac{precision\cdot recall}{precision + recall}\]
 
-However, NER evaluation also involve prediction of the location of the entity in the sentence.
-Consequently, there are many ways to obtain a results partially correct.
-Hence, conferences such as CoNLL defined a variant of the F1-Score better suited for this task.
+However, NER evaluation also involves the prediction of the location of the entity in the sentence.
+Consequently, there are many ways to obtain results partially correct.
+Hence, conferences such as CoNLL defined a variant of the F1-Score better suited for this task \parencite{tjongkimsangIntroductionCoNLL2003Shared2003}.
 It redefines the three previous metrics as follows:
+
 \begin{itemize}
-    \item Precision is the number of predicted entity name tokens that line up exactly with the tokens in the evaluation data.
-          As a result, if the entier entity if not retrived by the method, the precision for the predicted entity is zero.
-          Precision is then averaged over all predicted entity names.
-    \item Recall is similarly the number of names in the gold standard that appear at exactly the same location in the predictions.
-    \item F1 score remains the harmonic mean of these two.
+    \item Precision is the percentage of predicted entity name tokens that line up exactly with the tokens in the evaluation data.
+          If the whole entity is not retrieved by the method, its Precision is zero.
+    \item Recall the percentage of entities that appear at exactly the same location in the predictions.
+    \item F1 score remains the harmonic mean of the Precision and Recall.
 \end{itemize}
 
 \subsubsection{Semi-supervision evaluation}
-Semi-supervised learning suffers from a lack of standard evaluation metric.
+Semi-supervised learning suffers from a lack of standard evaluation metrics.
 Therefore, we propose a set of metrics to evaluate that aspect.
-The core of semi-supervised learning is to leverage a small amount of labeled data among
-a larger volume of unlabeled ones, in order to perform the task.
-A first metric to measure the effect label propagation is the number of entities that have received a label
-through the label propagation.
-This metric allows to evaluate the "range" of the label propagation within the unlabeled dataset.
-A second metric of interest to evaluate the efficiency of the label propagation on the given
-problem, is to measure how much entities labeled through the propagation have contributed
-to the final performances.
+The core of semi-supervised learning is to leverage a small amount of labeled data among a larger volume of unlabeled ones to perform the task.
+The first metric to measure the effect of label propagation is the number of entities that have received a label through the label propagation.
+This metric allows for the evaluation of the "range" of the label propagation within the unlabeled dataset.
+The second metric of interest to evaluate the efficiency of the label propagation on the given problem is to measure how many entities labeled through the propagation have contributed to the final performances.
 % Propagation Efficiency = entities labeled through propagation
 
 \subsection{Results}
@@ -927,7 +817,7 @@ to the final performances.
 This section presents the results of the evaluation of the method presented, using the
 parameters mentioned and the datasets presented.
 First, the performances of the NER are reported, then the performances of the semi-supervision
-and finally, a last part is dedicated to the investigation on the performances of the
+and finally, the last part is dedicated to the investigation on the performances of the
 dimension reduction in the setup.
 
 % ! Faire un avant/après
@@ -961,6 +851,8 @@ where the semantic cluster related to fire is displayed.
 % ? point de vue de l'opérateur.
 
 \subsubsection{NER performances}
+% ! Compare with https://github.com/napsternxg/TwitterNER
+
 The performances of our method over all types of events are reported in Table~\ref{table:overall-results}
 
 \begin{table}[bp]
@@ -981,19 +873,14 @@ The performances of our method over all types of events are reported in Table~\r
     \label{table:overall-results}
 \end{table}
 
-The performances for each type of disaster is reported as well.
-The method obtains its best results on the Event class (see Table~\ref{table:earthquake-results}, Table~\ref{table:fire-results},Table~\ref{table:hurricane-results})
-except for the flooding event (Table~\ref{table:flood-results}).
-The method performed poorly on the flood event, because the labeled terms where not matching
-the ones use during the event.
-However, the same terms applied to the hurricane dataset where providing much better performances
-if one compare both weighted average F1-Score.
+The performances for each type of disaster are reported as well.
+The method obtains its best results on the Event class (see Table~\ref{table:earthquake-results}, Table~\ref{table:fire-results},Table~\ref{table:hurricane-results}) except for the flooding event (Table~\ref{table:flood-results}).
+The method performed poorly on the flood event because the labeled terms were not matching the ones used during the event.
+However, the same terms applied to the hurricane dataset provided much better performances if one compares both weighted average F1-Score.
 The Environment class is partially retrieved over all datasets.
-The three remaining classes — Actors, Hazard and Equipements — are harder to evaluate,
-as there are very little data to explore.
-The only significant one if the Hazard class in the fire event, where there is 74 occurences
-of the class.
-In this case, the model labeled correctly a significant part of the entities.
+The three remaining classes — Actors, Hazard and Equipements — are harder to evaluate, as there are very little data to explore.
+The only significant one is the Hazard class in the fire event, where there are 74 occurrences.
+In this case, the model labeled a significant part of the entities correctly.
 
 \begin{table}[bp]
     \centering
@@ -1067,32 +954,23 @@ In this case, the model labeled correctly a significant part of the entities.
     \label{table:hurricane-results}
 \end{table}
 
-As mentioned in the definiton of the metrics used, the results are only a static view of
-the method.
-However, the method do not aims to remain static and is intended to evolve with the situational
-awareness of the users.
-So, while these results provide interesting hints on the performance of the model, it
-does not depict the performances of the model in suitable conditions.
+As mentioned in the definition of the metrics used, the results are only a static view of the method.
+However, the method does not aim to remain static and is intended to evolve with the situational awareness of the users.
+So, while these results provide interesting hints on the model's performance, it does not depict the performances of the model in suitable conditions.
 
 \subsubsection{Semi-supervised learning}
 
 \subsubsection{Influence of the dimension reduction}
-To test the influence of the dimension reduction, an additional experiment has been
-conducted to evaluate how this step influence the performances.
-All the parameters are kept the same, except that the dimension is never performed anywhere
-during training or inference.
+An additional experiment has been conducted to test the influence of the dimension reduction to evaluate how this step influences the performances.
+All the parameters are kept the same, except that the dimension is never performed anywhere during training or inference.
 The results are displayed Table~\ref{table:overall-results-nodim}.
 The performances slightly increased, from 0.565 to 0.571 weighted average F1-score.
-This version performs better on the Environment category (0.409 from 0.328 weighted average F1-score)
-and the Event category (0.721 from 0.645 eighted average F1-score).
-Particularly, there is a trade between the precision and the recall in this case.
-For the Environment category, precision went from 0.643 to 0.792 while recall diminished
-from 0.652 to 0.275.
-The ssimilar trend is observed for the Event category  where the precision went from 0.263
-to 0.862.
-The loss of recall is however, less severe (from 0.647 to 0.620).
-Maybe most importantly, this change in the model made it unable to idenfify Hazards (0.0 weighted average F1-score)
-while its counterpart was able to label some of the tokens.
+This version performs better on the Environment category (0.409 from 0.328 weighted average F1-score) and the Event category (0.721 from 0.645 weighted average F1-score).
+Notably, there is a trade between the Precision and the Recall in this case.
+For the Environment category, Precision went from 0.643 to 0.792 while Recall diminished from 0.652 to 0.275.
+A similar trend is observed for the Event category, where the Precision went from 0.263 to 0.862.
+The loss of Recall is, however, less severe (from 0.647 to 0.620).
+Maybe most importantly, this change in the model made it unable to identify Hazards (0.0 weighted average F1-score) while its counterpart was able to label some of the tokens.
 
 \begin{table}[bp]
     \centering
@@ -1112,21 +990,15 @@ while its counterpart was able to label some of the tokens.
     \label{table:overall-results-nodim}
 \end{table}
 
-These results call for more investigations on this aspect, but it hints of the fact
-that different models may perform differently based on the dimensions fed to the clustering
-algorithm.
+These results call for more investigations on this aspect, but it hints that different models may perform differently based on the dimensions fed to the clustering algorithm.
 
 \section*{Conclusion}
-This chapter presented a novel approach to process social media, based on a machine learning,
-that aims to be used in disaster response situations to provide information expected by
-decision makers.
-The first part discussed the context of disaster response and how it influences
-the processing of social media data.
+This chapter presented a novel approach to process social media, based on machine learning, that aims to be used in disaster response situations to provide the information expected by decision-makers.
+The first part discussed the context of disaster response and how it influences the processing of social media data.
 In particular, the use of machine learning in this context was discussed, highlighting both the advantages and disadvantages of such an approach.
 
-The second part of this chapter presented the model itself, details the functioning of its
-different parts and the motivation behind the choices made.
-The resulting algorithm is composed of 4+1 steps
+The second part of this chapter presents the model itself, details the functioning of its different parts and the motivation behind the choices made.
+The resulting algorithm is composed of 4+1 steps:
 
 \begin{enumerate}
     \item (Data normalization and tokenization).
@@ -1136,36 +1008,31 @@ The resulting algorithm is composed of 4+1 steps
     \item Label propagation within the different semantic clusters.
 \end{enumerate}
 
-As of today, there are little evidences that traditional machine learning approaches are
-suited for such context.
-Consequently, the model is designed in a fashion that allows quick adaptation of the
-results to fit as much as possible to the ongoing event.
+As of today, there is little evidence that traditional machine learning approaches are suited for such context.
+Consequently, the model is designed to allow quick adaptation of the results to fit as much as possible to the ongoing event.
 In a sense, the model aims to fit the context, not the data provided initially.
-The overall composition of the model is then designed with practicability in mind, over
-raw performances.
+The overall composition of the model is then designed with practicability in mind over raw performances.
 
-The last section of the chapter explored the aforementioned performances.
-The attempt was to explore the different aspects of the approach and quantify their impact
-on performances.
-Improvements can be made on several aspects of the model.
-Right now, the approach is very limited to the fact that it considers the tokens independantly.
-This issue can be solved however by considering the surrounding tokens, through a window
-sliding over the sentence.
-Another aspect link to the label propagation concern the fact that semantic clusters of
-interest which do not contain a labeled word are ignored.
-This aspect represents an interesting venue for future work.
-
+The last section of the chapter explored the performances above.
+The attempt was to explore the different aspects of the approach and quantify their impact on performances.
+Improvements can be thought for several aspects of the model.
+Right now, the approach is very limited to the fact that it considers the tokens independently.
+However, this issue can be solved by considering the surrounding tokens through a window sliding over the sentence.
+Another aspect linked to label propagation is that semantic clusters of interest that do not contain a labeled word are currently ignored.
+This aspect represents an exciting avenue for future work.
+I want to emphasize that the evaluation of machine learning models, or other related systems, using the standard practices of the NLP domain, can hardly evaluate the true performances of these systems in the context of disaster response.
+Evaluation on a given, the fixed dataset does not represent the unexpected and evolving nature of the problem they try to address.
+\textcite{halseSimulatingRealtimeTwitter2019} proposed a tool to simulate a stream of tweets from a dataset based on message sending information.
+If this tool was originally designed for training social media operators, an adapted version could be used to test machine learning algorithms dynamically.
+This area remains open to contributions that will undoubtedly yield important outcomes for crisis management organizations.
 Finally, the algorithm presented here has only solved a sub-part of the initial problem.
 The objective of automatically retrieving information from social media cannot by itself answer the initial challenge.
-Improving disaster certainly asks for better decision making of the different actors involved.
-Similarly, improved decision making requires better access to quality information.
-However, if taking into account decision makers informational needs might help improve
-the quality of the information delivered, the accessibility falls out of scope.
-As described in the previous chapter, information retrieval is rarely performed by the
-decision makers themselves, but more often by dedicated operators.
+Improving disaster indeed asks for better decision-making of the different actors involved.
+Similarly, improved decision-making requires better access to quality information.
+However, if decision-makers informational needs might help improve the quality of the information delivered, the accessibility falls out of scope.
+As described in the previous chapter, information retrieval is rarely performed by the decision-makers themselves but more often by dedicated operators.
 Hence the final research question: \textit{How should be organized social media processing systems in disaster management situations?}
-The next Chapter explores the challenges and possibilities in the design of an information
-system for disaster response.
+The next chapter explores the challenges and possibilities in the design of an information system for disaster response.
 
 %%% Local Variables:
 %%% mode: latex
