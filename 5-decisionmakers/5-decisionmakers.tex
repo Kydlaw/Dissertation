@@ -14,11 +14,11 @@ It is organized around the third research question identified initially in the f
     \label{system:big-picture-manuscrit}
 \end{figure}
 
-Particularly, the previous chapters presented a specific question (What kind of information are staff from emergency centers looking for on social media) and a method to answer this question specifically—identify entities within a text related to decision-makers information expectations.
-This solution, which differs by the text's level, followed a common pattern of data processing used in crisis informatics.
-This pattern is found in most of the systems reviewed by \textcite{ofliUsingArtificialIntelligence2020}
-which identified the most prominent initiatives in this area.
-This pattern is composed of the following components and illustrated Figure~\ref{system:sm-processing}.
+Particularly, the previous chapters aimed to address a specific question: What kind of information are staff from emergency centers looking for on social media?
+The previous chapter presented a method to automatically identify and retrieve entities within a text related considering decision-makers information expectations.
+This solution, which differs from others by the level at which the text is processed, followed a widespread pattern of data processing used in crisis informatics.
+This pattern is found in most of the systems reviewed in the second chapter.
+It is composed of the following components and illustrated Figure~\ref{system:sm-processing}.
 
 \begin{itemize}
     \item The \textbf{data collection} is a connector to the Application Programming Interface (API) of a
@@ -38,7 +38,7 @@ As a final step, some systems integrate a way to visualize the results through a
 \end{figure}
 
 The steps that compose this pattern are also found in systems that process images taken from citizens \parencite{alamImage4ActOnlineSocial2017} or drones \parencite{fanDisasterCityDigital2021}.
-In order to improve performances or solve new challenges, systems built over time are different.
+To improve performances or solve new challenges, systems built over time are different.
 While they generally follow the previous pattern, they propose tweaks and differences to accommodate the added constraints.
 There are, however, some elements that can be factorized:
 
@@ -92,7 +92,7 @@ The authors identify 8 "demons" (factors) in the design of the system that harms
 
 Additionally, they provide thoughts on the automation of resolving problems that involve a certain degree of Situation Awareness.
 Automation can be responsible for three issues: (i) out of the loop syndrome, (ii) inaccurate understanding of the system by the operator, and (iii) diminishing return of decision support systems.
-To prevent these caveats, the authors advise adaptive automation with respect to the user.
+To prevent these caveats, the authors advise adaptive automation considering the user.
 They organize their recommendations through eleven principles:
 
 \begin{itemize}
@@ -154,7 +154,7 @@ It is articulated around six axes that system or product designers should be min
 \end{itemize}
 
 Of the six recommendations made, many overlap with the previous recommendations formulated in \textcite{endsleyDesigningSituationAwareness2016}.
-Both authors agree on some aspects, such as keeping the user in the loop, highlighting the moments when the system is faulty, or creating a symbiosis between the human and the machine.
+Both authors agree on certain aspects, such as keeping the user in the loop, highlighting the moments when the system is faulty, or creating a symbiosis between the human and the machine.
 However, systems that rely on machine learning models do not seem to eliminate the previous daemons.
 On the contrary, this approach brings new difficulties, which must be considered; otherwise, the whole system could be rendered unusable.
 These insights will be used in the next sections.
@@ -335,7 +335,7 @@ First, during the preparation phase of the crisis management, the preprocessing 
 Once this part is completed, the automated processing can be used during a crisis situation.
 This processing is specific to the source of the data.
 For example, the preprocessing of messages from Twitter and Facebook is not exactly identical.
-Twitter introduces special features in the messages (RT, URLs, user mentions etc.) that need to be processed.
+Twitter introduces special features in the messages (RT, URLs, user mentions, etc.) that need to be processed.
 The preprocessing of images and text is also different.
 As mentioned in the introduction, this preprocessing is often done sequentially on the data.
 Thus, using the example of Twitter and Facebook, parts of the processing pipeline can be pooled.
@@ -381,7 +381,7 @@ Six W's they obtain.
 The calls illustrate the definition of information provided previously.
 They correspond to data that, associated with other pieces of data to create a context, possess a meaning and a value to the recipient.
 Another example of information that can be entered in the Information System is the reports from emergency teams dispatched on the different hotspots of the event.
-Other similar reports (weather forecast, specialized services etc.) also fit in this category.
+Other similar reports (weather forecast, specialized services, etc.) also fit in this category.
 
 In an Information System that uses machine learning models, other sources of information appear.
 First, the data is annotated to train the machine learning models.
@@ -419,7 +419,7 @@ It calls also be provided along with data to provide insights from data obtained
 The output of machine learning models is directly or indirectly used at this step.
 This step is crucial, as it is where all the value is delivered.
 Therefore, this component can be seen as the "value bottleneck" of the information system.
-As already mentioned in the previous chapters, the right information has to be delivered to the right person at the right time.
+As already mentioned in the previous chapters, adequate information has to be delivered to the right person at the right time.
 Missing one of these conditions hinders the efforts realized in the previous steps.
 The last section of this chapter elaborates on this aspect.
 Finally, as just mentioned, the output of the models and users' interactions with the system can be considered data sources.
@@ -453,7 +453,7 @@ In a second step, the software architecture of R-IO is briefly explained to expl
 An information system such as the one presented above is intended to support the response to a disaster.
 However, it takes place as a major component in the crisis management organization.
 This section presents its life cycle during the different phases of crisis management to better understand the stakes of its operation.
-The following three phases are considered: i) Preparation, ii) Response, and iii) Recovery.
+The following three phases are considered: i) Preparation, ii) Response and iii) Recovery.
 The system presents functionalities mainly for the Preparation and Response phases.
 
 The most relevant data are used to train the machine learning models during the preparation phase—model training \& model evaluation.
@@ -675,7 +675,14 @@ However, although information systems for crisis management are regularly progre
 The final section of this chapter discusses issues beyond the information system, including how its results are interpreted.
 
 \section{Beyond the system}
-% * Done
+% TODO Add insights from Rob Roleplay
+%  ? \textcite{graceRolePlayingNext2019} reports that:
+%  ? \begin{itemize}
+%  ?     \item Six W's and ProQA serve as interpretive frameworks during sensemaking processes.
+%  ?           The authors, therefore, note that similar systems built to process social media should
+%  ?           be built with that idea in mind and "for example, pre-filtering and visualizing social media data in ways that align with domain-dependent information requirements."
+%  ?     \item The way information is processed ("the information processing protocol" as per the authors) is also important, and in that sense future, social media analysts should receive the call-taker's training to create a protocol as similar as possible to theirs, allowing a better fluancy between the two information processing pipeline.
+%  ? \end{itemize}
 An efficient information system increases the potential of an organization tenfold.
 However, as stated in Section~\hyperref[sec:information-distribution]{5.2.4.4}, the added value of the information system depends on its ability to generate better decisions, and ultimately, to improve the response.
 All the effort put into providing the best possible information can be wasted if users do not read or understand that information.
