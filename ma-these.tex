@@ -11,6 +11,7 @@ setspace=single
 ]{mines-albi-these}
 
 \usepackage{pdflscape}
+\usepackage[ruled,lined]{algorithm2e}
 
 % les glossaires (index et nomenclature)
 \makeglossaries
@@ -25,8 +26,8 @@ setspace=single
 
 % la méta-information (dans le PDF et éventuellement sur la couverture)
 \author{Julien Coche}
-\title{Le titre de ma thèse.}
-\date{1\up{er} décembre 2099} % date prévue de soutenance
+\title{Design of a social media processing system for crisis response: extraction, management and delivery of relevant information for decision makers.}
+\date{15 décembre 2021} % date prévue de soutenance
 
 \begin{document}
 
@@ -37,7 +38,7 @@ setspace=single
 
 \summary
 
-\input{remerciements/remerciements.tex}
+% \input{remerciements/remerciements.tex}
 
 %----------------------------------------
 \mainmatter
@@ -60,7 +61,7 @@ setspace=single
 
 \input{a-annexe/a-annexe.tex}
 
-\input{b-annexe/b-annexe.tex}
+% \input{b-annexe/b-annexe.tex}
 
 %----------------------------------------
 \backmatter
@@ -71,7 +72,7 @@ setspace=single
 
 \listofsymbols % la nomenclature
 
-% Les acronymes
+% Les acronyms
 {
   \renewcommand*\glspostdescription{\matmdotfill}
   \printacronyms[style=list,nogroupskip]
