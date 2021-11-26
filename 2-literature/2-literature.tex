@@ -1,10 +1,21 @@
 \chapter{Literature review}
 
 \section*{Introduction}
-%TODO Add an introduction to present the structure of the chapter 
-Ce chapitre est
+This chapter presents and discusses the work related to the three research questions identified in the previous chapter.
+The three research questions are:
 
-%TODO Ajouter la collection d'articles de Leysia Palen https://docs.google.com/document/d/1sP6TsuPSCSgoHZKEM7fqZ8BXZccv3JS8TobRJXEHD7Q/edit
+\begin{enumerate}
+    \item What can decision-relevant information from social media be processed automatically?
+    \item How can the actionable information available on social be automatically retrieved during crisis response?
+    \item What are the challenges faced by an information system dedicated to crisis management that embeds machine learning models?
+\end{enumerate}
+
+Each research question has its own section.
+Each section presents the evolution of the associated fields and the trends that have guided their development.
+The review of this literature allows for the identification of research directions for the next chapters.
+The remainder of this section presents the methodology used for the literature review and the research hypotheses.
+
+% TODO Ajouter la collection d'articles de Leysia Palen https://docs.google.com/document/d/1sP6TsuPSCSgoHZKEM7fqZ8BXZccv3JS8TobRJXEHD7Q/edit
 \subsection*{Methodology}
 The approach adopted in this literature review is intermediate between a systematic approach and a survey of related works.
 The justification for this singular approach is that many domains are presented, some containing several tens of thousands of articles.
@@ -19,10 +30,7 @@ First, the evolution of the volume of publications returned by the query to atte
 Secondly, an analysis of the keywords is made through VOSviewer~\footnote{https://www.vosviewer.com/} "a software tool for constructing and visualizing bibliometric networks."
 Especially VOSviewer allows visualizing bibliographic features such as the network of authors or of keywords.
 The keywords used by the different articles fetched by request provide valuable insights into the evolution of a given field, especially its interdisciplinary aspect.
-Finally, some of the most influential articles result are discussed.
-The influence criteria is the number of citations.
-%TODO Explain the exclusion of the conference tracks presentation and reviews papers in all the requests.
-
+Finally, the results of the most cited articles are discussed.
 This methodology aims to provide a sufficient understanding of the interest and evolution of the topics explored and answers related to the sub problematics exposed.
 
 \subsection*{Hypotheses}
@@ -37,9 +45,9 @@ Thus, the following working hypotheses delimit the work presented.
 \end{enumerate}
 
 Having these hypotheses, the literature review presented in this chapter explores the context around the different problematics raised in the previous chapter.
-As a reminder, the main problem of this manuscript is: \emph{How to design an information system able to automatically manage and deliver relevant information extracted from social media data during crisis response?}
+As a reminder, the primary research question is: \emph{How to design an information system for crisis response that can automatically manage and deliver actionable information from social media data?}
 This main problem is decomposed among three sub problematics:
-will
+
 \begin{itemize}
     \item What information that can be obtained from social media is relevant to the decision-makers in crisis response?
     \item How can the information expected by the decision-makers be automatically retrieved, given the context of the crisis response?
@@ -64,7 +72,7 @@ The following request was run on the Scopus database to explore the previous que
     \item AND (TITLE-ABS-KEY({crisis management} or {crisis response} or contingency or {disaster response} or {disaster management}))
     \item AND (TITLE-ABS-KEY ({social media} or twitter))
     \item AND (TITLE-ABS-KEY(system and processing))
-    \item AND ( EXCLUDE ( DOCTYPE,"re" ) OR EXCLUDE ( DOCTYPE,"cr" ) )
+    \item AND (EXCLUDE (DOCTYPE,"re") OR EXCLUDE (DOCTYPE,"cr"))
 \end{itemize}
 
 The request returns papers that:
@@ -72,7 +80,7 @@ The request returns papers that:
 \begin{itemize}
     \item Are in the computer science domain, which contains both the AI and Information Systems domains.
     \item Are centered around crises|disasters management|response or contingency plans.
-    \item That present systems that process social media data.
+    \item Present systems that process social media data.
     \item Papers that present conference tracks and reviews are excluded.
 \end{itemize}
 
@@ -508,11 +516,11 @@ Overall, the needs identified to improve crisis management from both approaches'
 The next section will discuss the existing means of identifying and mining information from social media.
 
 \section{NLP tools for information extraction from social media data}
-The first chapter presented the NLP domain.
+The first chapter presented the Natural Language Processing (NLP) domain.
 Through the development of this domain, many tools, algorithms, and methods have been developed to process textual data.
 With the emergence of social media, a new source of textual data appeared, and with it, its own challenges.
 
-This chapter tackles the sub problematic: \emph{How can this information be obtained in the context of crisis informatics?}
+This chapter explores the research question: \emph{How can this information be obtained in the context of crisis informatics?}
 Social media data are used as a data source in various use cases.
 This section is broken down into two parts, and it aims to explore two directions.
 First, for which applications natural language processing is used on social media data?
@@ -537,13 +545,16 @@ The idea behind this request is as follow:
     \item It excludes articles that present conference tracks and or reviews of other articles.
 \end{itemize}
 
+% TODO Mieux justifier cette partie.
+% ? En retirant le mot cle survey, la requete retourne 4231 documents sur la période
+% ? Cet important volume de publication, qui reflète l'engouement pour cette venue, rend difficile l'analyse de l'évolution du domaine.
+% ? Le choix est donc fait d'analyser les différentes surveys.
 Contrary to other sections, this one will take surveys as a proxy to study the domain.
-Without the constraint put on surveys, the request returns 4231.
+Without the constraint put on surveys, the request returns 4231 documents.
 As this publication volume could not be processed in a reasonable amount of time, the choice has been to look only at surveys.
 However, this hypothesis seems reasonable, considering the fact that the goal is to identify the main trends in the field.
 
 The request returns 217 surveys, published between 2011 and 2021 (Figure~\ref{literature:nlp-hist}).
-The volume of documents fetched from this request is similar to the previous ones, despite looking only at surveys.
 While being a fairly recent research venue, the interest in NLP uses on social media data is really high and increased over the years.
 
 \begin{figure}[htb]
