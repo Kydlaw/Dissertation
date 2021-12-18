@@ -2,17 +2,17 @@
 \makefrontpage{
   %% ----------------------------------------
   %% bandeau (à supprimer en version finale
-  label=Not the final version of the document,
+  label=Review version,
   %% ----------------------------------------
   %% thèse délivrée par
   granted by=imt mines albi,
   %% ----------------------------------------
   %% unité de recherche (utilisée les valeurs prédéfinies si possible)
-  new research unit={mon labo}{LRSC -- Laboratoire de Recherche Super Chouette},
+  new research unit={mon labo}{CGI -- Centre Génie Industriel, IMT Mines Albi},
   research unit=mon labo,
   %% ----------------------------------------
   %% école doctorale (utilisée les valeurs prédéfinies si possible)
-  new phd school={ednew}{EDNew : une nouvelle école doctorale},
+  new phd school={ednew}{EDSYS : Informatique et Génie Industriel},
   phd school=ednew,
   %% ----------------------------------------
   %% l'auteur (à décommenter si différent de la méta-information)
@@ -25,13 +25,15 @@
   % title={Un titre très long qui donne envie de lire toute la thèse},
   %%  ----------------------------------------
   %% la (co)direction de thèse
-  supervision labels={Direction de thèse :}{Codirection de thèse :}, % {singulier}{pluriel}
+  %% Le directeur apparait en premier 
+  supervision labels={Directeurs de thèse :}, % {singulier}{pluriel}
   supervisor/.list={
-      {M\up{me} Prénom Nom, Professeur, Mines Albi, \small{Albi}},
-      {M. Prénom Nom, Professeur, Université XXXX, \small{Xxxx}}
+      {Prénom Nom, Professeur, Mines Albi, \small{Albi}},
+      {Prénom Nom, Professeur, Université XXXX, \small{Xxxx}}
     },
   %% ----------------------------------------  
   %% les membres du jury (le président n'est connu qu'après la soutenance) sans la direction
+  %% Si rapporteur absent - mentionné sur la page de titre (pas pr examinateur)
   jury/.list={
       {M\up{me} Prénom Nom, Professeur, Université du XXXX, \small{XXXX} \textit{(Président)}},
       {M. Prénom Nom, Professeur, Université du XXXX, \small{XXXX} \textit{(Rapporteur)}},
