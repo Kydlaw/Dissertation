@@ -3,20 +3,22 @@
 The response to a crisis is strongly influenced by the ability to make the right decision at the right time.
 However, the reality of the crisis makes this objective more remote and often forces compromises.
 In the hope of reducing the gap between reality and the objective, many actors have sought to improve information feedback to decision-makers.
-This work is part of that effort, seeking to serve content posted on social media to the people who need it.
-However, many challenges are emerging.
-Social media is not the only source of data to feed decision-makers situational awareness.
+This work is part of that effort, seeking to serve content posted on social media to those who need it.
+However, many challenges emerge.
+Social media is not the only source of data to feed decision-makers' situational awareness.
 Faced with this influx of data and information, it is essential to limit as much as possible the extra and limit the mental load attributed to this task.
 This observation only increases the status of the information system (IS) in crisis management.
-The IS becomes responsible for taming the torrent of data, extracting information that it must then organize and provide appropriately.
-This vision has guided all of the previous work, the main contributions of which are summarized in the following.
+The latter then becomes responsible for collecting and processing the data and providing the most relevant information to decision-makers.
+This vision has guided all of the previous work.
+The main contributions are summarized in the following.
 
-\section{Summary}
+\section*{Summary}
 The first chapter of this dissertation presented its scientific background composed of three domains: (i) crisis management, (ii) social media, and (iii) natural language processing.
-This Ph.D. research works were conducted at the intersection at both of these domains and identified the principal research question that guided the rest of the document: \emph{How to design an information system for crisis response that can automatically manage and deliver actionable information from social media data?}
+This Ph.D. research works was conducted at the intersection of these domains and identified the principal research question that guided the rest of the document: \emph{How to design an information system for crisis response that can automatically manage and deliver actionable information from social media data?}
 
 The second chapter provided an overview of previous works on the different aspects of the research question.
-It highlights the coexistence of two fields around these issues: information sciences and social sciences. Each field explores the space of the problem and meets at certain intersections.
+It highlights the coexistence of two fields around these issues: information sciences and social sciences.
+Each field explores the space of the problem and meets at certain intersections.
 This part also shows the important interest of the scientific community for the automatic processing of social media content and the work to implement it in crisis management.
 
 In this context, the third chapter asks what information decision-makers need from social media.
@@ -27,7 +29,7 @@ This model is obtained by intersecting the needs identified in the first part wi
 
 The fourth chapter builds on the earlier information model to propose a method for automatically identifying this information.
 This method builds on previous work that seeks to differentiate between messages related to the event and those that are not.
-The processing among the resulting messages is similar to the recognition of named entities, with the difference that the entities are not named but correspond to actionable information.
+The processing among the resulting messages is similar to recognizing named entities, with the difference that the entities are not named but correspond to actionable information.
 This identification is performed using a machine learning method.
 Training the machine learning model in a supervised fashion raises challenges in the context of crisis management.
 Hence, a semi-supervised approach is preferred for training the model.
@@ -48,29 +50,30 @@ Information storage is based on the association of an information model, such as
 The graph database allows defining instances of the information present in the model and semantic relations between the different cases.
 This approach promises many evolutions in processing information exchanged during a crisis.
 
-\section{Perspectives}
-The work presented in this document covers a rather large area of study by trying to mix human and technical around this scientific challenge.
+\section*{Perspectives}
+The work presented in this document covers a relatively large study area by trying to mix human and technical around this scientific challenge.
 However, at the dawn of this document, more questions remain unanswered than answers have been given.
 This field of research remains rich and challenging, both scientifically and technically.
-The following parts present potential research directions that I currently foresee.
+The following parts present potential research directions that are currently foreseen.
 
-\subsection{Short terms}
+\subsection*{Short terms}
 The problem of misinformation and fakes was mentioned in Chapter 1 of this dissertation.
 Although excluded in this work, this issue is more than ever decisive for the success of social media-based modules.
-\textcite{batardIntegrerContributionsCitoyennes2021} mainly refer to beneficial citizen initiatives in his work.
-However, the opposite behavior is also observed.
+\textcite{batardIntegrerContributionsCitoyennes2021} refers to both beneficial and detrimental citizen initiatives in his work.
 Some citizens may actively use social media to share ideas or ideologies detrimental to crisis management.
 The results obtained around this issue must now be integrated into systems.
 Their objectives would be to detect and fight more upstream against potential trends that could harm the response.
 This problem remains a significant issue for many practitioners who regularly mention it as a deterrent to adopting such systems.
 This integration would reassure them and thus facilitate adoption and experimentation.
 
-Additionally, it would be interesting to consolidate the proposals made on specific issues on the technical aspects.
-Topics well discussed should free up space for suggestions concerning new uses of the data and feedback on these technologies.
-Such a topic could be the classification of messages evoking an event.
-The most effective suggestions could now be consolidated to allow use by practitioners.
+Additionally, it would be interesting to consolidate the several proposals made by the crisis informatic community over the years.
+These proposals should now be improved according to the practitioners' feedback.
+Their feedback will also be an opportunity to discuss the functioning of the information systems as a whole.
+In parallel to these improvements, discussions should take place on new ways of acquiring or interpreting data to feed the IS.
+As far as interpretation is concerned, a first step could be to refine the previously proposed classifications.
+This would allow the identification of the most relevant information for decision-makers.
 
-\subsection{Mid-long terms}
+\subsection*{Mid-long terms}
 A better understanding of the expectations and needs of practitioners, especially when dealing with unique situations, would also be very beneficial.
 A large volume of publications takes a top-down approach, proposing solutions directly to users.
 However, many of the observations made by the practitioners reveal and reflect their difficulties and needs.
@@ -92,7 +95,7 @@ First, using several sources allows for different incidents or different geograp
 Thus, someone can report an event in progress in an area not covered by a camera or vice versa.
 This consequence corresponds to an extension of the information or the \emph{horizontal} scaling of the coverage.
 
-This heterogeneity also allows for vertical scaling.
+This heterogeneity also allows for \emph{vertical} scaling.
 Having different data sources covering the same event can provide additional information than a single source.
 For example, someone can warn via social media that an event is taking place, and a camera on the spot can better understand the context and type of event concerned.
 This application thus corresponds to an \emph{enrichment} in information.
@@ -101,6 +104,16 @@ For example, a user indicates an event has taken place and mentions a location.
 At the same time, a surveillance camera also detects an event at this exact location.
 The concordance of these two pieces of information reduces the uncertainty of some information.
 Providing an indicator of certainty in the information proposed by the system would also reduce the mental load on decision-makers.
+
+Finally, creating vector representations to encode the semantics of the data presented in Chapter 4 may see other applications.
+Different sources or different types of data could have their data encoded similarly.
+The resulting set of representations would then be normalized into a common framework.
+The data within this framework could be processed using an approach similar to Chapter 4 to identify the different concepts at play during an event.
+This would allow the emergence of information and concepts adapted to the current event rather than the generic and fixed ones of a pre-established metamodel.
+
+% Fred: Je pense pour finir que ce travail pour la question de la représentation abstraite de la connaissance.
+% Tu pourrais conclure sur la volonté d'exploiter la représentation multi-dimensionnelle du savoir que tu obtiens et de son exploitation par delà le seul mapping du MM.
+% À discuter si tu veux 
 
 %%% Local Variables:
 %%% mode: latex

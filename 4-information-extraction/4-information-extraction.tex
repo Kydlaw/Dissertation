@@ -42,7 +42,7 @@ Finally, the last section presents and discusses the results of the method on a 
 \section{Problem statement}
 Chapitre 3 shown that most of the information retrieval is currently performed manually.
 Dedicated operators are charged to identify relevant information coming from different information channels (reports, calls made to the call centers, news, social media, etc.).
-However, social media raises new challenges due to the high volume of data and the noise/information ratio.
+However, social media raise new challenges due to the high volume of data and the noise/information ratio.
 The literature review in Chapter 2 highlighted the trend toward automation in crisis informatics.
 This trend is intended to reduce the monitoring burden that operators must bear to achieve their results.
 In addition, crisis response is usually not an environment that leaves room for insufficiently effective resources.
@@ -211,7 +211,7 @@ The next section presents how language models convert these tokens to vectors th
 \subsection{Language models and semantic representation of textual data}
 Texts can be seen as data with two components: a syntactic one and a semantic one.
 The syntax composes the form of the text, the \emph{graph} of the words, and how they are combined to create sentences.
-The semantic compose the meaning of the text, the ideas that the text has to convey through a statement.
+The semantic composes the meaning of the text, the ideas that the text has to convey through a statement.
 Computers have many means to process the syntactic part of textual data, but these same tools do not allow meaning processing.
 The NLP domain developed different approaches and tools to represent the semantic part of data.
 Language models are one of these tools.
@@ -231,7 +231,6 @@ The representations obtained have the distinct characteristic of modeling semant
 
 This approach was popularized with the Word2Vec model proposed by \textcite{mikolovDistributedRepresentationsWords2013}.
 Improvements to this method were gained with models such as GloVe and FastText \parencite{bojanowskiEnrichingWordVectors2016,penningtonGloveGlobalVectors2014}.
-In a following, attention-based models
 Consecutively, attention-based models appeared to embed the semantic in longer sentences.
 This new generation of self-trained models is led by architectures such as ELMo, BERT, or GPT \parencite{devlinBERTPretrainingDeep2018,petersDeepContextualizedWord2018}.
 Following a similar trend as with Word2Vec, improvements were conducted on this model to increase its performance.
@@ -453,9 +452,9 @@ The inputs to Algorithm~\ref{alg:LP} is the set of clusters from the vector spac
             \eIf{$NbLabels > 1$}{
                 $NbDomains \longleftarrow GetNbDomains(Cluster)$\;
                 \eIf{$NbLabels > NbDomains$}{
-                    $Domains \longleftarrow KMeans(NbLabels)$\;
+                    $Domains \longleftarrow KMeans(k=NbLabels)$\;
                 }{
-                    $Domains \longleftarrow KMeans(NbDomains)$\;
+                    $Domains \longleftarrow KMeans(k=NbDomains)$\;
                 }
                 \For{$Domain \in Domains$}{
                     $PropagateLabel(Domain)$\;
@@ -617,15 +616,17 @@ The second dataset, the words of interest associated with the concepts, is taken
 In this article, the authors suggest a set of keywords to use when querying the Twitter API.
 The terms used to constitute the labeled set in the experimentation are derived from this list.
 The processing consists of extracting the unique words from this list and removing the adjectives.
-The list was then completed by synonyms (especially for buildings) to reach a set of 76 words associated with a concept of the information model.
+The list was then completed by synonyms (especially for buildings) to reach a set of 76 words associated with a concept of the information model (see Table~\ref{table:crisis-vocab} in Appendix A).
 The constitution of this list, which remains relatively generic, required less than fifteen minutes of labeling work.
 
 \paragraph{Evaluation data}
 Evaluating the algorithm's performance requires data that are representative of those that will be provided to the algorithm in reality.
 The evaluation, therefore, calls for data that are linked to a crisis, with a certain proportion of noise.
 The dataset that will be used for this evaluation is \textcite{zahraAutomaticIdentificationEyewitness2020}.
-This dataset is composed of tweets collected during different events (floods, fires, typhoons, earthquakes)
-and has been labeled to identify reports from direct witnesses of the event.
+This dataset is composed of 14.000 tweets collected during different events (floods, fires, typhoons, earthquakes).
+The tweets were retrieved from 1 to 28 August 2017 and from July 2016 and May 2018.
+They have been labeled to identify reports from direct witnesses of the event.
+The authors have labeled 6.000 tweets, and crowdsourced workers have labeled the 8.000 remaining tweets.
 However, this dataset is labeled at the message level and not at the word level as we would like in our case.
 An annotation phase was therefore conducted to label the words present in the messages.
 
@@ -643,7 +644,7 @@ The distribution is provided in Table~\ref{table:labels-distribution}.
 
 \begin{table}[bht]
     \centering
-    \caption{Distribution of labels among the five classes studied in the test dataset.}
+    \caption{Number of words associated with each label and their distribution in the test dataset.}
     \begin{tabular}{rl}
         Category    & \# of labels associated \\
         \toprule
@@ -723,7 +724,7 @@ The following sub-sections present how they are evaluated in the context of this
 It is important to note that the evaluation is done as close as possible to the standards of the NLP community.
 However, these evaluations ignore the dynamic dimension to which the algorithms may be subjected.
 With the setup usually proposed, the evaluation is at best evaluated in conditions that reflect the onset of the event.
-In this configuration, the user set generic terms that are unchanged during the whole duration of the event.
+In this configuration, the user sets generic terms that are unchanged during the whole duration of the event.
 
 \subsubsection{NER performances evaluation}
 NER is a classification problem, and consequently, can be evaluated using Precision, Recall, and F1-Score metrics.
@@ -731,7 +732,7 @@ Precision refers to the fraction of elements correctly labeled among the feature
 The Recall represents the fraction of relevant elements that were retrieved.
 Figure~\ref{processing:precision-recall}, originally proposed on the Wikipedia's page on Precision and Recall\footnote{https:\/\/en.wikipedia.org\/wiki\/Precision\_and\_recall} illustrates both concepts.
 
-\begin{figure}[htb]
+\begin{figure}[hp]
     \centering
     \includegraphics[height=0.5\textheight]{figures/chap-4/precision-recall.pdf}
     \caption{Visual representation of the relationship between precision and recall. Illustration originally proposed on the Wikipedia's page on Precision and Recall.}
@@ -741,13 +742,13 @@ Figure~\ref{processing:precision-recall}, originally proposed on the Wikipedia's
 The F1-Score corresponds to the harmonic mean of the Precision and Recall.
 \[2\cdot \frac{precision\cdot recall}{precision + recall}\]
 
-However, NER evaluation also involves predicting the location of the entity in the sentence.
+However, NER evaluation also involves predicting the entity's location in the sentence.
 Consequently, there are many ways to obtain results partially correct.
 Hence, conferences such as CoNLL defined a variant of the F1-Score better suited for this task \parencite{tjongkimsangIntroductionCoNLL2003Shared2003}.
 It redefines the three previous metrics as follows:
 
 \begin{itemize}
-    \item Precision is the percentage of predicted entity name tokens that line up exactly with the tokens in the evaluation data.
+    \item Precision is the percentage of predicted entity name tokens that align with the tokens in the evaluation data.
           If the whole entity is not retrieved by the method, its Precision is zero.
     \item Recall the percentage of entities that appear at exactly the same location in the predictions.
     \item F1 score remains the harmonic mean of the Precision and Recall.
@@ -774,7 +775,7 @@ Finally, the last part is dedicated to investigating the interest of dimension r
 
 The Figure~\ref{processing:fire-example} provides a visual of the result of the method, where the semantic cluster related to fire is displayed.
 
-\begin{figure}[htb]
+\begin{figure}[hp]
     \centering
     \includegraphics[width=\textwidth]{figures/chap-4/fire-example.pdf}
     \caption{2D projection of the semantic cluster related to \textit{fire} after label propagation. The projection is obtained using UMAP.}
@@ -791,26 +792,26 @@ The Figure~\ref{processing:fire-example} provides a visual of the result of the 
 % ! Compare with https://github.com/napsternxg/TwitterNER
 The performances of our method over all types of events are reported in Table~\ref{table:overall-results}
 
-\begin{table}[bht]
+\begin{table}[htb]
     \centering
     \caption{Results on the four types the events.}
     \begin{tabular}{rcccc}
-        Category     & Precision & Recall & F1\-Score & Support \\
+        Category     & Precision & \textbf{Recall} & F1\-Score & Support \\
         \toprule
-        Environment  & 0.220     & 0.652  & 0.328     & 69      \\
-        Event        & 0.643     & 0.647  & 0.645     & 434     \\
-        Actors       & 0.040     & 0.333  & 0.071     & 3       \\
-        Hazard       & 0.263     & 0.764  & 0.391     & 89      \\
-        Equipements  & 0.176     & 0.600  & 0.273     & 5       \\
-                     &           &        &           &         \\
-        weighted avg & 0.531     & 0.663  & 0.565     & 600     \\
+        Environment  & 0.220     & 0.652           & 0.328     & 69      \\
+        Event        & 0.643     & 0.647           & 0.645     & 434     \\
+        Actors       & 0.040     & 0.333           & 0.071     & 3       \\
+        Hazard       & 0.263     & 0.764           & 0.391     & 89      \\
+        Equipements  & 0.176     & 0.600           & 0.273     & 5       \\
+                     &           &                 &           &         \\
+        weighted avg & 0.531     & 0.663           & 0.565     & 600     \\
         \bottomrule
     \end{tabular}
     \label{table:overall-results}
 \end{table}
 
 The performances for each type of disaster are reported as well.
-The method obtains its best results on the Event class (see Table~\ref{table:earthquake-results}, Table~\ref{table:fire-results},Table~\ref{table:hurricane-results}) except for the flooding event (Table~\ref{table:flood-results}).
+The method obtains its best results on the Event class (see Table~\ref{table:earthquake-results}, Table~\ref{table:fire-results}, Table~\ref{table:hurricane-results}) except for the flooding event (Table~\ref{table:flood-results}).
 The method performed poorly on the flood event because the labeled terms were not matching the ones used during the event.
 However, the same terms applied to the hurricane dataset provided much better performances if one compares both weighted average F1-Score.
 The Environment class is partially retrieved over all datasets.
@@ -818,73 +819,73 @@ The three remaining classes — Actors, Hazard and Equipements — are harder to
 The only significant one is the Hazard class in the fire event, where there are 74 occurrences.
 The model correctly labeled a significant part of the entities in this case.
 
-\begin{table}[bp]
+\begin{table}[htbp]
     \centering
     \caption{Result on the Earthquake event.}
     \begin{tabular}{rcccc}
-        Category     & Precision & Recall & F1\-Score & Support \\
+        Category     & Precision & \textbf{Recall} & F1\-Score & Support \\
         \toprule
-        Environment  & 0.132     & 0.417  & 0.200     & 12      \\
-        Event        & 0.920     & 0.939  & 0.929     & 98      \\
-        Actors       & 0.000     & 0.000  & 0.000     & 1       \\
-        Hazard       & 0.000     & 0.000  & 0.000     & 5       \\
-        Equipements  & 0.000     & 0.000  & 0.000     & 0       \\
-                     &           &        &           &         \\
-        weighted avg & 0.791     & 0.836  & 0.806     & 116     \\
+        Environment  & 0.132     & 0.417           & 0.200     & 12      \\
+        Event        & 0.920     & 0.939           & 0.929     & 98      \\
+        Actors       & 0.000     & 0.000           & 0.000     & 1       \\
+        Hazard       & 0.000     & 0.000           & 0.000     & 5       \\
+        Equipements  & 0.000     & 0.000           & 0.000     & 0       \\
+                     &           &                 &           &         \\
+        weighted avg & 0.791     & 0.836           & 0.806     & 116     \\
         \bottomrule
     \end{tabular}
     \label{table:earthquake-results}
 \end{table}
 
-\begin{table}[bp]
+\begin{table}[htbp]
     \centering
     \caption{Result on the Fire event.}
     \begin{tabular}{rcccc}
-        Category     & Precision & Recall & F1\-Score & Support \\
+        Category     & Precision & \textbf{Recall} & F1\-Score & Support \\
         \toprule
-        Environment  & 0.333     & 0.857  & 0.480     & 14      \\
-        Event        & 0.651     & 0.719  & 0.683     & 57      \\
-        Actors       & 0.071     & 1.000  & 0.133     & 1       \\
-        Hazard       & 0.698     & 0.905  & 0.788     & 74      \\
-        Equipements  & 0.000     & 0.000  & 0.000     & 0       \\
-                     &           &        &           &         \\
-        weighted avg & 0.640     & 0.829  & 0.713     & 146     \\
+        Environment  & 0.333     & 0.857           & 0.480     & 14      \\
+        Event        & 0.651     & 0.719           & 0.683     & 57      \\
+        Actors       & 0.071     & 1.000           & 0.133     & 1       \\
+        Hazard       & 0.698     & 0.905           & 0.788     & 74      \\
+        Equipements  & 0.000     & 0.000           & 0.000     & 0       \\
+                     &           &                 &           &         \\
+        weighted avg & 0.640     & 0.829           & 0.713     & 146     \\
         \bottomrule
     \end{tabular}
     \label{table:fire-results}
 \end{table}
 
-\begin{table}[bp]
+\begin{table}[htbp]
     \centering
     \caption{Result on the Flood event.}
     \begin{tabular}{rcccc}
-        Category     & Precision & Recall & F1\-Score & Support \\
+        Category     & Precision & \textbf{Recall} & F1\-Score & Support \\
         \toprule
-        Environment  & 0.183     & 0.591  & 0.280     & 22      \\
-        Event        & 0.291     & 0.228  & 0.256     & 101     \\
-        Actors       & 0.000     & 0.000  & 0.000     & 1       \\
-        Hazard       & 0.000     & 0.000  & 0.000     & 8       \\
-        Equipements  & 0.111     & 1.000  & 0.200     & 1       \\
-                     &           &        &           &         \\
-        weighted avg & 0.252     & 0.278  & 0.242     & 133     \\
+        Environment  & 0.183     & 0.591           & 0.280     & 22      \\
+        Event        & 0.291     & 0.228           & 0.256     & 101     \\
+        Actors       & 0.000     & 0.000           & 0.000     & 1       \\
+        Hazard       & 0.000     & 0.000           & 0.000     & 8       \\
+        Equipements  & 0.111     & 1.000           & 0.200     & 1       \\
+                     &           &                 &           &         \\
+        weighted avg & 0.252     & 0.278           & 0.242     & 133     \\
         \bottomrule
     \end{tabular}
     \label{table:flood-results}
 \end{table}
 
-\begin{table}[bp]
+\begin{table}[htbp]
     \centering
     \caption{Result on Hurricane event.}
     \begin{tabular}{rcccc}
-        Category     & Precision & Recall & F1\-Score & Support \\
+        Category     & Precision & \textbf{Recall} & F1\-Score & Support \\
         \toprule
-        Environment  & 0.250     & 0.714  & 0.370     & 21      \\
-        Event        & 0.641     & 0.702  & 0.670     & 178     \\
-        Actors       & 0.000     & 0.000  & 0.000     & 0       \\
-        Hazard       & 0.015     & 0.500  & 0.029     & 2       \\
-        Equipements  & 0.400     & 0.500  & 0.444     & 4       \\
-                     &           &        &           &         \\
-        weighted avg & 0.590     & 0.698  & 0.629     & 205     \\
+        Environment  & 0.250     & 0.714           & 0.370     & 21      \\
+        Event        & 0.641     & 0.702           & 0.670     & 178     \\
+        Actors       & 0.000     & 0.000           & 0.000     & 0       \\
+        Hazard       & 0.015     & 0.500           & 0.029     & 2       \\
+        Equipements  & 0.400     & 0.500           & 0.444     & 4       \\
+                     &           &                 &           &         \\
+        weighted avg & 0.590     & 0.698           & 0.629     & 205     \\
         \bottomrule
     \end{tabular}
     \label{table:hurricane-results}
@@ -908,19 +909,19 @@ A similar trend is observed for the Event category, where the Precision went fro
 However, the loss of Recall is less severe (from 0.647 to 0.620).
 Maybe most importantly, this change in the model made it unable to identify Hazards (0.0 weighted average F1-score) while its counterpart was able to label some of the tokens.
 
-\begin{table}[bht]
+\begin{table}[htb]
     \centering
     \caption{Results of our method \textbf{without dimension reduction} over the four types the events.}
     \begin{tabular}{rcccc}
-        Category     & Precision & Recall & F1\-Score & Support \\
+        Category     & Precision & \textbf{Recall} & F1\-Score & Support \\
         \toprule
-        Environment  & 0.792     & 0.275  & 0.409     & 69      \\
-        Event        & 0.862     & 0.620  & 0.721     & 434     \\
-        Actors       & 0.000     & 0.000  & 0.000     & 3       \\
-        Hazard       & 0.000     & 0.000  & 0.000     & 89      \\
-        Equipements  & 0.500     & 0.200  & 0.286     & 5       \\
-                     &           &        &           &         \\
-        weighted avg & 0.719     & 0.482  & 0.571     & 600     \\
+        Environment  & 0.792     & 0.275           & 0.409     & 69      \\
+        Event        & 0.862     & 0.620           & 0.721     & 434     \\
+        Actors       & 0.000     & 0.000           & 0.000     & 3       \\
+        Hazard       & 0.000     & 0.000           & 0.000     & 89      \\
+        Equipements  & 0.500     & 0.200           & 0.286     & 5       \\
+                     &           &                 &           &         \\
+        weighted avg & 0.719     & 0.482           & 0.571     & 600     \\
         \bottomrule
     \end{tabular}
     \label{table:overall-results-nodim}
@@ -957,12 +958,12 @@ However, this issue can be solved by considering the surrounding tokens through 
 Another aspect linked to label propagation is that semantic clusters of interest that do not contain a labeled word are currently ignored.
 This aspect represents an exciting avenue for future work.
 I want to emphasize that the evaluation of machine learning models, or other related systems, using the standard practices of the NLP domain, can hardly evaluate the true performances of these systems in the context of disaster response.
-Evaluation on a given, the fixed dataset does not represent the unexpected and evolving nature of the problem they try to address.
+Evaluation on a given fixed dataset hardly represents the unexpected and evolving nature of the problem they try to address.
 \textcite{halseSimulatingRealtimeTwitter2019} proposed a tool to simulate a stream of tweets from a dataset based on message sending information.
 If this tool was originally designed for training social media operators, an adapted version could be used to test machine learning algorithms dynamically.
 This area remains open to contributions that will undoubtedly yield important outcomes for crisis management organizations.
 Finally, the algorithm presented here has only solved a sub-part of the initial problem.
-The objective of automatically retrieving information from social media cannot answer the initial challenge.
+The objective of automatically retrieving information from social media cannot fully address the initial challenge by itself.
 Improving disaster indeed asks for better decision-making of the different actors involved.
 Similarly, improved decision-making requires better access to quality information.
 However, if decision-makers informational needs might help improve the quality of the information delivered, the accessibility falls out of scope.
