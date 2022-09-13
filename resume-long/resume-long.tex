@@ -1,0 +1,100 @@
+\chapter*{Résumé long}
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+\section*{Introduction}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+Au moment où nous écrivons ces lignes, l'humanité se trouve dans la deuxième année de la pandémie COVID-19, à l'aube du variant Omicron.
+Dans sa propagation, ce virus a entraîné le monde dans une crise d'une ampleur habituellement contenue dans les livres d'Histoire.
+Tous les pays du monde sont actuellement confrontés à une crise multiforme qui touche à la fois la santé publique, le social et l'économique.
+Cependant, supposons que nous nous détachions de l'actualité.
+Ainsi, deux constats : (i) que crises et société sont historiquement deux partenaires dans la même danse, et (ii) que malgré la peur et l'incertitude ambiante, la société humaine telle que nous la connaissons, existe toujours.
+Dans le feu de l'action, il n'est pas facile de percevoir l'extraordinaire résilience de nos sociétés, quelle que soit l'époque.
+
+Cette résilience est rendue possible par les individus de la société qui gèrent cette crise, chacun à son niveau.
+Cet événement rappelle à tous l'importance et la difficulté de la gestion de crise.
+La gestion de crise consiste avant tout à prendre des décisions avec des informations incertaines dans un environnement incertain.
+Faciliter le processus de décision consiste à réduire l'incertitude qui y est associée. L'accès à l'information est donc essentiel dans ces conditions.
+Celle-ci doit idéalement être délivrée à la bonne personne, dans un format accessible et avec le moins d'ambiguïté possible.
+Faciliter l'accès à l'information et son traitement devient une question vitale.
+Dans le même temps, l'accès et le traitement de l'information n'ont jamais été aussi faciles.
+La démocratisation des médias sociaux et le développement des capteurs qui ont donné naissance à l'Internet des objets créent un volume toujours plus important de données qui attendent d'être utilisées.
+Dans le même temps, les récentes avancées des méthodes d'intelligence artificielle offrent de nouvelles opportunités pour traiter ce flux de données et délivrer les informations attendues.
+Ce constat conduit à la question suivante : Comment exploiter automatiquement les informations publiées sur les médias sociaux pendant une crise ?
+De ce questionnement qui oriente la suite de ce manuscrit, trois questions scientifiques sont extraites :
+\begin{itemize}
+    \item Quelles informations postées sur les médias sociaux sont utiles pour la réponse à une crise ?
+    \item Comment pouvons-nous collecter automatiquement ces informations ?
+    \item Comment délivrer efficacement ces informations aux décideurs en charge de la réponse ?
+\end{itemize}
+Ces questions ont été explorées au cours du projet ANR MACIV (Management des Citoyens et des Volontaires : la contribution des médias sociaux dans les crises).
+Ce projet a réuni différents acteurs, à la fois institutionnels (Direction Générale de la Sécurité Civile et de la Gestion des Crises, Préfecture de Police de Paris, Service Départemental d'Incendie et de Secours du Var), des associations (VISOV : Volontaires Internationaux en Soutien Opérationnel Virtuel) et des universitaires (Centre Génie Industriel - IMT Mines Albi et Institut Interdisciplinaire de l'Innovation - Télécom Paris).
+Ce travail a également bénéficié d'une diversité culturelle bienvenue grâce à un échange d'un an aux Etats-Unis au College of Information Sciences and Technology de la Pennsylvania State University, qui a permis d'observer et de comprendre les problématiques de management dans un contexte certes familier mais néanmoins différent.
+Tous ces acteurs ont contribué à la réflexion et aux résultats de ce travail.
+
+Les deux premières parties du document permettent au lecteur de comprendre le contexte et les enjeux du sujet abordé.
+Les trois parties suivantes décomposent la contribution scientifique de cette thèse en trois volets : (i) la caractérisation du besoin en information, (ii) l'extraction automatique de ce besoin, et (iii) l'intégration de cette collecte au sein d'un système d'information.
+Le premier chapitre présente le contexte général de la gestion de crise, des médias sociaux et du traitement automatique du langage.
+Une question de recherche principale et trois questions de recherche consécutives sont identifiées à partir de ce contexte.
+Le deuxième chapitre est une revue de littérature des recherches menées autour de chaque question de recherche au cours des dernières années.
+Cette revue de littérature alimente les réflexions menées dans les trois chapitres suivants.
+Chaque chapitre répond successivement aux questions de recherche.
+Le troisième chapitre identifie les informations exploitables disponibles sur les médias sociaux pour les décideurs lors de la réponse à un événement.
+Ces informations sont ensuite organisées en un modèle d'information utilisé dans les chapitres suivants.
+Une fois que les informations qui composent les informations exploitables sont identifiées et organisées, le quatrième chapitre propose une méthode d'extraction automatique des informations précédement identifiées.
+Cette méthode repose sur un modèle d'apprentissage automatique semi-supervisé identifiant les informations exploitables dans les messages publiés sur les médias sociaux.
+Les informations présentes dans les messages sont ensuite mises en évidence pour faciliter le traitement du flux de données par le personnel d'urgence.
+Enfin, le cinquième et dernier chapitre examine le traitement des médias sociaux par le système d'information dans son ensemble.
+Il souligne notamment le rôle crucial du système d'information dans le traitement des données et des informations.
+Il soutient qu'un système d'information contenant des modèles d'apprentissage automatique devrait être organisé en tenant compte de deux systèmes : un système de données et un système d'information.
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+\section*{Travaux précédents : obstacles identifiés et opportunités résultantes}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+
+L'automatisation du traitement des données issues des media sociaux pour la gestion de crise constitue une question interdisciplinaire à l'intersection des domaines de la gestion de crise, des sciences humaines et sociales et de l'intelligence artificielle, notamment avec l'utilisation des méthodes du traitement automatique du langage (TAL).
+Le domaine de l'informatique pour la gestion de crise relève d'un domaine pluridisciplinaire plus large, les « crisis informatics » qui, englobe cette problématique, en formalisant un certain nombre de défis ouverts pour les années à venir (Imran et al. 2020) : la détection des
+crises, la détection de citoyens témoins, la connaissance de la situation (situation awareness en anglais), l'extraction d'information exploitables (actionable information),
+l'évaluation des dommages, la communication de crise auprès des citoyens, la compréhension de l'opinion publique et la véracité de l'information.
+Ces travaux se focalisent autour de la question de l'extraction d'information exploitable, faisant volontairement l'hypothèse d'une collecte de données fiables
+qui auraient déjà passé le crible d'un test de véracité (question qui pourra par
+ailleurs être approfondie tant la littérature sur le sujet a été intense ces dernières
+années).
+Nous proposons une analyse actualisée des obstacles et opportunités offerts les
+trois domaines d'étude cités en début de ce paragraphe
+
+Le premier chapitre présente trois sujets scientifiques dont la principale question de recherche se situe à l'intersection.
+Ce doctorat, dont le sujet se situe à la frontière entre les sciences sociales et les sciences de l'information, a réuni trois acteurs académiques principaux.
+Ces trois partenaires reflètent l'approche multidisciplinaire adoptée au cours de ce doctorat.
+Le projet MACIV (Management of Citizens and Volunteers : the social media contribution in crises) a réuni une variété d'acteurs de différentes institutions autour de la question de l'adoption des médias sociaux dans la réponse aux crises.
+Le projet a étudié l'opportunité offerte par les volontaires dans la gestion de crise, en mettant l'accent sur les contributions sur les médias sociaux.
+Ce projet, financé par l'Agence Nationale de la Recherche (ANR), était composé à la fois d'acteurs scientifiques - Télécom ParisTech, IMT Mines Albi - et des acteurs institutionnels - Direction Générale de la Sécurité Civile et de la Gestion des Crises, Préfecture de Police de Paris, Service Départemental d'Incendie et de Secours du Var - et des acteurs associatifs - l'association VISOV (Volontaires Internationaux en Soutien Opérationnel Virtuel).
+Sous la supervision principale du Dr. Caroline Rizza de Télécom Paris, cette collaboration a été mise en pratique à travers trois différents exercices en situation réelle.
+Ces exercices ont été l'occasion de rencontrer, d'observer et d'échanger avec des praticiens de la gestion de crise en France.
+Le projet MACIV a également permis la réalisation de deux thèses de doctorat.
+La première a été présentée et soutenue par Robin Batard (Batard, 2021).
+Ces travaux se sont intéressés au rôle joué par les citoyens en réponse à un événement et à la manière dont ils pouvaient être intégrés dans l'organisation officielle.
+Ses résultats et observations alimentent le présent document, notamment sur les apports liés aux sciences sociales.
+
+Ce doctorat a également impliqué la Pennsylvania State University, à travers la co-direction du Pr. Andrea Tapia. Bien que ce projet ait été mené principalement en France, un séjour d'un an aux Etats-Unis a considérablement enrichi ce travail. Cet échange a été l'occasion de comprendre les enjeux de la question de recherche à travers le point de vue des sciences sociales, ce qui informe les chapitres trois et cinq. Il a également permis de rencontrer plusieurs acteurs des services d'urgence américains, tels que le Charleston County 911 Center et les opérateurs 911 de Cincinnati, entre autres. Ces rencontres ont apporté un éclairage précieux et une perspective différente sur l'organisation de la gestion de crise.
+
+Enfin, ce travail a été principalement réalisé en France à IMT Mines Albi sous la direction du Pr. Frederick Benaben et sous la supervision du Dr. Aurélie Montarnal. Bien que ce doctorat ait bénéficié d'un large éventail d'expertises et de disciplines, cette thèse se concentrera en particulier sur le point de vue des sciences de l'information. Les chapitres quatre et cinq reflètent l'ensemble des travaux menés à IMT Mines Albi. Plus important encore, le sujet de recherche a émergé d'une réflexion sur la connexion du logiciel R-IO Suite aux médias sociaux.
+
+Le logiciel R-IO Suite  est "un ensemble d'outils dédiés pour soutenir efficacement les collaborations inter-organisationnelles." Le logiciel est articulé autour d'un modèle d'information qui représente les différents concepts traités par le logiciel. Comme il existe plusieurs scénarios dans lesquels les collaborations inter-organisationnelles peuvent se produire, le modèle est décliné en plusieurs versions. Ce modèle lié à la gestion de crise est expliqué plus en détail dans une section dédiée dans le premier chapitre. La suite R-IO est composée de divers services qui traitent différents aspects des collaborations inter-organisationnelles.
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+\section*{Médias sociaux et systèmes d'information pour la gestion de crise}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+
+\subsection*{Intégration des médias sociaux au sein de systèmes d'informations}
+
+\subsection*{Rôle des médias sociaux dans la prise de décision en gestion de crise}
+
+\subsection*{Traitement automatique des médias sociaux}
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+\section*{Identifier les informations pertientes pour la gestion de crise}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+\section*{Extraire les informations pertinentes pour la gestion de crise à l'aide d'une méthode semi-supervisée}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
