@@ -52,15 +52,365 @@ Il soutient qu'un système d'information contenant des modèles d'apprentissage 
 \addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
 
 L'automatisation du traitement des données issues des media sociaux pour la gestion de crise constitue une question interdisciplinaire à l'intersection des domaines de la gestion de crise, des sciences humaines et sociales et de l'intelligence artificielle, notamment avec l'utilisation des méthodes du traitement automatique du langage (TAL).
-Le domaine de l'informatique pour la gestion de crise relève d'un domaine pluridisciplinaire plus large, les « crisis informatics » qui, englobe cette problématique, en formalisant un certain nombre de défis ouverts pour les années à venir (Imran et al. 2020) : la détection des
+Le domaine de l'informatique pour la gestion de crise relève d'un domaine pluridisciplinaire plus large, les « crisis informatics » qui, englobe cette problématique, en formalisant un certain nombre de défis ouverts pour les années à venir \parencite{imranUsingAISocial2020} : la détection des
 crises, la détection de citoyens témoins, la connaissance de la situation (situation awareness en anglais), l'extraction d'information exploitables (actionable information),
 l'évaluation des dommages, la communication de crise auprès des citoyens, la compréhension de l'opinion publique et la véracité de l'information.
 Ces travaux se focalisent autour de la question de l'extraction d'information exploitable, faisant volontairement l'hypothèse d'une collecte de données fiables
-qui auraient déjà passé le crible d'un test de véracité (question qui pourra par
-ailleurs être approfondie tant la littérature sur le sujet a été intense ces dernières
-années).
-Nous proposons une analyse actualisée des obstacles et opportunités offerts les
-trois domaines d'étude cités en début de ce paragraphe
+qui auraient déjà passé le crible d'un test de véracité (question qui pourra par ailleurs être approfondie tant la littérature sur le sujet a été intense ces dernières années).
+Nous proposons une analyse actualisée des obstacles et opportunités offerts les trois domaines d'étude cités en début de ce paragraphe
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+\section*{Médias sociaux et systèmes d'information pour la gestion de crise}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+
+Avec l'arrivée des premiers media sociaux quelques années auparavant, les années
+2010 ont marqué le début d'un effort d'intégration des données produites dans les
+systèmes d'information de gestion de crise. Dès ces années un point notable est la
+volonté de la communauté scientifique à produire et à partager des jeux de données.
+Deux plateformes ont été principalement instigatrices de ce mouvement : CrisisNLP1
+développée par le Qatar Computing Research Institute de l'université Hamad bin
+Khalifa et CrisisLex2 portée par l'équipe d'Alexandre Olteanu de l'Université Fédérale
+de Lausanne. Ces partages ont favorisé les travaux issus des sciences sociales en
+termes d'analyse de données et de compréhension des comportements citoyens
+(Rizza, 2022b). Depuis 2016, avec une problématique devenue prégnante, un
+terrain de partage des données favorable et des avancées majeures en IA, la volonté
+d'automatiser le traitement de ces données n'a cessé de croître. Les premiers travaux
+publiés proposent une analyse de données facilitée par l'utilisation de la production
+collective (crowdsourcing) \parencite{backfriedOpenSourceIntelligence2012,imranCoordinatingHumanMachine2014,schulzCrisisInformationManagement2012}.
+Face à des flux de données devenus conséquents, ces approches ont rapidement trouvé leur limite, et des travaux d'automatisation ont commencé à s'intéresser à la question avec plusieurs propositions marquées clairement dans le temps :
+la détection des événements et le filtrage des messages \parencite{avvenutiEARSEarthquakeAlert2014,avvenutiPullingInformationSocial2016,fersiniEarthquakeManagementDecision2017,glasgowOurGriefUnspeakable2014},
+l'évaluation des dommages sur les infrastructures \parencite{alamImage4ActOnlineSocial2017},
+le traitement et l'analyse des images \parencite{nguyenAutomaticImageFiltering2017},
+l'analyse des sentiments \parencite{halseSimulatingRealtimeTwitter2019,raginiBigDataAnalytics2018}
+ou encore la modélisation thématique \parencite{grunder-fahrerTopicsTopicalPhases2018}.
+
+Pour conclure cette partie de l'état de l'art, de nombreux systèmes ont été développés, avec une tendance à l'automatisation croissante, à la collecte et au traitement des données.
+L'opportunité d'intégration d'un traitement des media sociaux dans les systèmes d'information de gestion de crise est aujourd'hui évidente pour les acteurs académiques et pour une part de plus en plus grande des acteurs institutionnels.
+Cependant, la réduction du traitement manuel des données apparaît primordiale si l'on souhaite voir cette intégration pleinement se réaliser, de notre point de vue.
+
+\subsection*{Rôle des médias sociaux dans la prise de décision en gestion de crise}
+Dans ce même laps de temps, l'analyse des données couplée à un rapprochement avec les professionnels de la gestion de crise ont mené progressivement à définir des nouvelles opportunités en termes d'apport d'information par le vecteur des media sociaux.
+Deux questions se posent principalement : (i) quels types d'information disponibles sur les media sociaux et (ii) quels peuvent être leurs potentielles utilisations.
+
+La première question est généralement abordée de deux façons, rarement menées de pair : la création d'une ontologie en amont de l'analyse de données pour exprimer les besoins informationnels
+\parencite{cocheActionableCollaborativeCommon2019,gaurEmpathiOntologyEmergency2019,moiDesignOntologyUse2016,montarnalAutomatedEmergenceCrisis2017,narayanasamyCrisisDisasterSituations2019b}
+ou la découverte des types d'information en cours d'analyse \parencite{kawtrakulImprovingDisasterResponsiveness2012,kemavuthanonIntegratedQuestionansweringSystem2020,leeConstructionEventOntology2013}
+
+La deuxième question peut être résumée par trois efforts principaux : la détection et la qualification de l'implication des citoyens dans la crise et leur considération dans la réponse
+\parencite{batardIntegrerContributionsCitoyennes2021,cobbDesigningDelugeUnderstanding2014,graceCommunityCoordinationAligning2018},
+l'étude de la surcharge informationnelle dans le traitement des données \parencite{kaufholdMitigatingInformationOverload2020,moiStrategyProcessingAnalyzing2016,norri-sederholmEnsuringInformationFlow2017,onealTrainingEmergencyresponseImage2019},
+la prise de recul sur la véracité, l'utilité et l'usage précautionneux des données \parencite{mehtaTrustVerifySocial2017,tapiaTrustworthyTweetDeeper2013,tapiaGoodEnoughGood2014,vangorpJustKeepTweeting2015}.
+
+Ainsi, concernant la confrontation entre le besoin informationnel des
+professionnels de la crise et la formalisation des types de données découverts
+dans les messages sur les media sociaux, deux approches ont été jusqu'à présents
+explorées par des communautés distinctes : sciences humaines et sociales d'un
+côté et science des données de l'autre.
+Chacune de ces communautés développe une approche fine dans la conception d'un système d'automatisation du traitement des données.
+Afin de parvenir à une automatisation efficace et utile, c'est-à-dire répondant aux besoins du terrain, un rapprochement des pratiques des professionnels d'une part et des méthodes d'analyse automatique des données d'autre part doit s'opérer.
+
+\subsection*{Traitement automatique des médias sociaux}
+Le TAL a récemment vécu une révolution avec notamment des réseaux de neurones toujours plus ciblés et performants dans la résolution de tâches spécifiques et l'implémentation d'outils de calcul de plongements de mots (c'està-dire la représentation de mots sous la forme de vecteurs).
+Parmi ces outils on peut citer Word2vec \parencite{mikolovDistributedRepresentationsWords2013} et BERT \parencite{devlinBERTPretrainingDeep2018}, que nous expliciterons plus en détail dans la suite de ce chapitre.
+Coïncidant exactement avec l'essor mondial des media sociaux dans notre société, de nouvelles opportunités de recherche
+ont émergé autour du traitement et de l'analyse des messages, selon plusieurs
+thématiques d'usage et technologique.
+À ce propos, les thèmes abordés dans les articles scientifiques publiés sur Survey et les plus cités depuis 2016 sont : l'analyse des sentiments, la détection des émotions, la détection de l'incertitude,
+la dynamique des réseaux et l'épidémiologie.
+Ces thèmes semblent être les plus explorés, avec la prégnance des algorithmes d'apprentissage supervisés (modèles de classification, reconnaissance d'entités nommées) et non-supervisées (modélisation thématique).
+
+Le TAL offre à l'heure actuelle des opportunités inédites et performantes permettant de répondre à des problématiques concrètes.
+Néanmoins les algorithmes semblent encore le plus souvent utilisés à un niveau macro : on y étudie maintenant, par exemple, assez facilement, des dynamiques entre individus ou la détection de signaux forts.
+Le besoin informationnel des professionnels de la crise se trouve lui le plus souvent à une échelle plus micro pour deux raisons principales : le signal fort est plus facilement détectable par une simple lecture et peut être acquis par d'autres moyens dont ils disposent ; les signaux faibles
+contiennent les informations concrètes utiles aux interventions.
+Or, la détection et l'analyse des signaux faibles dans les media sociaux se fait à l'échelle des mots, et non des messages entiers, et nécessitent donc plus de ressources qui doivent aussi être mieux entraînées.
+Il est donc nécessaire que les outils d'IA proposés puissent extraire et lier les mots d'intérêt des tweets.
+
+Forts des opportunités offertes par l'état de l'art ainsi que des terrains d'observation rendus accessibles dans le cadre du projet MACIV, nous avons pu implémenter et intégrer une nouvelle forme d'IA semi-supervisée comme une première étape
+vers la proposition d'un système d'information de gestion de crise performant et
+répondant aux besoins du terrain.
+Une méthodologie en trois phases a été menée :
+(i) la formalisation d'un métamodèle et la sélection des classes dont la reconnaissance dans les textes est pertinente d'un point de vue métier et technologique,
+(ii) l'implémentation d'une IA semi-supervisée d'extraction d'information adaptable au contexte changeant de la crise et appliquée au niveau des mots et
+(iii) son intégration dans un système d'information de gestion de crise.
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+\section*{Identifier les informations pertientes pour la gestion de crise}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+
+Nous proposons ici un modèle de classe permettant le pivot entre les besoins
+informationnels des professionnels et l'intelligence artificielle d'extraction
+d'information intégrée au sein d'un système d'information de veille.
+Afin de représenter le besoin en information d'un point de vue terrain, deux concepts sont adoptés dans la communauté d'informatique en gestion de crise : la connaissance de la situation (situational awareness) et l'information exploitable (actionable information).
+Endsley définit la connaissance de la situation comme la « perception des éléments dans un environnement dans un temps et un
+espace donnés, la compréhension de leur sens et leur projection dans le futur
+proche » \parencite{endsleyTheorySituationAwareness1995}.
+\textcite{cocheSocialMediaProcessing2021}, inscrivent la notion d'information exploitable dans ce dernier paradigme comme étant celle qui, dans le niveau de compréhension définit par Endsley, permet la prise de décision.
+Pour être exploitable, l'information doit être localisée, dirigée vers le bon rôle décisionnaire, reçue en temps voulue, fiable et contextualisée.
+Dans l'effort de déterminer les facteurs concrets de l'information exploitable, \textcite{kropczynskiIdentifyingActionableInformation2018}, proposent, sur la base d'observations terrain, le paradigme des 6Ws : Why, What, Who, Where, When and Weapons.
+
+
+S'agissant d'un point de vue haut niveau (c'est-à-dire de la conception système, moins confrontée directement au terrain), la littérature propose en particulier deux métamodèles destinés à concevoir des systèmes d'information pour la gestion de crise d'un point de vue de l'organisation en charge de la réponse.
+\textcite{othmanDevelopmentValidationDisaster2014}, décomposent leur méta-modèle en quatre parties concernant les quatre phases de la crise (mitigation, préparation, réponse et rétablissement).
+\textcite{benabenAIFrameworkMetamodel2020}, focalisent leur métamodèle sur le besoin de coordination des différents acteurs pendant la phase de réponse à la crise, au travers de cinq composantes.
+Tout d'abord, un coeur sémantique propose une logique de coordination par des processus. Ce coeur est entouré de parties dédiées aux acteurs, au contexte, aux objectifs émanant de la crise et au processus de résolution.
+Au cours de la crise, les informations relatives au contexte sont particulièrement intéressantes à extraire.
+Finalement, le métamodèle proposé dans le cadre de cette étude hérite spécifiquement de ce dernier métamodèle tout en ciblant particulièrement les éléments correspondants à l'information exploitable telle que précédemment définie.
+
+Le métamodèle proposé dans le cadre du projet MACIV est centré sur le concept d'événement qui peut affecter différents éléments de l'environnement.
+Ceux ci peuvent être des biens, des personnes, des sociétés civiles, des sites naturels ou des entités territoriales.
+Ils sont localisés sur une zone de danger potentiel qui contient un risque intrinsèque.
+Ces risques peuvent être déclenchés par l'événement qui crée à son tour de nouveaux effets.
+Les conséquences de ces effets créent à leur tour de nouveaux risques émergents qui sont des dangers potentiels pour les équipes de secours.
+Ces derniers sont représentés par l'entité acteur.
+Ces acteurs peuvent être soit des organisations impliquées dans l'intervention, soit des acteurs sur place qui s'occupent physiquement de l'événement.
+Chaque acteur fournit un ensemble de compétences ou de services.
+Les compétences nécessitent souvent des ressources qui doivent être déployées, auquel cas il s'agit de ressources d'information
+exploitable si elles correspondent aux trois critères précédents.
+
+Cependant, cinq types d'informations du métamodèle proposé ne peuvent pas être
+localisées et ne sont donc pas, par conséquent, exploitables pour une prise de décision.
+Le service d'un acteur ne peut pas être localisé car il fait référence aux compétences
+ou aux capacités. La société civile et le territoire sont respectivement des organisations
+humaines (comme une entreprise ou un media) et des entités géographiques (comme
+un état ou une région) qui sont trop générales pour être localisées. Un danger fait
+référence à une caractéristique inhérente à l'environnement qui doit être identifiée
+avant qu'un événement ne se produise. Cette caractéristique est également considérée
+comme un concept général ou une zone géographique (comme dans l'exemple d'une
+zone sismique). Les risques intrinsèques sont des concepts latents qui ne correspondent
+pas à un point précis sur une carte. Ces informations doivent donc être identifiées
+et localisées préférentiellement dans l'environnement de crise.
+La Figure~\ref{information:information-models} illustre l'ensemble des concepts proposés et leurs relations, avec en bleu les informations exploitables.
+L'information pertinente étant mise en exergue, il est maintenant
+possible de s'intéresser aux moyens que l'IA fournit pour l'extraire automatiquement
+des flux de messages reçus en cours de crise.
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+\section*{Extraire les informations pertinentes pour la gestion de crise à l'aide d'une méthode semi-supervisée}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+
+\subsection*{Méthodologie d'extraction automatisée d'information}
+L'extraction d'information a pour but essentiel de donner du sens aux données
+reçues et d'en extraire des portions d'information pertinentes et contextualisées.
+Le volume, l'hétérogénéité et l'incertitude inhérentes aux données issues des media
+sociaux sont autant de défis qui doivent être pris en compte. Concrètement un
+système d'extraction automatisée de l'information doit répondre à deux contraintes :
+(i) le temps de traitement des messages doit être réduit, en particulier en éliminant
+au maximum les messages non pertinents en entrée ; (ii) les informations remontées
+doivent correspondre à celles attendues et requises par les différents acteurs de la
+chaîne de décision et de commandement de la crise. Les différents outils d'intelligence
+artificielle actuellement proposés par la littérature soufrent généralement de divers
+biais. L'utilisation courante d'algorithmes entièrement supervisés remet en question
+leur adaptabilité à de nouveaux contextes. Cela constitue une sérieuse barrière dans le
+cadre de la gestion de crise, par nature bien souvent incertaine. Par ailleurs, le manque
+d'explicabilité ou d'interprétabilité des algorithmes proposés peut dégrader la relation
+homme-machine et leur acceptation. Finalement, et de façon tout à fait pragmatique,
+la supervision complète des algorithmes nécessite une quantité conséquente de
+données d'entraînement ce qui freine à la fois les possibilités de mise en oeuvre initiale
+mais aussi de « ré-entraînement » au cours de crises par exemple.
+En conséquence, deux hypothèses concernant l'utilisation d'une IA ont été posées :
+\begin{itemize}
+    \item L'IA doit être semi-supervisée, permettant ainsi un (ré-)entraînement facilité;
+    \item L'utilisateur doit pouvoir l'influencer par ses propres connaissances.
+\end{itemize}
+
+En réponse à cela, nous proposons une méthode semi-supervisée suivant quatre
+étapes, comme illustré en Figure 2, détaillées ensuite. Il est à noter que les données,
+sous forme de messages twittés, subissent au préalable une étape de prétraitement
+(segmentation et filtres des espaces, mots vides et ponctuation). Par ailleurs, cette
+méthode fait l'hypothèse d'un filtre permettant de ne conserver que les messages
+relatifs à une crise, dont fait l'oeuvre une importante partie de la littérature.
+
+\subsubsection*{Vectorisation}
+
+Il existe plusieurs méthodes de TAL pour traiter les données textuelles, dont
+en particulier les modèles de langage qui ont connu un essor important ces
+dernières années et qui permettent de situer une partie de séquence textuelle dans
+un espace vectoriel. Il s'agit de modèles statistiques représentant la distribution
+de probabilité d'utilisation de séquences de symboles utilisés pour créer des
+phrases. La plupart des modèles de langages récents s'appuient sur des réseaux
+de neurones artificiels pour construire les vecteurs. Le réseau neuronal est
+entraîné pour prédire la distribution de probabilité des séquences de symboles
+trouvées dans les différentes phrases du jeu de données d'entraînement. Une fois
+l'apprentissage terminé, la représentation distribuée encodée dans les couches
+« cachées » du réseau est utilisée pour représenter chaque mot. Les représentations
+obtenues ont la particularité de modéliser les relations sémantiques entre les mots
+comme des combinaisons linéaires.
+
+Cette approche a été popularisée avec le modèle Word2Vec proposé par Mikolov
+et al. (2013). Successivement, des modèles basés sur l'attention sont apparus pour
+intégrer la sémantique dans des phrases plus longues. Cette nouvelle génération de
+modèles auto-entraînés est menée par des architectures telles que ELMo, BERT
+ou encore GPT (Devlin et al. 2018 ; Peters et al. 2018). Bien que la communauté
+de la gestion de crise ait tenté d'élaborer des modèles de langage basés sur BERT
+dédiés (Liu et al. 2021), ils sont très coûteux en termes de ressources nécessaires
+pour leur entraînement, tant sur le plan de la puissance de calcul requise que de
+la quantité de données.
+
+Dans le cas de notre proposition c'est le modèle de langage BERT qui a été
+retenu pour vectoriser les mots contenus dans des tweets. Ensemble, ces vecteurs
+constituent un espace vectoriel, où la distance entre deux vecteurs est équivalente
+à la similarité sémantique entre les deux vecteurs. L'étape suivante consiste donc à
+identifier des « clusters sémantiques » dans l'espace vectoriel. Ainsi il sera possible,
+moyennant un vocabulaire de la crise limité à une centaine de mots classifiés
+par type d'information recherchée, d'associer les nouveaux mots vectorisés
+d'intérêt provenant de tweets à ces mots déjà connus et ainsi propager leur type
+d'information. Le modèle de langage BERT produisant par ailleurs un espace
+vectoriel de dimensions importantes, il est au préalable nécessaire de procéder à
+une réduction de dimension.
+
+\subsubsection*{Réduction de dimension : UMAP}
+
+L'objectif principal de la réduction de la dimension d'un espace vectoriel est
+d'éviter de faire face à ce que l'on appelle la « malédiction de la dimension »
+(Bellman, 1966). L'algorithme UMAP (Uniform Manifold Approximation and
+Projection for Dimension Reduction), proposé dans l'article (McInnes et al. 2020),
+permet en particulier de réaliser une réduction de dimension dans des systèmes
+à grand nombre de dimensions avec des performances supérieures à d'autres
+méthodes comme t-SNE (Van der Maaten & Hinton, 2008). La réduction de
+dimension est associée à un compromis laissé à l'utilisateur de l'algorithme : en effet,
+une réduction trop importante de la dimension des vecteurs peut conduire à une
+perte significative d'information. Ce compromis dépend également de l'utilisation de
+l'espace de dimension réduite : dans notre cas, il s'agit du regroupement des données
+en clusters censés représenter des ensembles de mots ayant une sémantique similaire.
+
+\subsubsection*{Clustering : HDBSCAN}
+
+Le clustering consiste à regrouper des ensembles de données qui partagent des
+propriétés similaires. Cette similarité est ensuite représentée par la distance entre
+les points de données. La représentation des données sous forme de vecteurs
+rend la similarité entre les données plus évidente. Cette similarité, ou distance,
+peut alors être calculée comme le produit vectoriel ou le cosinus entre ces deux
+vecteurs. De nombreux algorithmes créent des clusters de données en se basant
+sur : une hiérarchie de tests (arbres de décisions), une distance aux centroïdes
+(K-means), la distribution des données (mélanges gaussiens) ou encore la densité
+des données (DBSCAN). Dans le cas d'extraction d'information, il est très
+probable que de nombreux mots utilisés dans des tweets soient non-pertinents et
+« dispersés » dans l'espace vectoriel obtenu : il est donc important que l'algorithme
+sélectionné puisse être robuste au bruit. HDBSCAN a été ainsi retenu pour son
+caractère non-gourmand répondant à ce besoin. Il montre par ailleurs de haute
+performances en termes de temps d'exécution et de qualité des résultats obtenus.
+
+\subsubsection*{Propagation de labels}
+
+Finalement, une fois les clusters obtenus, il devient possible d'envisager d'étendre
+une classe d'information d'un mot connu précédemment à de nouveaux mots
+entrants dans le système. Cette étape est réalisée une première fois en entraînement
+du système afin d'augmenter un vocabulaire classifié limité à une centaine de mots
+fournis par les utilisateurs. Elle est ensuite appliquée à tout nouveau mot entrant
+en temps-réel en temps de crise. Une heuristique est proposée de façon à procéder
+en fonction du nombre de mots déjà classifiés contenus dans les clusters : si aucun
+mot classifié n'est contenu, le cluster n'est pas retenu ; si une seule classe apparaît
+dans les mots déjà classifiés du cluster, alors cette classe est propagée à l'ensemble
+des mots du cluster ; si plus d'une classe apparaît dans les mots déjà classifiés, alors
+l'algorithme HDBSCAN est utilisée afin de décomposer ce cluster en plusieurs
+sous-clusters auxquels cette heuristique est appliquée tour à tour.
+
+\subsection*{Expérimentation}
+\subsubsection*{Construction des vocabulaires}
+
+L'évaluation des algorithmes fait appel à différents jeux de données. D'une
+part, un jeu de données est constitué par un vocabulaire, c'est-à-dire des termes
+potentiellement utilisé dans des messages pertinents, et, d'autre part, un lexique
+constitué de mots d'intérêts classifiés est proposé.
+
+Le vocabulaire utilisé pour les expérimentations est basé sur un jeu de tweets
+CrisisLexT26, accessible en ligne \textcite{olteanuWhatExpectWhen2015} : après prétraitement, les
+mots apparaissant plus de cinq fois dans l'ensemble des tweets sont sélectionnés.
+Le lexique classifié est lui issu des travaux proposés par \textcite{olteanuCrisisLexLexiconCollecting2014} : après réduction des doublons et suppression des adjectives, une liste de 76 mots a finalement été sélectionnée et classifiée.
+En exploitation, ce vocabulaire pourrait aussi être fournit ou mis à jour directement par les utilisateurs, experts du domaine métier et à même d'influencer les résultats par leurs propres connaissances.
+
+\subsubsection*{Jeux d'évaluation}
+
+Un jeu de 400 tweets dont les mots ont été classifiés manuellement a été réalisé sur la base d'un jeu de 14 000 tweets relatifs à divers événements.
+100 tweets ont été sélectionnés aléatoirement pour chacun des types d'événements par les inondations, feux, typhons et séismes qui ont eu lieu entre le 1er et le 28 août 2017 et entre juillet 2016 et mai 2018.
+Environ deux tiers des mots ont été classifiés comme relatif à des event et le reste principalement partagé entre hazard (incluant dangers et risques) et environment (classes traduites en anglais en cohérence avec le code implémenté).
+
+
+\subsubsection*{Résultats obtenus}
+
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+\section*{Illustration d'intégration dans un prototype d'aide à la décision pour la gestion de crise}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+
+Inexploitable par les utilisateurs telle quelle, une telle IA trouve son utilité dans
+l'intégration d'un système d'information qui permet d'aider les acteurs de la crise à
+prendre des décisions en cours de crise. Le prototype logiciel R-IO Suite3 développé
+au Centre Génie Industriel d'IMT Mines Albi permet, à partir de la compréhension
+d'une situation, d'aider les décisionnaires à prioriser les objectifs de résolution d'une
+crise puis à proposer des processus de réponse collaboratifs. R-IO Suite est basé
+sur le métamodèle de Benaben et al. dont la classification des mots retenues pour
+l'IA proposée est adaptée Benaben et al. (2020).
+Dans le cadre du projet MACIV, une intégration de ce module d'IA a donc été réalisée au sein du prototype, selon
+une architecture proposée en Figure 3.
+L'intérêt de cette architecture repose sur un traitement itératif entre données recueillies et prétraitées et les informations qui en sont extraites pour servir dans l'aide à la décision.
+
+Le module data collection permet de se connecter à des flux de données : une
+connexion à l'API Twitter4 a été ainsi ajoutée afin de pouvoir streamer des flux de
+tweets.
+Le module data processing consomme la donnée et permet le prétraitement
+des données textuelles.
+Celles-ci sont par la suite renvoyées dans l'event broker qui possède un rôle clé de distribution des données : vers le stockage sous une forme brute dans une base de type InfluxDB5 via l'event producer, vers une partie de
+l'interprétation engine dédié aux modèles d'apprentissage automatique qui peuvent
+alors être soit entraînés, soit exécutés pour réaliser des prédictions (ici l'extraction
+d'information).
+Les informations issues des prédictions sont stockées dans une base de données graphe Neo4J sous forme de noeuds (information extraites) et de relations entre eux (concomitance entre informations extraites).
+Finalement, elles sont distribuées et envoyées vers l'interface client R-IO Suite où l'utilisateur pourra la visualiser sous la forme de modèles de situation dans un éditeur de modèles ou plus avantageusement sur un système d'information géographique basé sur Open Street
+Map et qui permet une lisibilité et une visibilité contextualisée aux utilisateurs.
+
+La Figure 4 montre un exemple de réception et traitement de tweets dans le cadre de
+nuages de fumée dus à un incendie, et l'affichage des informations extraites dans un
+modèle de situation proposé aux utilisateurs sur la plateforme R-IO Suite.
+
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+\section*{Conclusion et perspectives}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+
+Les initiatives citoyennes soutenues en termes de relai de l'information sur les media sociaux ont été une question au coeur du projet MACIV.
+Si différents moyens ont d'ores et déjà été mis en oeuvre pour en tirer certains avantages dans la gestion de la réponse aux crises, comme le déclenchement d'initiatives de veille portées par l'association VISOV, cette exploitation reste encore très coûteuse en
+termes de ressources humaines mobilisées lors d'un événement.
+Ceci explique en partie la difficulté des cellules de crise à intégrer les media sociaux dans leurs processus de réponse.
+Nous avons montré dans ce chapitre que, moyennant une co-construction avec les professionnels des besoins informationnels, les modèles d'apprentissage automatique, utilisés de façon semi-supervisée permettent d'extraire automatiquement des
+informations pertinentes pour engager une réponse sur le terrain.
+L'originalité de cette approche construite dans un paradigme de semi-supervision semble amener une réponse à la fois technique et acceptable auprès des utilisateurs : elle est à la fois adaptable et donc pertinente dans des contextes inconnus typiques de la gestion de
+crise et facilement influençable par les utilisateurs.
+
+L'intégration de cet outil d'IA dans la plateforme R-IO Suite démontre le potentiel
+de cette approche pour produire une aide à la décision pertinente et visuelle pour
+les acteurs décisionnaires. Ce besoin d'intégration des media sociaux dans les outils
+de gestion des crises est devenu prégnant depuis plusieurs années. Finalement, le
+projet MACIV a permis de mettre en exergue, d'une part, plusieurs aspects de
+vigilance dans cette démarche et, d'autre part, les enjeux pour les travaux à venir.
+
+S'agissant des obstacles, la plupart des outils d'IA sont trop souvent conçus dans une
+approche « haut niveau » et souffrent par la suite d'un manque d'acceptation dans
+des contextes de crise qui sont par définition difficiles par leur nature changeante
+et urgente. La co-construction des besoins informationnels par les concepteurs et
+développeurs des outils avec les professionnels, par l'observation de leurs pratiques
+et l'organisation d'ateliers, notamment, est donc une étape cruciale trop souvent
+éludée, menant à proposer des IA difficilement exploitables en situation réelle.
+
+Les travaux réalisés pour implémenter une IA efficace, utile et pouvant être intégrée
+dans un système d'information qui puissent à la fois servir d'interface avec les
+utilisateurs professionnels et supporter un paradigme d'apprentissage automatique
+amènent finalement également à réfléchir les futurs points à explorer.
+
+La première évidence est la nécessité de non seulement poursuivre mais
+aussi renforcer les études pluridisciplinaires entre sciences sociales, systèmes
+d'information et intelligence artificielle : ce chapitre montre qu'une intégration
+harmonieuse des outils dans le quotidien des acteurs de la crise nécessite une coconstruction
+quasiment inédite du fait de l'étendue des expertises nécessaires et
+itérative au long terme pour produire un système adapté et adaptable.
+
+S'agissant de l'IA proposée dans ce chapitre, des étapes futures viseront trois points
+particuliers : l'augmentation et le croisement des données avec d'autres sources
+de données en créant des espaces vectoriels adaptés à des données hétérogènes ;
+l'amélioration des performances notamment avec un travail d'affinage des lexiques
+et vocabulaires utilisés ; l'étude des dimensions et métadonnées, actuellement non
+utilisées, permettant de créer des relations entre les informations extraites et ainsi
+produire une compréhension contextualisée plus complète d'une situation de crise.
 
 Le premier chapitre présente trois sujets scientifiques dont la principale question de recherche se situe à l'intersection.
 Ce doctorat, dont le sujet se situe à la frontière entre les sciences sociales et les sciences de l'information, a réuni trois acteurs académiques principaux.
@@ -75,26 +425,17 @@ La première a été présentée et soutenue par Robin Batard (Batard, 2021).
 Ces travaux se sont intéressés au rôle joué par les citoyens en réponse à un événement et à la manière dont ils pouvaient être intégrés dans l'organisation officielle.
 Ses résultats et observations alimentent le présent document, notamment sur les apports liés aux sciences sociales.
 
-Ce doctorat a également impliqué la Pennsylvania State University, à travers la co-direction du Pr. Andrea Tapia. Bien que ce projet ait été mené principalement en France, un séjour d'un an aux Etats-Unis a considérablement enrichi ce travail. Cet échange a été l'occasion de comprendre les enjeux de la question de recherche à travers le point de vue des sciences sociales, ce qui informe les chapitres trois et cinq. Il a également permis de rencontrer plusieurs acteurs des services d'urgence américains, tels que le Charleston County 911 Center et les opérateurs 911 de Cincinnati, entre autres. Ces rencontres ont apporté un éclairage précieux et une perspective différente sur l'organisation de la gestion de crise.
+Ce doctorat a également impliqué la Pennsylvania State University, à travers la co-direction du Pr. Andrea Tapia. Bien que ce projet ait été mené principalement en France, un séjour d'un an aux Etats-Unis a considérablement enrichi ce travail.
+Cet échange a été l'occasion de comprendre les enjeux de la question de recherche à travers le point de vue des sciences sociales, ce qui informe les chapitres trois et cinq.
+Il a également permis de rencontrer plusieurs acteurs des services d'urgence américains, tels que le Charleston County 911 Center et les opérateurs 911 de Cincinnati, entre autres.
+Ces rencontres ont apporté un éclairage précieux et une perspective différente sur l'organisation de la gestion de crise.
 
-Enfin, ce travail a été principalement réalisé en France à IMT Mines Albi sous la direction du Pr. Frederick Benaben et sous la supervision du Dr. Aurélie Montarnal. Bien que ce doctorat ait bénéficié d'un large éventail d'expertises et de disciplines, cette thèse se concentrera en particulier sur le point de vue des sciences de l'information. Les chapitres quatre et cinq reflètent l'ensemble des travaux menés à IMT Mines Albi. Plus important encore, le sujet de recherche a émergé d'une réflexion sur la connexion du logiciel R-IO Suite aux médias sociaux.
-
-Le logiciel R-IO Suite  est "un ensemble d'outils dédiés pour soutenir efficacement les collaborations inter-organisationnelles." Le logiciel est articulé autour d'un modèle d'information qui représente les différents concepts traités par le logiciel. Comme il existe plusieurs scénarios dans lesquels les collaborations inter-organisationnelles peuvent se produire, le modèle est décliné en plusieurs versions. Ce modèle lié à la gestion de crise est expliqué plus en détail dans une section dédiée dans le premier chapitre. La suite R-IO est composée de divers services qui traitent différents aspects des collaborations inter-organisationnelles.
-
-\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
-\section*{Médias sociaux et systèmes d'information pour la gestion de crise}
-\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
-
-\subsection*{Intégration des médias sociaux au sein de systèmes d'informations}
-
-\subsection*{Rôle des médias sociaux dans la prise de décision en gestion de crise}
-
-\subsection*{Traitement automatique des médias sociaux}
-
-\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
-\section*{Identifier les informations pertientes pour la gestion de crise}
-\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
-
-\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
-\section*{Extraire les informations pertinentes pour la gestion de crise à l'aide d'une méthode semi-supervisée}
-\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+Enfin, ce travail a été principalement réalisé en France à IMT Mines Albi sous la direction du Pr. Frederick Benaben et sous la supervision du Dr. Aurélie Montarnal.
+Bien que ce doctorat ait bénéficié d'un large éventail d'expertises et de disciplines, cette thèse se concentrera en particulier sur le point de vue des sciences de l'information.
+Les chapitres quatre et cinq reflètent l'ensemble des travaux menés à IMT Mines Albi.
+Plus important encore, le sujet de recherche a émergé d'une réflexion sur la connexion du logiciel R-IO Suite aux médias sociaux.
+Le logiciel R-IO Suite est "un ensemble d'outils dédiés pour soutenir efficacement les collaborations inter-organisationnelles."
+Le logiciel est articulé autour d'un modèle d'information qui représente les différents concepts traités par le logiciel.
+Comme il existe plusieurs scénarios dans lesquels les collaborations inter-organisationnelles peuvent se produire, le modèle est décliné en plusieurs versions.
+Ce modèle lié à la gestion de crise est expliqué plus en détail dans une section dédiée dans le premier chapitre.
+La suite R-IO est composée de divers services qui traitent différents aspects des collaborations inter-organisationnelles.
